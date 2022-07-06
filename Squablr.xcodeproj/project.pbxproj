@@ -1,0 +1,757 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		21B3A8762CE0E80FFF14F9F9 /* Pods_Squablr.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F0FBCF2F67734291CE03D13 /* Pods_Squablr.framework */; };
+		285EEFC8D72B610B9172E57B /* Pods_Squablr_SquablrUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6644716D576D48C884510C82 /* Pods_Squablr_SquablrUITests.framework */; };
+		9EF5EB102874A2F6008BA3CC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EF5EB0F2874A2F6008BA3CC /* AppDelegate.m */; };
+		9EF5EB132874A2F6008BA3CC /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EF5EB122874A2F6008BA3CC /* SceneDelegate.m */; };
+		9EF5EB162874A2F6008BA3CC /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EF5EB152874A2F6008BA3CC /* ViewController.m */; };
+		9EF5EB192874A2F6008BA3CC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9EF5EB172874A2F6008BA3CC /* Main.storyboard */; };
+		9EF5EB1B2874A2F7008BA3CC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9EF5EB1A2874A2F7008BA3CC /* Assets.xcassets */; };
+		9EF5EB1E2874A2F7008BA3CC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9EF5EB1C2874A2F7008BA3CC /* LaunchScreen.storyboard */; };
+		9EF5EB212874A2F7008BA3CC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EF5EB202874A2F7008BA3CC /* main.m */; };
+		9EF5EB2B2874A2F8008BA3CC /* SquablrTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EF5EB2A2874A2F8008BA3CC /* SquablrTests.m */; };
+		9EF5EB352874A2F8008BA3CC /* SquablrUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EF5EB342874A2F8008BA3CC /* SquablrUITests.m */; };
+		9EF5EB372874A2F8008BA3CC /* SquablrUITestsLaunchTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EF5EB362874A2F8008BA3CC /* SquablrUITestsLaunchTests.m */; };
+		F4957EDCB5041AF6949EE6C2 /* Pods_SquablrTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17103ED3AAA8D387E6F78077 /* Pods_SquablrTests.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		9EF5EB272874A2F8008BA3CC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9EF5EB032874A2F6008BA3CC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9EF5EB0A2874A2F6008BA3CC;
+			remoteInfo = Squablr;
+		};
+		9EF5EB312874A2F8008BA3CC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9EF5EB032874A2F6008BA3CC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9EF5EB0A2874A2F6008BA3CC;
+			remoteInfo = Squablr;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0758869D75E93A3F910DC1E9 /* Pods-Squablr-SquablrUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Squablr-SquablrUITests.debug.xcconfig"; path = "Target Support Files/Pods-Squablr-SquablrUITests/Pods-Squablr-SquablrUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		0E810797D655F81EACF8B713 /* Pods-Squablr-SquablrUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Squablr-SquablrUITests.release.xcconfig"; path = "Target Support Files/Pods-Squablr-SquablrUITests/Pods-Squablr-SquablrUITests.release.xcconfig"; sourceTree = "<group>"; };
+		17103ED3AAA8D387E6F78077 /* Pods_SquablrTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SquablrTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		341D1C3D4F95205FD4AB29EA /* Pods-Squablr.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Squablr.debug.xcconfig"; path = "Target Support Files/Pods-Squablr/Pods-Squablr.debug.xcconfig"; sourceTree = "<group>"; };
+		4E38C9359E902DD1E0FC2FCB /* Pods-Squablr.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Squablr.release.xcconfig"; path = "Target Support Files/Pods-Squablr/Pods-Squablr.release.xcconfig"; sourceTree = "<group>"; };
+		5F0FBCF2F67734291CE03D13 /* Pods_Squablr.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Squablr.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6644716D576D48C884510C82 /* Pods_Squablr_SquablrUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Squablr_SquablrUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9EF5EB0B2874A2F6008BA3CC /* Squablr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Squablr.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		9EF5EB0E2874A2F6008BA3CC /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		9EF5EB0F2874A2F6008BA3CC /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		9EF5EB112874A2F6008BA3CC /* SceneDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneDelegate.h; sourceTree = "<group>"; };
+		9EF5EB122874A2F6008BA3CC /* SceneDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SceneDelegate.m; sourceTree = "<group>"; };
+		9EF5EB142874A2F6008BA3CC /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		9EF5EB152874A2F6008BA3CC /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		9EF5EB182874A2F6008BA3CC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		9EF5EB1A2874A2F7008BA3CC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		9EF5EB1D2874A2F7008BA3CC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		9EF5EB1F2874A2F7008BA3CC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9EF5EB202874A2F7008BA3CC /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		9EF5EB262874A2F8008BA3CC /* SquablrTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SquablrTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		9EF5EB2A2874A2F8008BA3CC /* SquablrTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SquablrTests.m; sourceTree = "<group>"; };
+		9EF5EB302874A2F8008BA3CC /* SquablrUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SquablrUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		9EF5EB342874A2F8008BA3CC /* SquablrUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SquablrUITests.m; sourceTree = "<group>"; };
+		9EF5EB362874A2F8008BA3CC /* SquablrUITestsLaunchTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SquablrUITestsLaunchTests.m; sourceTree = "<group>"; };
+		BD1F5A055C4411FA6DE5514A /* Pods-SquablrTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SquablrTests.release.xcconfig"; path = "Target Support Files/Pods-SquablrTests/Pods-SquablrTests.release.xcconfig"; sourceTree = "<group>"; };
+		C09D0025791A2F33BEB6829F /* Pods-SquablrTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SquablrTests.debug.xcconfig"; path = "Target Support Files/Pods-SquablrTests/Pods-SquablrTests.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		9EF5EB082874A2F6008BA3CC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				21B3A8762CE0E80FFF14F9F9 /* Pods_Squablr.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9EF5EB232874A2F8008BA3CC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F4957EDCB5041AF6949EE6C2 /* Pods_SquablrTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9EF5EB2D2874A2F8008BA3CC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				285EEFC8D72B610B9172E57B /* Pods_Squablr_SquablrUITests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		01B21C76B19A3DC5BE9AC613 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5F0FBCF2F67734291CE03D13 /* Pods_Squablr.framework */,
+				6644716D576D48C884510C82 /* Pods_Squablr_SquablrUITests.framework */,
+				17103ED3AAA8D387E6F78077 /* Pods_SquablrTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		60B206A59F4BD2C7761C3DF3 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				341D1C3D4F95205FD4AB29EA /* Pods-Squablr.debug.xcconfig */,
+				4E38C9359E902DD1E0FC2FCB /* Pods-Squablr.release.xcconfig */,
+				0758869D75E93A3F910DC1E9 /* Pods-Squablr-SquablrUITests.debug.xcconfig */,
+				0E810797D655F81EACF8B713 /* Pods-Squablr-SquablrUITests.release.xcconfig */,
+				C09D0025791A2F33BEB6829F /* Pods-SquablrTests.debug.xcconfig */,
+				BD1F5A055C4411FA6DE5514A /* Pods-SquablrTests.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		9EF5EB022874A2F6008BA3CC = {
+			isa = PBXGroup;
+			children = (
+				9EF5EB0D2874A2F6008BA3CC /* Squablr */,
+				9EF5EB292874A2F8008BA3CC /* SquablrTests */,
+				9EF5EB332874A2F8008BA3CC /* SquablrUITests */,
+				9EF5EB0C2874A2F6008BA3CC /* Products */,
+				60B206A59F4BD2C7761C3DF3 /* Pods */,
+				01B21C76B19A3DC5BE9AC613 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		9EF5EB0C2874A2F6008BA3CC /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9EF5EB0B2874A2F6008BA3CC /* Squablr.app */,
+				9EF5EB262874A2F8008BA3CC /* SquablrTests.xctest */,
+				9EF5EB302874A2F8008BA3CC /* SquablrUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		9EF5EB0D2874A2F6008BA3CC /* Squablr */ = {
+			isa = PBXGroup;
+			children = (
+				9EF5EB0E2874A2F6008BA3CC /* AppDelegate.h */,
+				9EF5EB0F2874A2F6008BA3CC /* AppDelegate.m */,
+				9EF5EB112874A2F6008BA3CC /* SceneDelegate.h */,
+				9EF5EB122874A2F6008BA3CC /* SceneDelegate.m */,
+				9EF5EB142874A2F6008BA3CC /* ViewController.h */,
+				9EF5EB152874A2F6008BA3CC /* ViewController.m */,
+				9EF5EB172874A2F6008BA3CC /* Main.storyboard */,
+				9EF5EB1A2874A2F7008BA3CC /* Assets.xcassets */,
+				9EF5EB1C2874A2F7008BA3CC /* LaunchScreen.storyboard */,
+				9EF5EB1F2874A2F7008BA3CC /* Info.plist */,
+				9EF5EB202874A2F7008BA3CC /* main.m */,
+			);
+			path = Squablr;
+			sourceTree = "<group>";
+		};
+		9EF5EB292874A2F8008BA3CC /* SquablrTests */ = {
+			isa = PBXGroup;
+			children = (
+				9EF5EB2A2874A2F8008BA3CC /* SquablrTests.m */,
+			);
+			path = SquablrTests;
+			sourceTree = "<group>";
+		};
+		9EF5EB332874A2F8008BA3CC /* SquablrUITests */ = {
+			isa = PBXGroup;
+			children = (
+				9EF5EB342874A2F8008BA3CC /* SquablrUITests.m */,
+				9EF5EB362874A2F8008BA3CC /* SquablrUITestsLaunchTests.m */,
+			);
+			path = SquablrUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		9EF5EB0A2874A2F6008BA3CC /* Squablr */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9EF5EB3A2874A2F8008BA3CC /* Build configuration list for PBXNativeTarget "Squablr" */;
+			buildPhases = (
+				4D0549649FB676ED76C536A1 /* [CP] Check Pods Manifest.lock */,
+				9EF5EB072874A2F6008BA3CC /* Sources */,
+				9EF5EB082874A2F6008BA3CC /* Frameworks */,
+				9EF5EB092874A2F6008BA3CC /* Resources */,
+				025490C3B539788028E3E112 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Squablr;
+			productName = Squablr;
+			productReference = 9EF5EB0B2874A2F6008BA3CC /* Squablr.app */;
+			productType = "com.apple.product-type.application";
+		};
+		9EF5EB252874A2F8008BA3CC /* SquablrTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9EF5EB3D2874A2F8008BA3CC /* Build configuration list for PBXNativeTarget "SquablrTests" */;
+			buildPhases = (
+				D4244921691D27D31796EEFA /* [CP] Check Pods Manifest.lock */,
+				9EF5EB222874A2F8008BA3CC /* Sources */,
+				9EF5EB232874A2F8008BA3CC /* Frameworks */,
+				9EF5EB242874A2F8008BA3CC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9EF5EB282874A2F8008BA3CC /* PBXTargetDependency */,
+			);
+			name = SquablrTests;
+			productName = SquablrTests;
+			productReference = 9EF5EB262874A2F8008BA3CC /* SquablrTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		9EF5EB2F2874A2F8008BA3CC /* SquablrUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9EF5EB402874A2F8008BA3CC /* Build configuration list for PBXNativeTarget "SquablrUITests" */;
+			buildPhases = (
+				29B9D3BFC0ED7FBC6851DEA6 /* [CP] Check Pods Manifest.lock */,
+				9EF5EB2C2874A2F8008BA3CC /* Sources */,
+				9EF5EB2D2874A2F8008BA3CC /* Frameworks */,
+				9EF5EB2E2874A2F8008BA3CC /* Resources */,
+				9AAF5F6A614A7FEB470F0B39 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9EF5EB322874A2F8008BA3CC /* PBXTargetDependency */,
+			);
+			name = SquablrUITests;
+			productName = SquablrUITests;
+			productReference = 9EF5EB302874A2F8008BA3CC /* SquablrUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		9EF5EB032874A2F6008BA3CC /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastUpgradeCheck = 1340;
+				TargetAttributes = {
+					9EF5EB0A2874A2F6008BA3CC = {
+						CreatedOnToolsVersion = 13.4;
+					};
+					9EF5EB252874A2F8008BA3CC = {
+						CreatedOnToolsVersion = 13.4;
+						TestTargetID = 9EF5EB0A2874A2F6008BA3CC;
+					};
+					9EF5EB2F2874A2F8008BA3CC = {
+						CreatedOnToolsVersion = 13.4;
+						TestTargetID = 9EF5EB0A2874A2F6008BA3CC;
+					};
+				};
+			};
+			buildConfigurationList = 9EF5EB062874A2F6008BA3CC /* Build configuration list for PBXProject "Squablr" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 9EF5EB022874A2F6008BA3CC;
+			productRefGroup = 9EF5EB0C2874A2F6008BA3CC /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				9EF5EB0A2874A2F6008BA3CC /* Squablr */,
+				9EF5EB252874A2F8008BA3CC /* SquablrTests */,
+				9EF5EB2F2874A2F8008BA3CC /* SquablrUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		9EF5EB092874A2F6008BA3CC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9EF5EB1E2874A2F7008BA3CC /* LaunchScreen.storyboard in Resources */,
+				9EF5EB1B2874A2F7008BA3CC /* Assets.xcassets in Resources */,
+				9EF5EB192874A2F6008BA3CC /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9EF5EB242874A2F8008BA3CC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9EF5EB2E2874A2F8008BA3CC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		025490C3B539788028E3E112 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Squablr/Pods-Squablr-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Squablr/Pods-Squablr-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Squablr/Pods-Squablr-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		29B9D3BFC0ED7FBC6851DEA6 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Squablr-SquablrUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4D0549649FB676ED76C536A1 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Squablr-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9AAF5F6A614A7FEB470F0B39 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Squablr-SquablrUITests/Pods-Squablr-SquablrUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Squablr-SquablrUITests/Pods-Squablr-SquablrUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Squablr-SquablrUITests/Pods-Squablr-SquablrUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D4244921691D27D31796EEFA /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SquablrTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		9EF5EB072874A2F6008BA3CC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9EF5EB162874A2F6008BA3CC /* ViewController.m in Sources */,
+				9EF5EB102874A2F6008BA3CC /* AppDelegate.m in Sources */,
+				9EF5EB212874A2F7008BA3CC /* main.m in Sources */,
+				9EF5EB132874A2F6008BA3CC /* SceneDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9EF5EB222874A2F8008BA3CC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9EF5EB2B2874A2F8008BA3CC /* SquablrTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9EF5EB2C2874A2F8008BA3CC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9EF5EB352874A2F8008BA3CC /* SquablrUITests.m in Sources */,
+				9EF5EB372874A2F8008BA3CC /* SquablrUITestsLaunchTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		9EF5EB282874A2F8008BA3CC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9EF5EB0A2874A2F6008BA3CC /* Squablr */;
+			targetProxy = 9EF5EB272874A2F8008BA3CC /* PBXContainerItemProxy */;
+		};
+		9EF5EB322874A2F8008BA3CC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9EF5EB0A2874A2F6008BA3CC /* Squablr */;
+			targetProxy = 9EF5EB312874A2F8008BA3CC /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		9EF5EB172874A2F6008BA3CC /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9EF5EB182874A2F6008BA3CC /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		9EF5EB1C2874A2F7008BA3CC /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9EF5EB1D2874A2F7008BA3CC /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		9EF5EB382874A2F8008BA3CC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		9EF5EB392874A2F8008BA3CC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		9EF5EB3B2874A2F8008BA3CC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 341D1C3D4F95205FD4AB29EA /* Pods-Squablr.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 2XR28BCB53;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Squablr/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.zeke.Squablr;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		9EF5EB3C2874A2F8008BA3CC /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4E38C9359E902DD1E0FC2FCB /* Pods-Squablr.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 2XR28BCB53;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Squablr/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.zeke.Squablr;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		9EF5EB3E2874A2F8008BA3CC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C09D0025791A2F33BEB6829F /* Pods-SquablrTests.debug.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 2XR28BCB53;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.zeke.SquablrTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Squablr.app/Squablr";
+			};
+			name = Debug;
+		};
+		9EF5EB3F2874A2F8008BA3CC /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = BD1F5A055C4411FA6DE5514A /* Pods-SquablrTests.release.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 2XR28BCB53;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.zeke.SquablrTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Squablr.app/Squablr";
+			};
+			name = Release;
+		};
+		9EF5EB412874A2F8008BA3CC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0758869D75E93A3F910DC1E9 /* Pods-Squablr-SquablrUITests.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 2XR28BCB53;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.zeke.SquablrUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Squablr;
+			};
+			name = Debug;
+		};
+		9EF5EB422874A2F8008BA3CC /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0E810797D655F81EACF8B713 /* Pods-Squablr-SquablrUITests.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 2XR28BCB53;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.zeke.SquablrUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Squablr;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		9EF5EB062874A2F6008BA3CC /* Build configuration list for PBXProject "Squablr" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9EF5EB382874A2F8008BA3CC /* Debug */,
+				9EF5EB392874A2F8008BA3CC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9EF5EB3A2874A2F8008BA3CC /* Build configuration list for PBXNativeTarget "Squablr" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9EF5EB3B2874A2F8008BA3CC /* Debug */,
+				9EF5EB3C2874A2F8008BA3CC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9EF5EB3D2874A2F8008BA3CC /* Build configuration list for PBXNativeTarget "SquablrTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9EF5EB3E2874A2F8008BA3CC /* Debug */,
+				9EF5EB3F2874A2F8008BA3CC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9EF5EB402874A2F8008BA3CC /* Build configuration list for PBXNativeTarget "SquablrUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9EF5EB412874A2F8008BA3CC /* Debug */,
+				9EF5EB422874A2F8008BA3CC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 9EF5EB032874A2F6008BA3CC /* Project object */;
+}

@@ -1,0 +1,6 @@
+framework module Pods_Squablr_SquablrUITests {
+  umbrella header "Pods-Squablr-SquablrUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
