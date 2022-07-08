@@ -16,7 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSNumber *age;
 @property (nonatomic, strong) NSNumber *weightClass;
 @property (nonatomic, strong) NSString *stance;
-@property (nonatomic, strong) NSString *experience;
+@property (nonatomic, strong) NSNumber *experience;
 @property (nonatomic, strong) NSString *biography;
 @property (nonatomic, strong) PFFileObject *profileImages;
 @end
