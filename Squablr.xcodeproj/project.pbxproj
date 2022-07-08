@@ -19,6 +19,13 @@
 		9EF5EB2B2874A2F8008BA3CC /* SquablrTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EF5EB2A2874A2F8008BA3CC /* SquablrTests.m */; };
 		9EF5EB352874A2F8008BA3CC /* SquablrUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EF5EB342874A2F8008BA3CC /* SquablrUITests.m */; };
 		9EF5EB372874A2F8008BA3CC /* SquablrUITestsLaunchTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EF5EB362874A2F8008BA3CC /* SquablrUITestsLaunchTests.m */; };
+		9EF5EB452877A801008BA3CC /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EF5EB442877A801008BA3CC /* LoginViewController.m */; };
+		9EF5EB492877A971008BA3CC /* SignInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EF5EB482877A971008BA3CC /* SignInViewController.m */; };
+		9EF5EB4C2877AB6B008BA3CC /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EF5EB4B2877AB6B008BA3CC /* ProfileViewController.m */; };
+		9EF5EB4F287891A5008BA3CC /* UserFeedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EF5EB4E287891A5008BA3CC /* UserFeedViewController.m */; };
+		9EF5EB562878B30B008BA3CC /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EF5EB552878B30B008BA3CC /* ProfileViewController.m */; };
+		9EF5EB5A2878B5A2008BA3CC /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EF5EB592878B5A2008BA3CC /* User.m */; };
+		9EF5EB5D2878E151008BA3CC /* MatchesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EF5EB5C2878E151008BA3CC /* MatchesViewController.m */; };
 		F4957EDCB5041AF6949EE6C2 /* Pods_SquablrTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17103ED3AAA8D387E6F78077 /* Pods_SquablrTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -64,6 +71,20 @@
 		9EF5EB302874A2F8008BA3CC /* SquablrUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SquablrUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9EF5EB342874A2F8008BA3CC /* SquablrUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SquablrUITests.m; sourceTree = "<group>"; };
 		9EF5EB362874A2F8008BA3CC /* SquablrUITestsLaunchTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SquablrUITestsLaunchTests.m; sourceTree = "<group>"; };
+		9EF5EB432877A801008BA3CC /* LoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		9EF5EB442877A801008BA3CC /* LoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		9EF5EB472877A971008BA3CC /* SignInViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SignInViewController.h; sourceTree = "<group>"; };
+		9EF5EB482877A971008BA3CC /* SignInViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SignInViewController.m; sourceTree = "<group>"; };
+		9EF5EB4A2877AB6B008BA3CC /* ProfileViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
+		9EF5EB4B2877AB6B008BA3CC /* ProfileViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
+		9EF5EB4D287891A5008BA3CC /* UserFeedViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserFeedViewController.h; sourceTree = "<group>"; };
+		9EF5EB4E287891A5008BA3CC /* UserFeedViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserFeedViewController.m; sourceTree = "<group>"; };
+		9EF5EB542878B30B008BA3CC /* ProfileViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
+		9EF5EB552878B30B008BA3CC /* ProfileViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
+		9EF5EB582878B5A2008BA3CC /* User.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		9EF5EB592878B5A2008BA3CC /* User.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		9EF5EB5B2878E151008BA3CC /* MatchesViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MatchesViewController.h; sourceTree = "<group>"; };
+		9EF5EB5C2878E151008BA3CC /* MatchesViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MatchesViewController.m; sourceTree = "<group>"; };
 		BD1F5A055C4411FA6DE5514A /* Pods-SquablrTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SquablrTests.release.xcconfig"; path = "Target Support Files/Pods-SquablrTests/Pods-SquablrTests.release.xcconfig"; sourceTree = "<group>"; };
 		C09D0025791A2F33BEB6829F /* Pods-SquablrTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SquablrTests.debug.xcconfig"; path = "Target Support Files/Pods-SquablrTests/Pods-SquablrTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -116,7 +137,6 @@
 				C09D0025791A2F33BEB6829F /* Pods-SquablrTests.debug.xcconfig */,
 				BD1F5A055C4411FA6DE5514A /* Pods-SquablrTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -145,6 +165,8 @@
 		9EF5EB0D2874A2F6008BA3CC /* Squablr */ = {
 			isa = PBXGroup;
 			children = (
+				9EF5EB572878B479008BA3CC /* Models */,
+				9EF5EB462877A806008BA3CC /* View Controllers */,
 				9EF5EB0E2874A2F6008BA3CC /* AppDelegate.h */,
 				9EF5EB0F2874A2F6008BA3CC /* AppDelegate.m */,
 				9EF5EB112874A2F6008BA3CC /* SceneDelegate.h */,
@@ -152,6 +174,8 @@
 				9EF5EB142874A2F6008BA3CC /* ViewController.h */,
 				9EF5EB152874A2F6008BA3CC /* ViewController.m */,
 				9EF5EB172874A2F6008BA3CC /* Main.storyboard */,
+				9EF5EB4A2877AB6B008BA3CC /* ProfileViewController.h */,
+				9EF5EB4B2877AB6B008BA3CC /* ProfileViewController.m */,
 				9EF5EB1A2874A2F7008BA3CC /* Assets.xcassets */,
 				9EF5EB1C2874A2F7008BA3CC /* LaunchScreen.storyboard */,
 				9EF5EB1F2874A2F7008BA3CC /* Info.plist */,
@@ -175,6 +199,32 @@
 				9EF5EB362874A2F8008BA3CC /* SquablrUITestsLaunchTests.m */,
 			);
 			path = SquablrUITests;
+			sourceTree = "<group>";
+		};
+		9EF5EB462877A806008BA3CC /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				9EF5EB432877A801008BA3CC /* LoginViewController.h */,
+				9EF5EB442877A801008BA3CC /* LoginViewController.m */,
+				9EF5EB472877A971008BA3CC /* SignInViewController.h */,
+				9EF5EB482877A971008BA3CC /* SignInViewController.m */,
+				9EF5EB4D287891A5008BA3CC /* UserFeedViewController.h */,
+				9EF5EB4E287891A5008BA3CC /* UserFeedViewController.m */,
+				9EF5EB5B2878E151008BA3CC /* MatchesViewController.h */,
+				9EF5EB5C2878E151008BA3CC /* MatchesViewController.m */,
+				9EF5EB542878B30B008BA3CC /* ProfileViewController.h */,
+				9EF5EB552878B30B008BA3CC /* ProfileViewController.m */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		9EF5EB572878B479008BA3CC /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				9EF5EB582878B5A2008BA3CC /* User.h */,
+				9EF5EB592878B5A2008BA3CC /* User.m */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -417,8 +467,15 @@
 			files = (
 				9EF5EB162874A2F6008BA3CC /* ViewController.m in Sources */,
 				9EF5EB102874A2F6008BA3CC /* AppDelegate.m in Sources */,
+				9EF5EB5D2878E151008BA3CC /* MatchesViewController.m in Sources */,
 				9EF5EB212874A2F7008BA3CC /* main.m in Sources */,
 				9EF5EB132874A2F6008BA3CC /* SceneDelegate.m in Sources */,
+				9EF5EB562878B30B008BA3CC /* ProfileViewController.m in Sources */,
+				9EF5EB4C2877AB6B008BA3CC /* ProfileViewController.m in Sources */,
+				9EF5EB5A2878B5A2008BA3CC /* User.m in Sources */,
+				9EF5EB4F287891A5008BA3CC /* UserFeedViewController.m in Sources */,
+				9EF5EB492877A971008BA3CC /* SignInViewController.m in Sources */,
+				9EF5EB452877A801008BA3CC /* LoginViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

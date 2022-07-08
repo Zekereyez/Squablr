@@ -19,7 +19,6 @@
     return YES;
 }
 
-// new comment
 #pragma mark - UISceneSession lifecycle
 
 
