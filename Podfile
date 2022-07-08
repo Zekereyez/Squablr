@@ -7,6 +7,8 @@ target 'Squablr' do
 
   # Pods for Squablr
   pod 'GoogleSignIn'
+  pod 'Parse'
+  pod 'Parse/UI'
 
   target 'SquablrTests' do
     inherit! :search_paths
