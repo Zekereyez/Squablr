@@ -76,10 +76,10 @@
             </objects>
             <point key="canvasLocation" x="1309" y="115"/>
         </scene>
-        <!--View Controller-->
+        <!--Chat View Controller-->
         <scene sceneID="QVf-i3-6sx">
             <objects>
-                <viewController id="BYh-Oa-dH4" sceneMemberID="viewController">
+                <viewController id="BYh-Oa-dH4" customClass="ChatViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="QNg-So-83J">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -91,10 +91,10 @@
             </objects>
             <point key="canvasLocation" x="1309" y="933"/>
         </scene>
-        <!--View Controller-->
+        <!--Profile View Controller-->
         <scene sceneID="XiD-gY-gVo">
             <objects>
-                <viewController id="F5R-bj-4CQ" sceneMemberID="viewController">
+                <viewController id="F5R-bj-4CQ" customClass="ProfileViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ts0-Fy-uzb">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
