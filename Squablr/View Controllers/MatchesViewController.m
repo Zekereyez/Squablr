@@ -1,17 +1,17 @@
 //
-//  UserFeedViewController.m
+//  MatchesViewController.m
 //  Squablr
 //
 //  Created by Zeke Reyes on 7/8/22.
 //
 
-#import "UserFeedViewController.h"
+#import "MatchesViewController.h"
 
-@interface UserFeedViewController ()
+@interface MatchesViewController ()
 
 @end
 
-@implementation UserFeedViewController
+@implementation MatchesViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];

@@ -23,9 +23,9 @@
 		9EF5EB492877A971008BA3CC /* SignInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EF5EB482877A971008BA3CC /* SignInViewController.m */; };
 		9EF5EB4C2877AB6B008BA3CC /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EF5EB4B2877AB6B008BA3CC /* ProfileViewController.m */; };
 		9EF5EB4F287891A5008BA3CC /* UserFeedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EF5EB4E287891A5008BA3CC /* UserFeedViewController.m */; };
-		9EF5EB532878B2F2008BA3CC /* ChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EF5EB522878B2F2008BA3CC /* ChatViewController.m */; };
 		9EF5EB562878B30B008BA3CC /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EF5EB552878B30B008BA3CC /* ProfileViewController.m */; };
 		9EF5EB5A2878B5A2008BA3CC /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EF5EB592878B5A2008BA3CC /* User.m */; };
+		9EF5EB5D2878E151008BA3CC /* MatchesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EF5EB5C2878E151008BA3CC /* MatchesViewController.m */; };
 		F4957EDCB5041AF6949EE6C2 /* Pods_SquablrTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17103ED3AAA8D387E6F78077 /* Pods_SquablrTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -79,12 +79,12 @@
 		9EF5EB4B2877AB6B008BA3CC /* ProfileViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
 		9EF5EB4D287891A5008BA3CC /* UserFeedViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserFeedViewController.h; sourceTree = "<group>"; };
 		9EF5EB4E287891A5008BA3CC /* UserFeedViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserFeedViewController.m; sourceTree = "<group>"; };
-		9EF5EB512878B2F2008BA3CC /* ChatViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChatViewController.h; sourceTree = "<group>"; };
-		9EF5EB522878B2F2008BA3CC /* ChatViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChatViewController.m; sourceTree = "<group>"; };
 		9EF5EB542878B30B008BA3CC /* ProfileViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
 		9EF5EB552878B30B008BA3CC /* ProfileViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
 		9EF5EB582878B5A2008BA3CC /* User.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
 		9EF5EB592878B5A2008BA3CC /* User.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		9EF5EB5B2878E151008BA3CC /* MatchesViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MatchesViewController.h; sourceTree = "<group>"; };
+		9EF5EB5C2878E151008BA3CC /* MatchesViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MatchesViewController.m; sourceTree = "<group>"; };
 		BD1F5A055C4411FA6DE5514A /* Pods-SquablrTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SquablrTests.release.xcconfig"; path = "Target Support Files/Pods-SquablrTests/Pods-SquablrTests.release.xcconfig"; sourceTree = "<group>"; };
 		C09D0025791A2F33BEB6829F /* Pods-SquablrTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SquablrTests.debug.xcconfig"; path = "Target Support Files/Pods-SquablrTests/Pods-SquablrTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -210,8 +210,8 @@
 				9EF5EB482877A971008BA3CC /* SignInViewController.m */,
 				9EF5EB4D287891A5008BA3CC /* UserFeedViewController.h */,
 				9EF5EB4E287891A5008BA3CC /* UserFeedViewController.m */,
-				9EF5EB512878B2F2008BA3CC /* ChatViewController.h */,
-				9EF5EB522878B2F2008BA3CC /* ChatViewController.m */,
+				9EF5EB5B2878E151008BA3CC /* MatchesViewController.h */,
+				9EF5EB5C2878E151008BA3CC /* MatchesViewController.m */,
 				9EF5EB542878B30B008BA3CC /* ProfileViewController.h */,
 				9EF5EB552878B30B008BA3CC /* ProfileViewController.m */,
 			);
@@ -467,6 +467,7 @@
 			files = (
 				9EF5EB162874A2F6008BA3CC /* ViewController.m in Sources */,
 				9EF5EB102874A2F6008BA3CC /* AppDelegate.m in Sources */,
+				9EF5EB5D2878E151008BA3CC /* MatchesViewController.m in Sources */,
 				9EF5EB212874A2F7008BA3CC /* main.m in Sources */,
 				9EF5EB132874A2F6008BA3CC /* SceneDelegate.m in Sources */,
 				9EF5EB562878B30B008BA3CC /* ProfileViewController.m in Sources */,
@@ -475,7 +476,6 @@
 				9EF5EB4F287891A5008BA3CC /* UserFeedViewController.m in Sources */,
 				9EF5EB492877A971008BA3CC /* SignInViewController.m in Sources */,
 				9EF5EB452877A801008BA3CC /* LoginViewController.m in Sources */,
-				9EF5EB532878B2F2008BA3CC /* ChatViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
