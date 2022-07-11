@@ -7,6 +7,7 @@
 
 #import "AppDelegate.h"
 #import "Parse/Parse.h"
+#import "GoogleSignIn/GoogleSignIn.h"
 
 @interface AppDelegate ()
 
@@ -28,6 +29,22 @@
     [Parse initializeWithConfiguration:config];
     
     return YES;
+}
+
+- (BOOL)application:(UIApplication *)app
+            openURL:(NSURL *)url
+            options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options {
+  BOOL handled;
+
+  handled = [GIDSignIn.sharedInstance handleURL:url];
+  if (handled) {
+    return YES;
+  }
+
+  // Handle other custom URL types.
+
+  // If not handled by this app, return NO.
+  return NO;
 }
 
 #pragma mark - UISceneSession lifecycle
