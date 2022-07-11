@@ -6,6 +6,8 @@
 //
 
 #import "AppDelegate.h"
+#import "Parse/Parse.h"
+#import "GoogleSignIn/GoogleSignIn.h"
 
 @interface AppDelegate ()
 
@@ -16,7 +18,29 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    // Code to initialize Parse
+    ParseClientConfiguration *config = [ParseClientConfiguration  configurationWithBlock:^(id<ParseMutableClientConfiguration> configuration) {
+
+        configuration.applicationId = @"FyAsM3YWS6d3vjuscmvQc2bW1N6ijce9iuvOzSCd"; // <- UPDATE
+        configuration.clientKey = @"oP0YFwYBd74GG8CnTNRbHoApORkzZOVtCYGdEPG6"; // <- UPDATE
+        configuration.server = @"https://parseapi.back4app.com";
+    }];
+
+    [Parse initializeWithConfiguration:config];
+    
     return YES;
+}
+
+- (BOOL)application:(UIApplication *)app
+            openURL:(NSURL *)url
+            options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options {
+    BOOL handled = [GIDSignIn.sharedInstance handleURL:url];
+      if (handled) {
+        return YES;
+      }
+        
+      // If not handled by this app, return NO.
+      return NO;
 }
 
 #pragma mark - UISceneSession lifecycle

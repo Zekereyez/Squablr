@@ -5,21 +5,17 @@
 //  Created by Zeke Reyes on 7/7/22.
 //
 
-#import "SignInViewController.h"
+#import "SignUpViewController.h"
 
-@interface SignInViewController ()
+@interface SignUpViewController ()
 
 @end
 
-@implementation SignInViewController
+@implementation SignUpViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-}
-
-- (void)validateUser {
-    
 }
 
 - (bool)fieldsAreInvalid {
@@ -55,18 +51,19 @@
 
 // User registration function
 - (void)registerUser {
-    // initialize a user object
-    PFUser *newUser = [PFUser user];
-    
-    // set user properties
-    newUser.username = _usernameField.text;
-    newUser.email = self.emailField.text;
-    newUser.password = self.passwordField.text;
-
+    // Check that the fields are valid before any work
     if([self fieldsAreInvalid]) {
         [self alert];
         return;
     }
+    
+    // initialize a user object
+    PFUser *newUser = [PFUser user];
+    
+    // set user properties
+    newUser.username = self.usernameField.text;
+    newUser.email = self.emailField.text;
+    newUser.password = self.passwordField.text;
     
     // call sign up function on the object
     // signs up the user asynchronously, will
@@ -75,12 +72,15 @@
         if (error != nil) {
             NSLog(@"Error: %@", error.localizedDescription);
         } else {
+            // Manually segue now that network call has succeeded
             NSLog(@"User registered successfully");
-            [self performSegueWithIdentifier:@"feedSegue" sender:nil];
+            UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+            UserFeedViewController *feedVC = [storyboard instantiateViewControllerWithIdentifier:@"tabController"];
+            self.view.window.rootViewController = feedVC;
         }
     }];
 }
 - (IBAction)didTapSignin:(id)sender {
-    [self validateUser];
+    [self registerUser];
 }
 @end

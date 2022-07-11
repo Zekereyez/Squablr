@@ -22,7 +22,6 @@
 }
 
 + (void) postUserImage: ( UIImage * _Nullable )image withCaption: ( NSString * _Nullable )caption withCompletion: (PFBooleanResultBlock  _Nullable)completion {
-    
     User *newUser = [User new];
     newUser.name = [PFUser currentUser];
     newUser.age = @(0);
@@ -36,7 +35,6 @@
 }
 
 + (PFFileObject *)getPFFileFromImage: (UIImage * _Nullable)image {
- 
     // check if image is not nil
     if (!image) {
         return nil;
