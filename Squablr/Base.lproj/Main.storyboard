@@ -121,10 +121,10 @@
             </objects>
             <point key="canvasLocation" x="3128.985507246377" y="-710.49107142857144"/>
         </scene>
-        <!--Sign In View Controller-->
+        <!--Sign Up View Controller-->
         <scene sceneID="LBq-2Y-s5D">
             <objects>
-                <viewController id="Rqo-y5-suT" customClass="SignInViewController" sceneMemberID="viewController">
+                <viewController id="Rqo-y5-suT" customClass="SignUpViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dcg-Z4-jMW">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

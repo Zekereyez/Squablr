@@ -34,17 +34,13 @@
 - (BOOL)application:(UIApplication *)app
             openURL:(NSURL *)url
             options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options {
-  BOOL handled;
-
-  handled = [GIDSignIn.sharedInstance handleURL:url];
-  if (handled) {
-    return YES;
-  }
-
-  // Handle other custom URL types.
-
-  // If not handled by this app, return NO.
-  return NO;
+    BOOL handled = [GIDSignIn.sharedInstance handleURL:url];
+      if (handled) {
+        return YES;
+      }
+        
+      // If not handled by this app, return NO.
+      return NO;
 }
 
 #pragma mark - UISceneSession lifecycle

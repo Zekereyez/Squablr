@@ -5,13 +5,13 @@
 //  Created by Zeke Reyes on 7/7/22.
 //
 
-#import "SignInViewController.h"
+#import "SignUpViewController.h"
 
-@interface SignInViewController ()
+@interface SignUpViewController ()
 
 @end
 
-@implementation SignInViewController
+@implementation SignUpViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
