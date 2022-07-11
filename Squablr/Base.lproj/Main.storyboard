@@ -65,7 +65,7 @@
             </objects>
             <point key="canvasLocation" x="138" y="115"/>
         </scene>
-        <!--Item-->
+        <!-- -->
         <scene sceneID="Ofv-eL-8p3">
             <objects>
                 <viewController id="fs0-Ci-AoX" customClass="UserFeedViewController" sceneMemberID="viewController">
@@ -75,7 +75,7 @@
                         <viewLayoutGuide key="safeArea" id="yFI-VS-GnS"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" image="boxing-gloves" id="IzW-8V-kT3">
+                    <tabBarItem key="tabBarItem" title=" " image="boxing-glove" id="IzW-8V-kT3">
                         <inset key="imageInsets" minX="0.0" minY="224" maxX="0.0" maxY="225"/>
                     </tabBarItem>
                 </viewController>
@@ -83,7 +83,7 @@
             </objects>
             <point key="canvasLocation" x="2218.840579710145" y="114.50892857142857"/>
         </scene>
-        <!--Item-->
+        <!-- -->
         <scene sceneID="QVf-i3-6sx">
             <objects>
                 <viewController id="BYh-Oa-dH4" customClass="MatchesViewController" sceneMemberID="viewController">
@@ -93,7 +93,7 @@
                         <viewLayoutGuide key="safeArea" id="CrK-7w-nLh"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" selectedImage="chat" id="GWM-rv-nJ6">
+                    <tabBarItem key="tabBarItem" title=" " image="chat (1)" selectedImage="chat (1)" id="GWM-rv-nJ6">
                         <inset key="imageInsets" minX="0.0" minY="240" maxX="0.0" maxY="225"/>
                     </tabBarItem>
                 </viewController>
@@ -208,20 +208,20 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
-                        <segue destination="fs0-Ci-AoX" kind="relationship" relationship="viewControllers" id="e4H-3p-WoR"/>
-                        <segue destination="EeT-HJ-QnV" kind="relationship" relationship="viewControllers" id="QBf-q7-zaB"/>
-                        <segue destination="BYh-Oa-dH4" kind="relationship" relationship="viewControllers" id="ugF-KZ-bEZ"/>
+                        <segue destination="EeT-HJ-QnV" kind="relationship" relationship="viewControllers" id="7Tk-CI-g7w"/>
+                        <segue destination="fs0-Ci-AoX" kind="relationship" relationship="viewControllers" id="hxo-Sj-d6Z"/>
+                        <segue destination="BYh-Oa-dH4" kind="relationship" relationship="viewControllers" id="h70-8x-dE4"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NPu-Gm-56h" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1308.6956521739132" y="114.50892857142857"/>
+            <point key="canvasLocation" x="990" y="115"/>
         </scene>
         <!-- -->
         <scene sceneID="q3m-n7-ahT">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="EeT-HJ-QnV" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title=" " selectedImage="user" id="vTh-J2-1tU">
+                    <tabBarItem key="tabBarItem" title=" " image="user" selectedImage="user" id="vTh-J2-1tU">
                         <inset key="imageInsets" minX="0.0" minY="240" maxX="0.0" maxY="225"/>
                     </tabBarItem>
                     <toolbarItems/>
@@ -241,8 +241,8 @@
     </scenes>
     <resources>
         <image name="boxer" width="512" height="512"/>
-        <image name="boxing-gloves" width="512" height="512"/>
-        <image name="chat" width="512" height="512"/>
+        <image name="boxing-glove" width="512" height="512"/>
+        <image name="chat (1)" width="512" height="512"/>
         <image name="person.fill" catalog="system" width="128" height="120"/>
         <image name="user" width="512" height="512"/>
         <systemColor name="systemBackgroundColor">
