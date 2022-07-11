@@ -17,4 +17,13 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
 }
+- (IBAction)didTapLogout:(id)sender {
+    [PFUser logOutInBackgroundWithBlock:^(NSError * _Nullable error) {
+        if (!error) {
+                    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+                    LoginViewController *loginViewController = [storyboard instantiateViewControllerWithIdentifier:@"loginVC"];
+                    self.view.window.rootViewController = loginViewController;
+        }
+    }];
+}
 @end

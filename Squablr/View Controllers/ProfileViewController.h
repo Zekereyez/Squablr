@@ -6,10 +6,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Parse/Parse.h"
+#import "LoginViewController.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface ProfileViewController : UIViewController
+- (IBAction)didTapLogout:(id)sender;
 
 @end
 
