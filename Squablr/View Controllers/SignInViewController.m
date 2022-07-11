@@ -72,8 +72,11 @@
         if (error != nil) {
             NSLog(@"Error: %@", error.localizedDescription);
         } else {
+            // Manually segue now that network call has succeeded
             NSLog(@"User registered successfully");
-            [self performSegueWithIdentifier:@"feedSegue" sender:nil];
+            UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+            UserFeedViewController *feedVC = [storyboard instantiateViewControllerWithIdentifier:@"tabController"];
+            self.view.window.rootViewController = feedVC;
         }
     }];
 }

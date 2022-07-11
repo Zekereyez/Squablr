@@ -54,7 +54,7 @@
                     <connections>
                         <outlet property="passwordField" destination="KW1-YC-uSE" id="mgs-Uf-i7T"/>
                         <outlet property="usernameField" destination="oA1-v9-ACd" id="Vfw-qW-kvM"/>
-                        <segue destination="g1K-H3-vCp" kind="presentation" identifier="c" id="6FK-hs-LAR"/>
+                        <segue destination="g1K-H3-vCp" kind="presentation" identifier="loginSegue" id="6FK-hs-LAR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -180,7 +180,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="PGv-2f-WAA">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="g1K-H3-vCp" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="tabController" automaticallyAdjustsScrollViewInsets="NO" id="g1K-H3-vCp" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="IoI-f8-Y3c">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>

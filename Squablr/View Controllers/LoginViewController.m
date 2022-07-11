@@ -39,7 +39,7 @@
             // Manual segue is better since we are able to use the pull refresh
             // rather than having to run the app again once logged in
             UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-            UserFeedViewController *feedVC = [storyboard instantiateViewControllerWithIdentifier:@"UserFeedViewController"];
+            UserFeedViewController *feedVC = [storyboard instantiateViewControllerWithIdentifier:@"tabController"];
             self.view.window.rootViewController = feedVC;
         }
     }];
