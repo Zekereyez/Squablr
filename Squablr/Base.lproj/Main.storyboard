@@ -47,6 +47,10 @@
                                     <action selector="didTapLogin:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6CU-Wt-Gk1"/>
                                 </connections>
                             </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="boxer" translatesAutoresizingMaskIntoConstraints="NO" id="DqC-dI-8HC">
+                                <rect key="frame" x="87" y="176" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -71,7 +75,9 @@
                         <viewLayoutGuide key="safeArea" id="yFI-VS-GnS"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="IzW-8V-kT3"/>
+                    <tabBarItem key="tabBarItem" title="Item" image="boxing-gloves" id="IzW-8V-kT3">
+                        <inset key="imageInsets" minX="0.0" minY="224" maxX="0.0" maxY="225"/>
+                    </tabBarItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Sjr-kZ-Tkz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -87,7 +93,9 @@
                         <viewLayoutGuide key="safeArea" id="CrK-7w-nLh"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="GWM-rv-nJ6"/>
+                    <tabBarItem key="tabBarItem" title="Item" selectedImage="chat" id="GWM-rv-nJ6">
+                        <inset key="imageInsets" minX="0.0" minY="240" maxX="0.0" maxY="225"/>
+                    </tabBarItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yVM-lH-1tU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -194,7 +202,7 @@
             <objects>
                 <tabBarController storyboardIdentifier="tabController" automaticallyAdjustsScrollViewInsets="NO" id="g1K-H3-vCp" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="IoI-f8-Y3c">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" backgroundImage="person.fill" catalog="system" id="IoI-f8-Y3c">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -209,11 +217,13 @@
             </objects>
             <point key="canvasLocation" x="1308.6956521739132" y="114.50892857142857"/>
         </scene>
-        <!--Item-->
+        <!-- -->
         <scene sceneID="q3m-n7-ahT">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="EeT-HJ-QnV" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="vTh-J2-1tU"/>
+                    <tabBarItem key="tabBarItem" title=" " selectedImage="user" id="vTh-J2-1tU">
+                        <inset key="imageInsets" minX="0.0" minY="240" maxX="0.0" maxY="225"/>
+                    </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Fef-rq-FKK">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
@@ -230,6 +240,11 @@
         </scene>
     </scenes>
     <resources>
+        <image name="boxer" width="512" height="512"/>
+        <image name="boxing-gloves" width="512" height="512"/>
+        <image name="chat" width="512" height="512"/>
+        <image name="person.fill" catalog="system" width="128" height="120"/>
+        <image name="user" width="512" height="512"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
