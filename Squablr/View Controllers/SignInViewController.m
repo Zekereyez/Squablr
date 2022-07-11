@@ -18,10 +18,6 @@
     // Do any additional setup after loading the view.
 }
 
-- (void)validateUser {
-    
-}
-
 - (bool)fieldsAreInvalid {
     return ([self.emailField.text isEqualToString:@""] || [self.usernameField.text isEqualToString:@""] || [self.passwordField.text isEqualToString:@""]);
 }
@@ -55,18 +51,19 @@
 
 // User registration function
 - (void)registerUser {
-    // initialize a user object
-    PFUser *newUser = [PFUser user];
-    
-    // set user properties
-    newUser.username = _usernameField.text;
-    newUser.email = self.emailField.text;
-    newUser.password = self.passwordField.text;
-
+    // Check that the fields are valid before any work
     if([self fieldsAreInvalid]) {
         [self alert];
         return;
     }
+    
+    // initialize a user object
+    PFUser *newUser = [PFUser user];
+    
+    // set user properties
+    newUser.username = self.usernameField.text;
+    newUser.email = self.emailField.text;
+    newUser.password = self.passwordField.text;
     
     // call sign up function on the object
     // signs up the user asynchronously, will
@@ -81,6 +78,6 @@
     }];
 }
 - (IBAction)didTapSignin:(id)sender {
-    [self validateUser];
+    [self registerUser];
 }
 @end
