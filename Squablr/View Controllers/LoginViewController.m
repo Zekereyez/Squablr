@@ -20,6 +20,10 @@ static NSString * const kClientID =
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    UITapGestureRecognizer *signInTapped = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(signIn:)];
+    [self.signInButton addGestureRecognizer:signInTapped];
+    _signInButton.style = kGIDSignInButtonStyleWide;
+    _signInButton.colorScheme = kGIDSignInButtonColorSchemeDark;
 }
 
 - (void)loginUser {
@@ -98,7 +102,6 @@ static NSString * const kClientID =
                            presentingViewController:self
                                            callback:^(GIDGoogleUser * _Nullable user,
                                                       NSError * _Nullable error) {
-        
         if (error) {
             return;
         }
@@ -111,46 +114,30 @@ static NSString * const kClientID =
         newUser.password = @"password";
         [newUser signUpInBackgroundWithBlock:^(BOOL succeeded, NSError * error) {
             if (error != nil) {
-                NSLog(@"Error: %@", error.localizedDescription);
+                if ([error.localizedDescription isEqual:@"Account already exists for this username."]) {
+                    NSString *username = user.profile.name;
+                    NSString *password = @"password";
+                    [PFUser logInWithUsernameInBackground:username password:password block:^(PFUser * user, NSError *  error) {
+                        //
+                        // Manually segue now that network call has succeeded
+                        // If sign in succeeded, display the app's main content View.
+                        [self successful];
+                    }];
+                }
             } else {
                 // Manually segue now that network call has succeeded
-                NSLog(@"User registered successfully");
                 // If sign in succeeded, display the app's main content View.
-                UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-                UserFeedViewController *feedVC = [storyboard instantiateViewControllerWithIdentifier:@"tabController"];
-                self.view.window.rootViewController = feedVC;
+                [self successful];
             }
         }];
     }];
 }
-- (IBAction)logIn:(id)sender {
-    GIDConfiguration *signInConfig;
-    signInConfig = [[GIDConfiguration alloc] initWithClientID:kClientID];
-    
-    [GIDSignIn.sharedInstance signInWithConfiguration:signInConfig
-                           presentingViewController:self
-                                           callback:^(GIDGoogleUser * _Nullable user,
-                                                      NSError * _Nullable error) {
-        
-        if (error) {
-            return;
-        }
-        // Is this the lazy way to implement log in?
-        NSString *username = user.profile.name;
-        NSString *password = @"password";
-        [PFUser logInWithUsernameInBackground:username password:password block:^(PFUser * user, NSError *  error) {
-            if (error != nil) {
-                NSLog(@"Error: %@", error.localizedDescription);
-            } else {
-                // Manually segue now that network call has succeeded
-                NSLog(@"User registered successfully");
-                // If sign in succeeded, display the app's main content View.
-                UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-                UserFeedViewController *feedVC = [storyboard instantiateViewControllerWithIdentifier:@"tabController"];
-                self.view.window.rootViewController = feedVC;
-            }
-        }];
-    }];
+
+- (void) successful {
+    // If sign in succeeded, display the app's main content View.
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    UserFeedViewController *feedVC = [storyboard instantiateViewControllerWithIdentifier:@"tabController"];
+    self.view.window.rootViewController = feedVC;
 }
 
 @end

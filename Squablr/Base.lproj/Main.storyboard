@@ -55,56 +55,44 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="boxer" translatesAutoresizingMaskIntoConstraints="NO" id="DqC-dI-8HC">
                                 <rect key="frame" x="87" y="176" width="240" height="128"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zfi-0p-fYL">
-                                <rect key="frame" x="113" y="609" width="188" height="48"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="48" id="bkQ-Zy-khn"/>
-                                </constraints>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="gray" title="Sign in With Google"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xBi-eI-hzg" customClass="GIDSignInButton">
+                                <rect key="frame" x="113" y="570" width="188" height="48"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <gestureRecognizers/>
                                 <connections>
-                                    <action selector="signIn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="kXM-QY-5eQ"/>
+                                    <action selector="signIn:" destination="BYZ-38-t0r" eventType="valueChanged" id="VpW-TI-vLQ"/>
                                 </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v1W-fd-JxZ">
-                                <rect key="frame" x="113" y="695" width="188" height="48"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Log In With Google"/>
-                                <connections>
-                                    <action selector="logIn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="KEr-ol-JJl"/>
-                                </connections>
-                            </button>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="oA1-v9-ACd" firstAttribute="leading" secondItem="KW1-YC-uSE" secondAttribute="leading" id="3Tt-Vm-Jbu"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Zfi-0p-fYL" secondAttribute="bottom" constant="205" id="5DO-27-Ikd"/>
                             <constraint firstItem="DqC-dI-8HC" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="5LU-VP-Yjn"/>
-                            <constraint firstItem="v1W-fd-JxZ" firstAttribute="top" secondItem="Zfi-0p-fYL" secondAttribute="bottom" constant="38" id="6iS-tm-1sY"/>
-                            <constraint firstItem="Zfi-0p-fYL" firstAttribute="top" secondItem="Zfi-Qh-6vB" secondAttribute="bottom" constant="78" id="BZl-rd-4li"/>
-                            <constraint firstItem="v1W-fd-JxZ" firstAttribute="leading" secondItem="Zfi-0p-fYL" secondAttribute="leading" id="E2c-Au-9UL"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="xBi-eI-hzg" secondAttribute="bottom" constant="244" id="9OU-vH-2GG"/>
                             <constraint firstItem="LNW-5F-USM" firstAttribute="baseline" secondItem="Zfi-Qh-6vB" secondAttribute="firstBaseline" id="GV0-Rc-Tdd"/>
                             <constraint firstItem="KW1-YC-uSE" firstAttribute="leading" secondItem="Zfi-Qh-6vB" secondAttribute="leading" id="N9L-yL-9As"/>
                             <constraint firstItem="oA1-v9-ACd" firstAttribute="trailing" secondItem="KW1-YC-uSE" secondAttribute="trailing" id="PJn-Kv-8T9"/>
+                            <constraint firstItem="xBi-eI-hzg" firstAttribute="trailing" secondItem="DqC-dI-8HC" secondAttribute="trailing" constant="-26" id="Q3A-lS-iSC"/>
                             <constraint firstItem="LNW-5F-USM" firstAttribute="leading" secondItem="Zfi-Qh-6vB" secondAttribute="trailing" constant="14" id="RhL-yp-NIB"/>
                             <constraint firstItem="DqC-dI-8HC" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="87" id="cAE-u1-ZLC"/>
                             <constraint firstItem="DqC-dI-8HC" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="132" id="dsE-MP-inz"/>
+                            <constraint firstItem="xBi-eI-hzg" firstAttribute="leading" secondItem="DqC-dI-8HC" secondAttribute="leading" constant="26" id="ec7-7Z-c6U"/>
                             <constraint firstItem="Zfi-Qh-6vB" firstAttribute="top" secondItem="KW1-YC-uSE" secondAttribute="bottom" constant="36" id="erG-ec-YOh"/>
                             <constraint firstItem="DqC-dI-8HC" firstAttribute="centerX" secondItem="oA1-v9-ACd" secondAttribute="centerX" id="fM6-gk-057"/>
-                            <constraint firstItem="LNW-5F-USM" firstAttribute="trailing" secondItem="Zfi-0p-fYL" secondAttribute="trailing" id="fxY-V9-HRF"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Zfi-Qh-6vB" secondAttribute="bottom" constant="331" id="i1D-KL-Hlw"/>
                             <constraint firstItem="oA1-v9-ACd" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="113" id="i6l-0K-JoU"/>
-                            <constraint firstItem="Zfi-Qh-6vB" firstAttribute="leading" secondItem="Zfi-0p-fYL" secondAttribute="leading" id="nFi-V2-t2e"/>
                             <constraint firstItem="Zfi-Qh-6vB" firstAttribute="baseline" secondItem="LNW-5F-USM" secondAttribute="baseline" id="nes-P3-QMD"/>
                             <constraint firstItem="KW1-YC-uSE" firstAttribute="trailing" secondItem="LNW-5F-USM" secondAttribute="trailing" id="oqu-7C-IwV"/>
-                            <constraint firstItem="v1W-fd-JxZ" firstAttribute="trailing" secondItem="Zfi-0p-fYL" secondAttribute="trailing" id="qN6-1H-ZG0"/>
                             <constraint firstItem="KW1-YC-uSE" firstAttribute="top" secondItem="oA1-v9-ACd" secondAttribute="bottom" constant="31" id="reY-3L-zgl"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="v1W-fd-JxZ" secondAttribute="bottom" constant="119" id="tgQ-g6-o0L"/>
                             <constraint firstItem="oA1-v9-ACd" firstAttribute="top" secondItem="DqC-dI-8HC" secondAttribute="bottom" constant="61" id="x7R-1m-L7t"/>
+                            <constraint firstItem="xBi-eI-hzg" firstAttribute="top" secondItem="Zfi-Qh-6vB" secondAttribute="bottom" constant="39" id="zK0-Fa-suK"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="passwordField" destination="KW1-YC-uSE" id="mgs-Uf-i7T"/>
+                        <outlet property="signInButton" destination="xBi-eI-hzg" id="JMJ-t5-MrU"/>
                         <outlet property="usernameField" destination="oA1-v9-ACd" id="Vfw-qW-kvM"/>
                         <segue destination="g1K-H3-vCp" kind="presentation" identifier="loginSegue" id="6FK-hs-LAR"/>
                     </connections>
