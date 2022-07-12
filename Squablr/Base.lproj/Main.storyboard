@@ -221,7 +221,7 @@
         <scene sceneID="q3m-n7-ahT">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="EeT-HJ-QnV" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title=" " image="user" selectedImage="user" id="vTh-J2-1tU">
+                    <tabBarItem key="tabBarItem" title=" " image="user (1)" selectedImage="user (1)" id="vTh-J2-1tU">
                         <inset key="imageInsets" minX="0.0" minY="240" maxX="0.0" maxY="225"/>
                     </tabBarItem>
                     <toolbarItems/>
@@ -244,7 +244,7 @@
         <image name="boxing-glove" width="512" height="512"/>
         <image name="chat (1)" width="512" height="512"/>
         <image name="person.fill" catalog="system" width="128" height="120"/>
-        <image name="user" width="512" height="512"/>
+        <image name="user (1)" width="512" height="512"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
