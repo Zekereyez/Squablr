@@ -16,6 +16,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    //signInConfig = [[GIDConfiguration alloc] initWithClientID:@"948108757446-cgeskunk0ls6f4ljhs871t1buuga4tlr.apps.googleusercontent.com"];
 }
 
 

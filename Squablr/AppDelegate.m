@@ -7,7 +7,7 @@
 
 #import "AppDelegate.h"
 #import "Parse/Parse.h"
-#import "GoogleSignIn/GoogleSignIn.h"
+#import <GoogleSignIn/GoogleSignIn.h>
 
 @interface AppDelegate ()
 
