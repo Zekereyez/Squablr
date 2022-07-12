@@ -16,17 +16,11 @@ static NSString * const kClientID =
 @end
 
 @implementation LoginViewController
-
-// GIDConfiguration object with clientID
-//GIDConfiguration *signInConfig;
-//signInConfig = [[GIDConfiguration alloc] initWithClientID:kClientID];
-
+    
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    //signInConfig = [[GIDConfiguration alloc] initWithClientID:@"948108757446-cgeskunk0ls6f4ljhs871t1buuga4tlr.apps.googleusercontent.com"];
 }
-
 
 - (void)loginUser {
     NSString *username = self.usernameField.text;
@@ -37,7 +31,6 @@ static NSString * const kClientID =
         return;
     }
     
-        
     [PFUser logInWithUsernameInBackground:username password:password block:^(PFUser * user, NSError *  error) {
         if (error != nil) {
             NSLog(@"User log in failed: %@", error.localizedDescription);
@@ -100,17 +93,64 @@ static NSString * const kClientID =
 - (IBAction)signIn:(id)sender {
     GIDConfiguration *signInConfig;
     signInConfig = [[GIDConfiguration alloc] initWithClientID:kClientID];
-  [GIDSignIn.sharedInstance signInWithConfiguration:signInConfig
+    
+    [GIDSignIn.sharedInstance signInWithConfiguration:signInConfig
                            presentingViewController:self
                                            callback:^(GIDGoogleUser * _Nullable user,
                                                       NSError * _Nullable error) {
-    if (error) {
-      return;
-    }
-
-    // If sign in succeeded, display the app's main content View.
-  }];
+        
+        if (error) {
+            return;
+        }
+        // Makes call to extract user info
+        PFUser *newUser = [PFUser user];
+        
+        // set user properties
+        newUser.username = user.profile.name;
+        newUser.email = user.profile.email;
+        newUser.password = @"password";
+        [newUser signUpInBackgroundWithBlock:^(BOOL succeeded, NSError * error) {
+            if (error != nil) {
+                NSLog(@"Error: %@", error.localizedDescription);
+            } else {
+                // Manually segue now that network call has succeeded
+                NSLog(@"User registered successfully");
+                // If sign in succeeded, display the app's main content View.
+                UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+                UserFeedViewController *feedVC = [storyboard instantiateViewControllerWithIdentifier:@"tabController"];
+                self.view.window.rootViewController = feedVC;
+            }
+        }];
+    }];
 }
-
+- (IBAction)logIn:(id)sender {
+    GIDConfiguration *signInConfig;
+    signInConfig = [[GIDConfiguration alloc] initWithClientID:kClientID];
+    
+    [GIDSignIn.sharedInstance signInWithConfiguration:signInConfig
+                           presentingViewController:self
+                                           callback:^(GIDGoogleUser * _Nullable user,
+                                                      NSError * _Nullable error) {
+        
+        if (error) {
+            return;
+        }
+        // Is this the lazy way to implement log in?
+        NSString *username = user.profile.name;
+        NSString *password = @"password";
+        [PFUser logInWithUsernameInBackground:username password:password block:^(PFUser * user, NSError *  error) {
+            if (error != nil) {
+                NSLog(@"Error: %@", error.localizedDescription);
+            } else {
+                // Manually segue now that network call has succeeded
+                NSLog(@"User registered successfully");
+                // If sign in succeeded, display the app's main content View.
+                UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+                UserFeedViewController *feedVC = [storyboard instantiateViewControllerWithIdentifier:@"tabController"];
+                self.view.window.rootViewController = feedVC;
+            }
+        }];
+    }];
+}
 
 @end

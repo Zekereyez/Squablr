@@ -66,6 +66,14 @@
                                     <action selector="signIn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="kXM-QY-5eQ"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v1W-fd-JxZ">
+                                <rect key="frame" x="113" y="695" width="188" height="48"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Log In With Google"/>
+                                <connections>
+                                    <action selector="logIn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="KEr-ol-JJl"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -73,7 +81,9 @@
                             <constraint firstItem="oA1-v9-ACd" firstAttribute="leading" secondItem="KW1-YC-uSE" secondAttribute="leading" id="3Tt-Vm-Jbu"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Zfi-0p-fYL" secondAttribute="bottom" constant="205" id="5DO-27-Ikd"/>
                             <constraint firstItem="DqC-dI-8HC" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="5LU-VP-Yjn"/>
+                            <constraint firstItem="v1W-fd-JxZ" firstAttribute="top" secondItem="Zfi-0p-fYL" secondAttribute="bottom" constant="38" id="6iS-tm-1sY"/>
                             <constraint firstItem="Zfi-0p-fYL" firstAttribute="top" secondItem="Zfi-Qh-6vB" secondAttribute="bottom" constant="78" id="BZl-rd-4li"/>
+                            <constraint firstItem="v1W-fd-JxZ" firstAttribute="leading" secondItem="Zfi-0p-fYL" secondAttribute="leading" id="E2c-Au-9UL"/>
                             <constraint firstItem="LNW-5F-USM" firstAttribute="baseline" secondItem="Zfi-Qh-6vB" secondAttribute="firstBaseline" id="GV0-Rc-Tdd"/>
                             <constraint firstItem="KW1-YC-uSE" firstAttribute="leading" secondItem="Zfi-Qh-6vB" secondAttribute="leading" id="N9L-yL-9As"/>
                             <constraint firstItem="oA1-v9-ACd" firstAttribute="trailing" secondItem="KW1-YC-uSE" secondAttribute="trailing" id="PJn-Kv-8T9"/>
@@ -87,7 +97,9 @@
                             <constraint firstItem="Zfi-Qh-6vB" firstAttribute="leading" secondItem="Zfi-0p-fYL" secondAttribute="leading" id="nFi-V2-t2e"/>
                             <constraint firstItem="Zfi-Qh-6vB" firstAttribute="baseline" secondItem="LNW-5F-USM" secondAttribute="baseline" id="nes-P3-QMD"/>
                             <constraint firstItem="KW1-YC-uSE" firstAttribute="trailing" secondItem="LNW-5F-USM" secondAttribute="trailing" id="oqu-7C-IwV"/>
+                            <constraint firstItem="v1W-fd-JxZ" firstAttribute="trailing" secondItem="Zfi-0p-fYL" secondAttribute="trailing" id="qN6-1H-ZG0"/>
                             <constraint firstItem="KW1-YC-uSE" firstAttribute="top" secondItem="oA1-v9-ACd" secondAttribute="bottom" constant="31" id="reY-3L-zgl"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="v1W-fd-JxZ" secondAttribute="bottom" constant="119" id="tgQ-g6-o0L"/>
                             <constraint firstItem="oA1-v9-ACd" firstAttribute="top" secondItem="DqC-dI-8HC" secondAttribute="bottom" constant="61" id="x7R-1m-L7t"/>
                         </constraints>
                     </view>
