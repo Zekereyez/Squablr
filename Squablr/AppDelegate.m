@@ -6,8 +6,6 @@
 //
 
 #import "AppDelegate.h"
-#import "Parse/Parse.h"
-#import <GoogleSignIn/GoogleSignIn.h>
 
 @interface AppDelegate ()
 
@@ -28,19 +26,39 @@
 
     [Parse initializeWithConfiguration:config];
     
+    // Google sign in to restore user signed in state
+    [GIDSignIn.sharedInstance restorePreviousSignInWithCallback:^(GIDGoogleUser * _Nullable user,
+                                                                    NSError * _Nullable error) {
+        if (error) {
+            // Show the app's signed-out state.
+            // Must account for the user persistence with other sign in method
+            // FIXME: This crashes the app but lets the user go to profile screen only
+            if (!user) {
+                /*
+                UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+                LoginViewController *loginVC = [storyboard instantiateViewControllerWithIdentifier:@"loginVC"];
+                self.window.rootViewController = loginVC;
+                */
+            }
+        }
+        else {
+            // Show the app's signed-in state.
+        }
+      }];
     return YES;
 }
 
 - (BOOL)application:(UIApplication *)app
             openURL:(NSURL *)url
             options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options {
+    
     BOOL handled = [GIDSignIn.sharedInstance handleURL:url];
-      if (handled) {
+    
+    if (handled) {
         return YES;
-      }
-        
-      // If not handled by this app, return NO.
-      return NO;
+    }
+    // If not handled by this app, return NO.
+    return NO;
 }
 
 #pragma mark - UISceneSession lifecycle
