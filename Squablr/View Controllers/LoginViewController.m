@@ -6,12 +6,20 @@
 //
 
 #import "LoginViewController.h"
+#import "AppDelegate.h"
+
+static NSString * const kClientID =
+    @"948108757446-cgeskunk0ls6f4ljhs871t1buuga4tlr.apps.googleusercontent.com";
 
 @interface LoginViewController ()
 
 @end
 
 @implementation LoginViewController
+
+// GIDConfiguration object with clientID
+//GIDConfiguration *signInConfig;
+//signInConfig = [[GIDConfiguration alloc] initWithClientID:kClientID];
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -88,5 +96,21 @@
 - (IBAction)didTapSignup:(id)sender {
     [self performSegueWithIdentifier:@"signupSegue" sender:nil];
 }
+
+- (IBAction)signIn:(id)sender {
+    GIDConfiguration *signInConfig;
+    signInConfig = [[GIDConfiguration alloc] initWithClientID:kClientID];
+  [GIDSignIn.sharedInstance signInWithConfiguration:signInConfig
+                           presentingViewController:self
+                                           callback:^(GIDGoogleUser * _Nullable user,
+                                                      NSError * _Nullable error) {
+    if (error) {
+      return;
+    }
+
+    // If sign in succeeded, display the app's main content View.
+  }];
+}
+
 
 @end
