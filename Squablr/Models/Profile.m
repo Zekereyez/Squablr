@@ -23,7 +23,7 @@
 
 + (void) writeUserToParse: (PFBooleanResultBlock  _Nullable)completion {
     Profile *newUser = [Profile new];
-    newUser.name = [PFUser currentUser];
+    newUser.name = [PFUser currentUser].username;
     newUser.age = @(18);
     newUser.weightClass = @(100);
     newUser.stance = @"Orthodox";
