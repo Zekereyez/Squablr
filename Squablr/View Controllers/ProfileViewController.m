@@ -7,7 +7,7 @@
 
 #import "ProfileViewController.h"
 #import "LoginViewController.h"
-#import "User.h"
+#import "Profile.h"
 
 @interface ProfileViewController ()
 

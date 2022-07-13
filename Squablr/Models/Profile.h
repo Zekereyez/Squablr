@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface User : PFObject<PFSubclassing>
+@interface Profile : PFObject<PFSubclassing>
 @property (nonatomic, strong) NSString *userID;
 @property (nonatomic, strong) PFUser *name;
 @property (nonatomic, strong) NSNumber *age;
@@ -19,6 +19,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSNumber *experience;
 @property (nonatomic, strong) NSString *biography;
 @property (nonatomic, strong) PFFileObject *profileImages;
++(void) writeUserToParse: (PFBooleanResultBlock  _Nullable)completion;
 @end
 
 NS_ASSUME_NONNULL_END

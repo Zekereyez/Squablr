@@ -118,13 +118,22 @@ static NSString * const kClientID =
                     NSString *username = user.profile.name;
                     NSString *password = @"password";
                     [PFUser logInWithUsernameInBackground:username password:password block:^(PFUser * user, NSError *  error) {
-                        //
                         // Manually segue now that network call has succeeded
                         // If sign in succeeded, display the app's main content View.
                         [self navigateToUserFeed];
                     }];
                 }
             } else {
+                // When creating a user profile we are initializing ther user with properties
+                [Profile writeUserToParse:^(BOOL succeeded, NSError * _Nullable writeError) {
+                    // If no error posting to parse user will receive a success alert
+                    // and a segue back to the timeline post feed
+                    if (writeError == nil) {
+                        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+                        UserFeedViewController *feedVC = [storyboard instantiateViewControllerWithIdentifier:@"tabController"];
+                        self.view.window.rootViewController = feedVC;
+                    }
+                }];
                 // Manually segue now that network call has succeeded
                 // If sign in succeeded, display the app's main content View.
                 [self navigateToUserFeed];
