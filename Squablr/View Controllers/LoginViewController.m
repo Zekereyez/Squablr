@@ -121,19 +121,19 @@ static NSString * const kClientID =
                         //
                         // Manually segue now that network call has succeeded
                         // If sign in succeeded, display the app's main content View.
-                        [self successful];
+                        [self navigateToUserFeed];
                     }];
                 }
             } else {
                 // Manually segue now that network call has succeeded
                 // If sign in succeeded, display the app's main content View.
-                [self successful];
+                [self navigateToUserFeed];
             }
         }];
     }];
 }
 
-- (void) successful {
+- (void) navigateToUserFeed {
     // If sign in succeeded, display the app's main content View.
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     UserFeedViewController *feedVC = [storyboard instantiateViewControllerWithIdentifier:@"tabController"];
