@@ -6,18 +6,25 @@
 //
 
 #import "LoginViewController.h"
+#import "AppDelegate.h"
+
+static NSString * const kClientID =
+    @"948108757446-cgeskunk0ls6f4ljhs871t1buuga4tlr.apps.googleusercontent.com";
 
 @interface LoginViewController ()
 
 @end
 
 @implementation LoginViewController
-
+    
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    UITapGestureRecognizer *signInTapped = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(signIn:)];
+    [self.signInButton addGestureRecognizer:signInTapped];
+    _signInButton.style = kGIDSignInButtonStyleWide;
+    _signInButton.colorScheme = kGIDSignInButtonColorSchemeDark;
 }
-
 
 - (void)loginUser {
     NSString *username = self.usernameField.text;
@@ -28,7 +35,6 @@
         return;
     }
     
-        
     [PFUser logInWithUsernameInBackground:username password:password block:^(PFUser * user, NSError *  error) {
         if (error != nil) {
             NSLog(@"User log in failed: %@", error.localizedDescription);
@@ -86,6 +92,52 @@
 
 - (IBAction)didTapSignup:(id)sender {
     [self performSegueWithIdentifier:@"signupSegue" sender:nil];
+}
+
+- (IBAction)signIn:(id)sender {
+    GIDConfiguration *signInConfig;
+    signInConfig = [[GIDConfiguration alloc] initWithClientID:kClientID];
+    
+    [GIDSignIn.sharedInstance signInWithConfiguration:signInConfig
+                           presentingViewController:self
+                                           callback:^(GIDGoogleUser * _Nullable user,
+                                                      NSError * _Nullable error) {
+        if (error) {
+            return;
+        }
+        // Makes call to extract user info
+        PFUser *newUser = [PFUser user];
+        
+        // set user properties
+        newUser.username = user.profile.name;
+        newUser.email = user.profile.email;
+        newUser.password = @"password";
+        [newUser signUpInBackgroundWithBlock:^(BOOL succeeded, NSError * error) {
+            if (error != nil) {
+                if ([error.localizedDescription isEqual:@"Account already exists for this username."]) {
+                    NSString *username = user.profile.name;
+                    NSString *password = @"password";
+                    [PFUser logInWithUsernameInBackground:username password:password block:^(PFUser * user, NSError *  error) {
+                        //
+                        // Manually segue now that network call has succeeded
+                        // If sign in succeeded, display the app's main content View.
+                        [self navigateToUserFeed];
+                    }];
+                }
+            } else {
+                // Manually segue now that network call has succeeded
+                // If sign in succeeded, display the app's main content View.
+                [self navigateToUserFeed];
+            }
+        }];
+    }];
+}
+
+- (void) navigateToUserFeed {
+    // If sign in succeeded, display the app's main content View.
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    UserFeedViewController *feedVC = [storyboard instantiateViewControllerWithIdentifier:@"tabController"];
+    self.view.window.rootViewController = feedVC;
 }
 
 @end

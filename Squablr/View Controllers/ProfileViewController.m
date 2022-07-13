@@ -6,6 +6,8 @@
 //
 
 #import "ProfileViewController.h"
+#import "LoginViewController.h"
+#import "User.h"
 
 @interface ProfileViewController ()
 
@@ -16,8 +18,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    [self welcome];
 }
 - (IBAction)didTapLogout:(id)sender {
+    [GIDSignIn.sharedInstance signOut];
     [PFUser logOutInBackgroundWithBlock:^(NSError * _Nullable error) {
         if (!error) {
             UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
@@ -26,4 +30,9 @@
         }
     }];
 }
+
+-(void) welcome {
+    _welcomeMessage.text = [NSString stringWithFormat:@"%@%@%@", @"Hello, ", [PFUser currentUser].username, @"!"];
+}
+
 @end
