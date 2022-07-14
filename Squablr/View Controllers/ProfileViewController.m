@@ -9,7 +9,7 @@
 #import "LoginViewController.h"
 #import "Profile.h"
 
-@interface ProfileViewController ()
+@interface ProfileViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 @property (nonatomic, strong) NSMutableArray *arrayOfUserInfo;
 
 @end
@@ -21,8 +21,18 @@
     // Do any additional setup after loading the view.
     [self queryUserProfileInfo];
 }
+
 - (IBAction)didTapEdit:(id)sender {
     [self performSegueWithIdentifier:@"editSegue" sender:nil];
+}
+
+- (IBAction)didTapPhotoPicker:(id)sender {
+    UIImagePickerController *imagePickerVC = [UIImagePickerController new];
+    imagePickerVC.delegate = self;
+    imagePickerVC.allowsEditing = YES;
+    imagePickerVC.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+
+    [self presentViewController:imagePickerVC animated:YES completion:nil];
 }
 
 - (IBAction)didTapLogout:(id)sender {

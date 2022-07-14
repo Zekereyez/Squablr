@@ -253,6 +253,17 @@
                                 </connections>
                             </button>
                         </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" image="plus" catalog="system" style="plain" id="ixa-Ux-xcA">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="CFj-6R-yV0">
+                                <rect key="frame" x="302" y="11" width="92" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="plus" catalog="system" title=" "/>
+                                <connections>
+                                    <action selector="didTapPhotoPicker:" destination="F5R-bj-4CQ" eventType="touchUpInside" id="3KP-al-VU4"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="userAge" destination="WAJ-jj-M5Y" id="2J0-yC-Yhy"/>
@@ -399,6 +410,7 @@
         <image name="boxing-glove" width="512" height="512"/>
         <image name="chat (1)" width="512" height="512"/>
         <image name="person.fill" catalog="system" width="128" height="120"/>
+        <image name="plus" catalog="system" width="128" height="113"/>
         <image name="user (1)" width="512" height="512"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
