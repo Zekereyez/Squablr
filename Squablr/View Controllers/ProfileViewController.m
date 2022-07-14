@@ -62,16 +62,19 @@
 
 -(void) loadUserProfileInfo {
     // Extract the array element properties for the user and assign into profile labels
-    NSString *age = [self.arrayOfUserInfo[0] age];
-    self.userAge.text = [NSString stringWithFormat:@"%@", age];
-    NSString *weight = [self.arrayOfUserInfo[0] weightClass];
-    self.userWeight.text = [NSString stringWithFormat:@"%@", weight];
-    NSString *stance = [self.arrayOfUserInfo[0] stance];
-    self.userStance.text = [NSString stringWithFormat:@"%@", stance];
-    NSString *experience = [self.arrayOfUserInfo[0] experience];
-    self.userExperience.text = [NSString stringWithFormat:@"%@", experience];
-    NSString *bio = [self.arrayOfUserInfo[0] biography];
-    self.userBio.text = [NSString stringWithFormat:@"%@", bio];
+    // TODO: Make sure the arrayofusers has only one element in it
+    if (self.arrayOfUserInfo.count == 1) {
+        NSString *age = [self.arrayOfUserInfo[0] age];
+        self.userAge.text = [NSString stringWithFormat:@"%@", age];
+        NSString *weight = [self.arrayOfUserInfo[0] weightClass];
+        self.userWeight.text = [NSString stringWithFormat:@"%@", weight];
+        NSString *stance = [self.arrayOfUserInfo[0] stance];
+        self.userStance.text = [NSString stringWithFormat:@"%@", stance];
+        NSString *experience = [self.arrayOfUserInfo[0] experience];
+        self.userExperience.text = [NSString stringWithFormat:@"%@", experience];
+        NSString *bio = [self.arrayOfUserInfo[0] biography];
+        self.userBio.text = [NSString stringWithFormat:@"%@", bio];
+    }
 }
 
 @end
