@@ -8,6 +8,7 @@
 #import <UIKit/UIKit.h>
 #import <Parse/Parse.h>
 #import "UserFeedViewController.h"
+#import "Profile.h"
 #import <GoogleSignIn/GoogleSignIn.h>
 
 NS_ASSUME_NONNULL_BEGIN
@@ -18,7 +19,6 @@ NS_ASSUME_NONNULL_BEGIN
 - (IBAction)didTapSignup:(id)sender;
 - (IBAction)didTapLogin:(id)sender;
 @property (weak, nonatomic) IBOutlet GIDSignInButton *signInButton;
-
 @end
 
 NS_ASSUME_NONNULL_END

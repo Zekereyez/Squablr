@@ -5,9 +5,9 @@
 //  Created by Zeke Reyes on 7/8/22.
 //
 
-#import "User.h"
+#import "Profile.h"
 
-@implementation User
+@implementation Profile
 @dynamic userID;
 @dynamic name;
 @dynamic age;
@@ -18,18 +18,17 @@
 @dynamic profileImages;
 
 + (nonnull NSString *)parseClassName {
-    return @"User";
+    return @"Profile";
 }
 
-+ (void) postUserImage: ( UIImage * _Nullable )image withCaption: ( NSString * _Nullable )caption withCompletion: (PFBooleanResultBlock  _Nullable)completion {
-    User *newUser = [User new];
-    newUser.name = [PFUser currentUser];
-    newUser.age = @(0);
-    newUser.weightClass = @(0);
-    newUser.stance = @"1";
-    newUser.experience = @(0);
-    newUser.biography = @"";
-    newUser.profileImages = [self getPFFileFromImage:image];
++ (void) writeUserToParse: (PFBooleanResultBlock  _Nullable)completion {
+    Profile *newUser = [Profile new];
+    newUser.name = [PFUser currentUser].username;
+    newUser.age = @(18);
+    newUser.weightClass = @(100);
+    newUser.stance = @"Orthodox";
+    newUser.experience = @(1);
+    newUser.biography = @"I'm new here! (:";
     
     [newUser saveInBackgroundWithBlock: completion];
 }

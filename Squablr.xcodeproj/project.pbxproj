@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		21B3A8762CE0E80FFF14F9F9 /* Pods_Squablr.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F0FBCF2F67734291CE03D13 /* Pods_Squablr.framework */; };
 		285EEFC8D72B610B9172E57B /* Pods_Squablr_SquablrUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6644716D576D48C884510C82 /* Pods_Squablr_SquablrUITests.framework */; };
+		9EC7449D287F745E0072271A /* EditProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EC7449C287F745E0072271A /* EditProfileViewController.m */; };
 		9EF5EB102874A2F6008BA3CC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EF5EB0F2874A2F6008BA3CC /* AppDelegate.m */; };
 		9EF5EB132874A2F6008BA3CC /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EF5EB122874A2F6008BA3CC /* SceneDelegate.m */; };
 		9EF5EB162874A2F6008BA3CC /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EF5EB152874A2F6008BA3CC /* ViewController.m */; };
@@ -23,7 +24,7 @@
 		9EF5EB492877A971008BA3CC /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EF5EB482877A971008BA3CC /* SignUpViewController.m */; };
 		9EF5EB4F287891A5008BA3CC /* UserFeedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EF5EB4E287891A5008BA3CC /* UserFeedViewController.m */; };
 		9EF5EB562878B30B008BA3CC /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EF5EB552878B30B008BA3CC /* ProfileViewController.m */; };
-		9EF5EB5A2878B5A2008BA3CC /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EF5EB592878B5A2008BA3CC /* User.m */; };
+		9EF5EB5A2878B5A2008BA3CC /* Profile.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EF5EB592878B5A2008BA3CC /* Profile.m */; };
 		9EF5EB5D2878E151008BA3CC /* MatchesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EF5EB5C2878E151008BA3CC /* MatchesViewController.m */; };
 		F4957EDCB5041AF6949EE6C2 /* Pods_SquablrTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17103ED3AAA8D387E6F78077 /* Pods_SquablrTests.framework */; };
 /* End PBXBuildFile section */
@@ -53,6 +54,8 @@
 		4E38C9359E902DD1E0FC2FCB /* Pods-Squablr.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Squablr.release.xcconfig"; path = "Target Support Files/Pods-Squablr/Pods-Squablr.release.xcconfig"; sourceTree = "<group>"; };
 		5F0FBCF2F67734291CE03D13 /* Pods_Squablr.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Squablr.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6644716D576D48C884510C82 /* Pods_Squablr_SquablrUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Squablr_SquablrUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9EC7449B287F745E0072271A /* EditProfileViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EditProfileViewController.h; sourceTree = "<group>"; };
+		9EC7449C287F745E0072271A /* EditProfileViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EditProfileViewController.m; sourceTree = "<group>"; };
 		9EF5EB0B2874A2F6008BA3CC /* Squablr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Squablr.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9EF5EB0E2874A2F6008BA3CC /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		9EF5EB0F2874A2F6008BA3CC /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -78,8 +81,8 @@
 		9EF5EB4E287891A5008BA3CC /* UserFeedViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserFeedViewController.m; sourceTree = "<group>"; };
 		9EF5EB542878B30B008BA3CC /* ProfileViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
 		9EF5EB552878B30B008BA3CC /* ProfileViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
-		9EF5EB582878B5A2008BA3CC /* User.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
-		9EF5EB592878B5A2008BA3CC /* User.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		9EF5EB582878B5A2008BA3CC /* Profile.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Profile.h; sourceTree = "<group>"; };
+		9EF5EB592878B5A2008BA3CC /* Profile.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Profile.m; sourceTree = "<group>"; };
 		9EF5EB5B2878E151008BA3CC /* MatchesViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MatchesViewController.h; sourceTree = "<group>"; };
 		9EF5EB5C2878E151008BA3CC /* MatchesViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MatchesViewController.m; sourceTree = "<group>"; };
 		BD1F5A055C4411FA6DE5514A /* Pods-SquablrTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SquablrTests.release.xcconfig"; path = "Target Support Files/Pods-SquablrTests/Pods-SquablrTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -209,6 +212,8 @@
 				9EF5EB5C2878E151008BA3CC /* MatchesViewController.m */,
 				9EF5EB542878B30B008BA3CC /* ProfileViewController.h */,
 				9EF5EB552878B30B008BA3CC /* ProfileViewController.m */,
+				9EC7449B287F745E0072271A /* EditProfileViewController.h */,
+				9EC7449C287F745E0072271A /* EditProfileViewController.m */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -216,8 +221,8 @@
 		9EF5EB572878B479008BA3CC /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				9EF5EB582878B5A2008BA3CC /* User.h */,
-				9EF5EB592878B5A2008BA3CC /* User.m */,
+				9EF5EB582878B5A2008BA3CC /* Profile.h */,
+				9EF5EB592878B5A2008BA3CC /* Profile.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -461,12 +466,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				9EF5EB162874A2F6008BA3CC /* ViewController.m in Sources */,
+				9EC7449D287F745E0072271A /* EditProfileViewController.m in Sources */,
 				9EF5EB102874A2F6008BA3CC /* AppDelegate.m in Sources */,
 				9EF5EB5D2878E151008BA3CC /* MatchesViewController.m in Sources */,
 				9EF5EB212874A2F7008BA3CC /* main.m in Sources */,
 				9EF5EB132874A2F6008BA3CC /* SceneDelegate.m in Sources */,
 				9EF5EB562878B30B008BA3CC /* ProfileViewController.m in Sources */,
-				9EF5EB5A2878B5A2008BA3CC /* User.m in Sources */,
+				9EF5EB5A2878B5A2008BA3CC /* Profile.m in Sources */,
 				9EF5EB4F287891A5008BA3CC /* UserFeedViewController.m in Sources */,
 				9EF5EB492877A971008BA3CC /* SignUpViewController.m in Sources */,
 				9EF5EB452877A801008BA3CC /* LoginViewController.m in Sources */,
