@@ -234,6 +234,12 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rth-2i-i30">
                                 <rect key="frame" x="20" y="150" width="374" height="300"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zbt-4V-YWs">
+                                        <rect key="frame" x="8" y="19" width="286" height="273"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                </subviews>
                                 <viewLayoutGuide key="contentLayoutGuide" id="X7c-ix-ZBd"/>
                                 <viewLayoutGuide key="frameLayoutGuide" id="Q7i-vG-MIN"/>
                             </scrollView>
@@ -270,6 +276,7 @@
                         <outlet property="userBio" destination="3ES-Iw-EqG" id="axQ-0N-RQf"/>
                         <outlet property="userExperience" destination="14B-U7-nUM" id="ZCZ-wg-7j3"/>
                         <outlet property="userProfileName" destination="J8D-kz-GE0" id="bCT-zd-PmO"/>
+                        <outlet property="userProfilePic" destination="zbt-4V-YWs" id="wwv-3K-pBA"/>
                         <outlet property="userStance" destination="nxi-16-Ll9" id="AIQ-ZU-fJi"/>
                         <outlet property="userWeight" destination="o5R-rv-KC6" id="k7E-bu-fig"/>
                         <segue destination="qwn-Xa-hta" kind="presentation" identifier="editSegue" id="a3g-kn-yx5"/>
