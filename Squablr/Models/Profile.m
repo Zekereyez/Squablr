@@ -29,7 +29,6 @@
     newUser.stance = @"Orthodox";
     newUser.experience = @(1);
     newUser.biography = @"I'm new here! (:";
-//    newUser.profileImages = [self getPFFileFromImage:image];
     
     [newUser saveInBackgroundWithBlock: completion];
 }

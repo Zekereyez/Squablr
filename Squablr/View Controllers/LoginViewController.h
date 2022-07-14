@@ -19,7 +19,6 @@ NS_ASSUME_NONNULL_BEGIN
 - (IBAction)didTapSignup:(id)sender;
 - (IBAction)didTapLogin:(id)sender;
 @property (weak, nonatomic) IBOutlet GIDSignInButton *signInButton;
-
 @end
 
 NS_ASSUME_NONNULL_END

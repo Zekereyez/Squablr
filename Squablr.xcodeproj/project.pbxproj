@@ -174,8 +174,6 @@
 				9EF5EB142874A2F6008BA3CC /* ViewController.h */,
 				9EF5EB152874A2F6008BA3CC /* ViewController.m */,
 				9EF5EB172874A2F6008BA3CC /* Main.storyboard */,
-				9EC7449B287F745E0072271A /* EditProfileViewController.h */,
-				9EC7449C287F745E0072271A /* EditProfileViewController.m */,
 				9EF5EB1A2874A2F7008BA3CC /* Assets.xcassets */,
 				9EF5EB1C2874A2F7008BA3CC /* LaunchScreen.storyboard */,
 				9EF5EB1F2874A2F7008BA3CC /* Info.plist */,
@@ -214,6 +212,8 @@
 				9EF5EB5C2878E151008BA3CC /* MatchesViewController.m */,
 				9EF5EB542878B30B008BA3CC /* ProfileViewController.h */,
 				9EF5EB552878B30B008BA3CC /* ProfileViewController.m */,
+				9EC7449B287F745E0072271A /* EditProfileViewController.h */,
+				9EC7449C287F745E0072271A /* EditProfileViewController.m */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
