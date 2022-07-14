@@ -29,6 +29,7 @@
     [GIDSignIn.sharedInstance signOut];
     [PFUser logOutInBackgroundWithBlock:^(NSError * _Nullable error) {
         if (!error) {
+            // Sends user to the login page
             UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
             LoginViewController *loginViewController = [storyboard instantiateViewControllerWithIdentifier:@"loginVC"];
             self.view.window.rootViewController = loginViewController;
@@ -40,17 +41,16 @@
     _userProfileName.text = [NSString stringWithFormat:@"%@", [PFUser currentUser].username];
     // Now to load the info we need to query from here based on the user name
     PFQuery *postQuery = [Profile query];
+    // this key is for test purposes
     [postQuery includeKey:@"age"];
     // fetch data asynchronously
     [postQuery findObjectsInBackgroundWithBlock:^(NSArray<Profile *> * _Nullable userInfo, NSError * _Nullable error) {
         if (userInfo) {
             // Handle fetched data
             self.arrayOfUserInfo = [NSMutableArray arrayWithArray:userInfo];
-//            [self.tableView reloadData];
+            // logging an array item
             NSLog(@"%@", [self.arrayOfUserInfo[0] stance]);
-            NSString *temp = [self.arrayOfUserInfo[0] stance];
-//            NSLog(@"%@", [self arrayOfUserInfo[0]);
-            // If the call is successful we need to load the info
+            // If the call is successful we need to load the info into the user profile
             [self loadUserProfileInfo];
         }
         else {
@@ -61,8 +61,7 @@
 }
 
 -(void) loadUserProfileInfo {
-    // Here we want to access the array of user info and
-    // properly assign the profile properties
+    // Extract the array element properties for the user and assign into profile labels
     NSString *age = [self.arrayOfUserInfo[0] age];
     self.userAge.text = [NSString stringWithFormat:@"%@", age];
     NSString *weight = [self.arrayOfUserInfo[0] weightClass];
@@ -73,7 +72,6 @@
     self.userExperience.text = [NSString stringWithFormat:@"%@", experience];
     NSString *bio = [self.arrayOfUserInfo[0] biography];
     self.userBio.text = [NSString stringWithFormat:@"%@", bio];
-    
 }
 
 @end
