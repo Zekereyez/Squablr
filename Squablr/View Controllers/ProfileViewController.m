@@ -47,7 +47,9 @@
             // Handle fetched data
             self.arrayOfUserInfo = [NSMutableArray arrayWithArray:userInfo];
 //            [self.tableView reloadData];
-            NSLog(@"%@", [self.arrayOfUserInfo[0] age]);
+            NSLog(@"%@", [self.arrayOfUserInfo[0] stance]);
+            NSString *temp = [self.arrayOfUserInfo[0] stance];
+//            NSLog(@"%@", [self arrayOfUserInfo[0]);
             // If the call is successful we need to load the info
             [self loadUserProfileInfo];
         }
@@ -61,12 +63,16 @@
 -(void) loadUserProfileInfo {
     // Here we want to access the array of user info and
     // properly assign the profile properties
-//    int ua = [[self.arrayOfUserInfo][0] _userAge];
-    self.userAge.text = self.arrayOfUserInfo[0];
-//    self.userWeight.text = [[self.arrayOfUserInfo[0]] weight];
-//    self.userStance.text = [[self.arrayOfUserInfo[0]] stance];
-//    self.userExperience.text = [[self.arrayOfUserInfo[0]] experience];
-//    self.userBio.text = [[self.arrayOfUserInfo[0]] biography];
+    NSString *age = [self.arrayOfUserInfo[0] age];
+    self.userAge.text = [NSString stringWithFormat:@"%@", age];
+    NSString *weight = [self.arrayOfUserInfo[0] weightClass];
+    self.userWeight.text = [NSString stringWithFormat:@"%@", weight];
+    NSString *stance = [self.arrayOfUserInfo[0] stance];
+    self.userStance.text = [NSString stringWithFormat:@"%@", stance];
+    NSString *experience = [self.arrayOfUserInfo[0] experience];
+    self.userExperience.text = [NSString stringWithFormat:@"%@", experience];
+    NSString *bio = [self.arrayOfUserInfo[0] biography];
+    self.userBio.text = [NSString stringWithFormat:@"%@", bio];
     
 }
 
