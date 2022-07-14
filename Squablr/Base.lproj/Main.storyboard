@@ -5,6 +5,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -231,18 +232,37 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rth-2i-i30">
-                                <rect key="frame" x="20" y="150" width="374" height="300"/>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="hmd-lE-ITp">
+                                <rect key="frame" x="0.0" y="150" width="414" height="300"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zbt-4V-YWs">
-                                        <rect key="frame" x="8" y="19" width="286" height="273"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="QOb-4a-Z7e">
+                                    <size key="itemSize" width="346" height="300"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="eLM-up-6cs" customClass="ProfilePictureCell">
+                                        <rect key="frame" x="34" y="0.0" width="346" height="300"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </imageView>
-                                </subviews>
-                                <viewLayoutGuide key="contentLayoutGuide" id="X7c-ix-ZBd"/>
-                                <viewLayoutGuide key="frameLayoutGuide" id="Q7i-vG-MIN"/>
-                            </scrollView>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="WVi-WD-5ED">
+                                            <rect key="frame" x="0.0" y="0.0" width="346" height="300"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KYP-oc-HxE">
+                                                    <rect key="frame" x="0.0" y="0.0" width="346" height="300"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                            </subviews>
+                                        </collectionViewCellContentView>
+                                        <size key="customSize" width="346" height="300"/>
+                                        <connections>
+                                            <outlet property="profileImage" destination="KYP-oc-HxE" id="zHU-Hf-Nyz"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="cHS-iG-YMY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -276,7 +296,6 @@
                         <outlet property="userBio" destination="3ES-Iw-EqG" id="axQ-0N-RQf"/>
                         <outlet property="userExperience" destination="14B-U7-nUM" id="ZCZ-wg-7j3"/>
                         <outlet property="userProfileName" destination="J8D-kz-GE0" id="bCT-zd-PmO"/>
-                        <outlet property="userProfilePic" destination="zbt-4V-YWs" id="wwv-3K-pBA"/>
                         <outlet property="userStance" destination="nxi-16-Ll9" id="AIQ-ZU-fJi"/>
                         <outlet property="userWeight" destination="o5R-rv-KC6" id="k7E-bu-fig"/>
                         <segue destination="qwn-Xa-hta" kind="presentation" identifier="editSegue" id="a3g-kn-yx5"/>
