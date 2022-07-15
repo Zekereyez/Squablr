@@ -292,6 +292,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="gridView" destination="hmd-lE-ITp" id="m5x-iQ-oQM"/>
                         <outlet property="userAge" destination="WAJ-jj-M5Y" id="2J0-yC-Yhy"/>
                         <outlet property="userBio" destination="3ES-Iw-EqG" id="axQ-0N-RQf"/>
                         <outlet property="userExperience" destination="14B-U7-nUM" id="ZCZ-wg-7j3"/>

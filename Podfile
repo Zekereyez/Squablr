@@ -9,6 +9,7 @@ target 'Squablr' do
   pod 'GoogleSignIn'
   pod 'Parse'
   pod 'Parse/UI'
+  pod 'AFNetworking'
 
   target 'SquablrTests' do
     inherit! :search_paths

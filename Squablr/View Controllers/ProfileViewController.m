@@ -8,10 +8,12 @@
 #import "ProfileViewController.h"
 #import "LoginViewController.h"
 #import "Profile.h"
+#import "UIKit+AFNetworking.h"
+#import "ProfilePictureCell.h"
 
-@interface ProfileViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
+@interface ProfileViewController () <UICollectionViewDataSource, UICollectionViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 @property (nonatomic, strong) NSMutableArray *arrayOfUserInfo;
-
+@property (nonatomic, strong) NSMutableArray *postArray;
 @end
 
 @implementation ProfileViewController
@@ -19,6 +21,26 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.gridView.dataSource = self;
+    self.gridView.delegate = self;
+    UICollectionViewFlowLayout *layout = (UICollectionViewFlowLayout *) self.gridView.collectionViewLayout;
+    layout.minimumLineSpacing = 0;
+    layout.minimumInteritemSpacing = 0;
+    NSLog(@"%f", self.gridView.frame.size.width);
+    CGFloat itemWidth = (self.gridView.frame.size.width / 3 - 15);
+    CGFloat itemHeight = itemWidth;
+    layout.itemSize = CGSizeMake(itemWidth, itemHeight);
+    self.postArray = [[NSMutableArray alloc] init];
+    // Need to query for user photos here prob make it a function
+    
+    PFUser *user = [PFUser currentUser];
+    PFFileObject *pic = user[@"profilePic"];
+    NSURL *url = [NSURL URLWithString:pic.url];
+    
+    if (pic) {
+        [self.userProfilePic setImageWithURL:url];
+    }
+    
     [self queryUserProfileInfo];
 }
 
@@ -124,6 +146,16 @@
         NSString *bio = [self.arrayOfUserInfo[0] biography];
         self.userBio.text = [NSString stringWithFormat:@"%@", bio];
     }
+}
+
+- (nonnull __kindof UICollectionViewCell *)collectionView:(nonnull UICollectionView *)collectionView cellForItemAtIndexPath:(nonnull NSIndexPath *)indexPath {
+    // placeholder info for the time being
+    ProfilePictureCell *cell;
+    return cell;
+}
+
+- (NSInteger)collectionView:(nonnull UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+    return self.postArray.count;
 }
 
 @end
