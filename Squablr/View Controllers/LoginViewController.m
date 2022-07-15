@@ -122,7 +122,8 @@ static NSString * const kClientID =
                         [self navigateToUserFeed];
                     }];
                 }
-            } else {
+            }
+            else {
                 // When creating a user profile we are initializing ther user with properties
                 [Profile writeUserToParse:^(BOOL succeeded, NSError * _Nullable writeError) {
                     // If no error posting to parse user will receive a success alert

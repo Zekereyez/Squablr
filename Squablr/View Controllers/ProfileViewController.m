@@ -111,16 +111,17 @@
 -(void) queryUserProfileInfo {
     _userProfileName.text = [NSString stringWithFormat:@"%@", [PFUser currentUser].username];
     // Now to load the info we need to query from here based on the user name
-    PFQuery *postQuery = [Profile query];
+    PFQuery *postQuery = [PFQuery queryWithClassName:@"Profile"];
+    [postQuery whereKey:@"name" equalTo:[PFUser currentUser].username];
     // this key is for test purposes
-    [postQuery includeKey:@"age"];
+//    [postQuery includeKey:@"age"];
     // fetch data asynchronously
     [postQuery findObjectsInBackgroundWithBlock:^(NSArray<Profile *> * _Nullable userInfo, NSError * _Nullable error) {
         if (userInfo) {
             // Handle fetched data
             self.arrayOfUserInfo = [NSMutableArray arrayWithArray:userInfo];
             // logging an array item
-            NSLog(@"%@", [self.arrayOfUserInfo[0] stance]);
+//            NSLog(@"%@", [self.arrayOfUserInfo[0] stance]);
             // If the call is successful we need to load the info into the user profile
             [self loadUserProfileInfo];
         }
@@ -134,6 +135,7 @@
 -(void) loadUserProfileInfo {
     // Extract the array element properties for the user and assign into profile labels
     // TODO: Make sure the arrayofusers has only one element in it
+    if (self.arrayOfUserInfo.count == 0) {return;}
     if (self.arrayOfUserInfo.count == 1) {
         NSString *age = [self.arrayOfUserInfo[0] age];
         self.userAge.text = [NSString stringWithFormat:@"%@", age];

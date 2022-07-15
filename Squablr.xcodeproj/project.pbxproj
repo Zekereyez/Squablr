@@ -217,6 +217,8 @@
 				9EF5EB552878B30B008BA3CC /* ProfileViewController.m */,
 				9EC7449B287F745E0072271A /* EditProfileViewController.h */,
 				9EC7449C287F745E0072271A /* EditProfileViewController.m */,
+				9EC744A12880DF880072271A /* ProfilePictureCell.h */,
+				9EC744A22880DF880072271A /* ProfilePictureCell.m */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -226,8 +228,6 @@
 			children = (
 				9EF5EB582878B5A2008BA3CC /* Profile.h */,
 				9EF5EB592878B5A2008BA3CC /* Profile.m */,
-				9EC744A12880DF880072271A /* ProfilePictureCell.h */,
-				9EC744A22880DF880072271A /* ProfilePictureCell.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
