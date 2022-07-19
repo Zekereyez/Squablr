@@ -74,53 +74,12 @@
     [self resizeImage:editedImage withSize:CGSizeMake(500.00, 500.00)];
     self.userProfilePic.image = editedImage;
     
-    // ok another method
+    // Working method for assigning a user a profile image
     NSData *imageData = UIImagePNGRepresentation(editedImage);
     PFFileObject *imageFile = [PFFileObject fileObjectWithName:@"image.png" data:imageData];
-//    [PFUser currentUser][@"imageFile"] = imageFile;
-//    [PFUser currentUser][@"imageName"] = @"User Prof Pics";
-//    Profile *newProfilePic = [PFUser currentUser];
-//    PFObject *userPhoto = [Profile objectWithClassName:@"Profile"];
-//    userPhoto[@"imageName"] = @"User Profile Pictures";
-//    userPhoto[@"imageFile"] = imageFile;
-//    [newProfilePic saveInBackground];
-    
-    
-    
-//    Profile *user = [PFUser currentUser];
-//    NSData *imageData = UIImagePNGRepresentation(editedImage);
-//    PFFileObject *imageFile = [PFFileObject fileObjectWithName:@"image.png" data:imageData];
-//    user[@"imageName"] = @"User Profile Pictures";
-//    user[@"imageFile"] = imageFile;
-    
-    
-    
-//    PFUser *user = [PFUser currentUser];
-//    user[@"profile"] = [Profile getPFFileFromImage:editedImage];
-//    [user saveInBackground];
-    
-    
-    // this is to create pointers and save to profile class
-//    [PFuser currentUser][@"imageFile"] = imageFile;
-//    [PFUser currentUser][@"profile"] = [[Profile alloc] init];
-//    [[PFUser currentUser] saveInBackground];
-    
-//    [PFUser currentUser][@"profile"]
-    
-    
-    
-//    [Profile writeUserProfilePicToParse: editedImage];
-    
-    // Send the image to parse
-//    NSData *imageData = UIImagePNGRepresentation(editedImage);
-//    PFFileObject *imageFile = [PFFileObject fileObjectWithName:@"image.png" data:imageData];
-//    PFFileObject *newProfilePic = [PFUser currentUser];
-////    newProfilePic.profileImages = imageFile;
-//    PFObject *userPhoto = [Profile objectWithClassName:@"Profile"];
-//    userPhoto[@"imageName"] = @"User Profile Pictures";
-//    userPhoto[@"imageFile"] = imageFile;
-//    [userPhoto saveInBackground];
-//
+    PFUser *user = [PFUser currentUser];
+    user[@"profile"][@"imageFile"] = [Profile getPFFileFromImage:editedImage];
+    [user saveInBackground];
     
     // Dismiss UIImagePickerController to go back to your original view controller
     [self dismissViewControllerAnimated:YES completion:nil];
