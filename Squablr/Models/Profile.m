@@ -15,7 +15,7 @@
 @dynamic stance;
 @dynamic experience;
 @dynamic biography;
-@dynamic profileImages;
+@dynamic imageFile;
 
 + (nonnull NSString *)parseClassName {
     return @"Profile";
@@ -24,13 +24,23 @@
 + (void) writeUserToParse: (PFBooleanResultBlock  _Nullable)completion {
     Profile *newUser = [Profile new];
     newUser.name = [PFUser currentUser].username;
+    newUser.imageFile = nil;
     newUser.age = @(18);
     newUser.weightClass = @(100);
     newUser.stance = @"Orthodox";
     newUser.experience = @(1);
     newUser.biography = @"I'm new here! (:";
+    // This creates the user pointer to the profile class
+    PFUser *user = [PFUser currentUser];
+    user[@"profile"] = newUser;
+    // Saves the user profile to parse
+    [user saveInBackground];
     
     [newUser saveInBackgroundWithBlock: completion];
+}
+
++ (void) writeUserProfilePicToParse: ( UIImage * _Nullable )image {
+//    newUser.profileImages = [self getPFFileFromImage:image];
 }
 
 + (PFFileObject *)getPFFileFromImage: (UIImage * _Nullable)image {

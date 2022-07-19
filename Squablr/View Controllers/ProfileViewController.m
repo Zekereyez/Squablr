@@ -21,6 +21,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    [self queryUserProfileInfo];
     self.gridView.dataSource = self;
     self.gridView.delegate = self;
     UICollectionViewFlowLayout *layout = (UICollectionViewFlowLayout *) self.gridView.collectionViewLayout;
@@ -33,6 +34,11 @@
     self.postArray = [[NSMutableArray alloc] init];
     // Need to query for user photos here prob make it a function
     
+    // So we have a picture picker function for the addition of a picture
+    // the next step would be to grabbing that image and then uploading it to parse
+    // once its uploaded or set we can query the image(s) and display on the user
+    // profile so we need good coding logic for this
+    
     PFUser *user = [PFUser currentUser];
     PFFileObject *pic = user[@"profilePic"];
     NSURL *url = [NSURL URLWithString:pic.url];
@@ -41,7 +47,6 @@
         [self.userProfilePic setImageWithURL:url];
     }
     
-    [self queryUserProfileInfo];
 }
 
 - (IBAction)didTapEdit:(id)sender {
@@ -68,6 +73,54 @@
     // Do something with the images (based on your use case)
     [self resizeImage:editedImage withSize:CGSizeMake(500.00, 500.00)];
     self.userProfilePic.image = editedImage;
+    
+    // ok another method
+    NSData *imageData = UIImagePNGRepresentation(editedImage);
+    PFFileObject *imageFile = [PFFileObject fileObjectWithName:@"image.png" data:imageData];
+//    [PFUser currentUser][@"imageFile"] = imageFile;
+//    [PFUser currentUser][@"imageName"] = @"User Prof Pics";
+//    Profile *newProfilePic = [PFUser currentUser];
+//    PFObject *userPhoto = [Profile objectWithClassName:@"Profile"];
+//    userPhoto[@"imageName"] = @"User Profile Pictures";
+//    userPhoto[@"imageFile"] = imageFile;
+//    [newProfilePic saveInBackground];
+    
+    
+    
+//    Profile *user = [PFUser currentUser];
+//    NSData *imageData = UIImagePNGRepresentation(editedImage);
+//    PFFileObject *imageFile = [PFFileObject fileObjectWithName:@"image.png" data:imageData];
+//    user[@"imageName"] = @"User Profile Pictures";
+//    user[@"imageFile"] = imageFile;
+    
+    
+    
+//    PFUser *user = [PFUser currentUser];
+//    user[@"profile"] = [Profile getPFFileFromImage:editedImage];
+//    [user saveInBackground];
+    
+    
+    // this is to create pointers and save to profile class
+//    [PFuser currentUser][@"imageFile"] = imageFile;
+//    [PFUser currentUser][@"profile"] = [[Profile alloc] init];
+//    [[PFUser currentUser] saveInBackground];
+    
+//    [PFUser currentUser][@"profile"]
+    
+    
+    
+//    [Profile writeUserProfilePicToParse: editedImage];
+    
+    // Send the image to parse
+//    NSData *imageData = UIImagePNGRepresentation(editedImage);
+//    PFFileObject *imageFile = [PFFileObject fileObjectWithName:@"image.png" data:imageData];
+//    PFFileObject *newProfilePic = [PFUser currentUser];
+////    newProfilePic.profileImages = imageFile;
+//    PFObject *userPhoto = [Profile objectWithClassName:@"Profile"];
+//    userPhoto[@"imageName"] = @"User Profile Pictures";
+//    userPhoto[@"imageFile"] = imageFile;
+//    [userPhoto saveInBackground];
+//
     
     // Dismiss UIImagePickerController to go back to your original view controller
     [self dismissViewControllerAnimated:YES completion:nil];
@@ -113,15 +166,11 @@
     // Now to load the info we need to query from here based on the user name
     PFQuery *postQuery = [PFQuery queryWithClassName:@"Profile"];
     [postQuery whereKey:@"name" equalTo:[PFUser currentUser].username];
-    // this key is for test purposes
-//    [postQuery includeKey:@"age"];
     // fetch data asynchronously
     [postQuery findObjectsInBackgroundWithBlock:^(NSArray<Profile *> * _Nullable userInfo, NSError * _Nullable error) {
         if (userInfo) {
             // Handle fetched data
             self.arrayOfUserInfo = [NSMutableArray arrayWithArray:userInfo];
-            // logging an array item
-//            NSLog(@"%@", [self.arrayOfUserInfo[0] stance]);
             // If the call is successful we need to load the info into the user profile
             [self loadUserProfileInfo];
         }
