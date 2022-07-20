@@ -54,7 +54,6 @@
 
     // Do something with the images (based on your use case)
     [self resizeImage:editedImage withSize:CGSizeMake(500.00, 500.00)];
-//    self.userProfilePic.image = editedImage;
     
     // Working method for assigning a user a profile image
     // TODO: TIME TO MODULARIZE AND CREATE AND UPLOAD ARRAY OF USER IMAGES
@@ -145,7 +144,6 @@
     [profileQuery findObjectsInBackgroundWithBlock:^(NSArray *profiles, NSError * _Nullable error) {
         if (profiles) {
             // Handle fetched data
-            //self.userProfilePhotos = profiles[0]@"profileImages"];
             [self.gridView reloadData];
             NSLog(@"%@", self.userProfilePhotos);
         }
@@ -176,13 +174,9 @@
 }
 
 - (nonnull __kindof UICollectionViewCell *)collectionView:(nonnull UICollectionView *)collectionView cellForItemAtIndexPath:(nonnull NSIndexPath *)indexPath {
-    // placeholder info for the time being
     ProfilePictureCell *cell = [self.gridView dequeueReusableCellWithReuseIdentifier:@"ProfilePictureCell" forIndexPath:indexPath];
     NSLog(@"%@",self.userProfileInfo);
     cell.profileImage.file = self.userProfilePhotos[indexPath.item];
-//    NSLog(@"%@", self.userProfilePhotos);
-//    NSLog(@"%ld", (long)indexPath.item);
-//    NSLog(@"%@", self.userProfilePhotos[indexPath.item]);
 
     [cell.profileImage loadInBackground];
     return cell;
