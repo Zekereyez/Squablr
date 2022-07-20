@@ -19,7 +19,6 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self queryUserProfileInfo];
-//    [self queryUserImages];
     self.gridView.dataSource = self;
     self.gridView.delegate = self;
     UICollectionViewFlowLayout *layout = (UICollectionViewFlowLayout *) self.gridView.collectionViewLayout;
@@ -30,21 +29,6 @@
     CGFloat itemHeight = itemWidth;
     layout.itemSize = CGSizeMake(itemWidth, itemHeight);
     self.userProfilePhotos = [[NSMutableArray alloc] init];
-    // Need to query for user photos here prob make it a function
-    
-    // So we have a picture picker function for the addition of a picture
-    // the next step would be to grabbing that image and then uploading it to parse
-    // once its uploaded or set we can query the image(s) and display on the user
-    // profile so we need good coding logic for this
-    
-    PFUser *user = [PFUser currentUser];
-    PFFileObject *pic = user[@"profilePic"];
-    NSURL *url = [NSURL URLWithString:pic.url];
-    
-    if (pic) {
-//        [self.userProfilePic setImageWithURL:url];
-    }
-    
 }
 
 - (IBAction)didTapEdit:(id)sender {
@@ -78,19 +62,18 @@
     PFFileObject *imageFile = [PFFileObject fileObjectWithName:@"image.png" data:imageData];
     PFUser *user = [PFUser currentUser];
     user[@"profile"][@"imageFile"] = [Profile getPFFileFromImage:editedImage];
-    // Adds image into the Parse image array
-    [self.userProfilePhotos addObject:imageFile];
-    user[@"profile"][@"profileImages"] = self.userProfilePhotos;
-    [user saveInBackground];
     
     // load the picture into the local array
     if (self.userProfilePhotos != nil) {
         [self.userProfilePhotos addObject:imageFile];
-        [self.gridView reloadData];
     }
     else {
         self.userProfilePhotos = [[NSMutableArray alloc] initWithObjects:imageFile, nil];
     }
+    // Update the Parse image array with the local array of photos
+    user[@"profile"][@"profileImages"] = self.userProfilePhotos;
+    [user saveInBackground];
+    [self.gridView reloadData];
     
     NSLog(@"%@", self.userProfilePhotos[0]);
     
