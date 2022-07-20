@@ -39,10 +39,6 @@
     [newUser saveInBackgroundWithBlock: completion];
 }
 
-+ (void) writeUserProfilePicToParse: ( UIImage * _Nullable )image {
-//    newUser.profileImages = [self getPFFileFromImage:image];
-}
-
 + (PFFileObject *)getPFFileFromImage: (UIImage * _Nullable)image {
     // check if image is not nil
     if (!image) {
