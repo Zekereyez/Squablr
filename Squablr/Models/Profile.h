@@ -18,8 +18,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSString *stance;
 @property (nonatomic, strong) NSNumber *experience;
 @property (nonatomic, strong) NSString *biography;
-@property (nonatomic, strong) PFFileObject *profileImages;
-+(void) writeUserToParse: (PFBooleanResultBlock  _Nullable)completion;
+@property (nonatomic, strong) PFFileObject *imageFile;
++ (void) writeUserToParse: (PFBooleanResultBlock  _Nullable)completion;
++ (PFFileObject *)getPFFileFromImage: (UIImage * _Nullable)image;
 @end
 
 NS_ASSUME_NONNULL_END

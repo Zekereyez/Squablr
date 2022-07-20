@@ -6,8 +6,11 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "Parse/Parse.h"
+#import <Parse/Parse.h>
 #import "LoginViewController.h"
+#import "Profile.h"
+#import "UIKit+AFNetworking.h"
+#import "ProfilePictureCell.h"
 #import <GoogleSignIn/GoogleSignIn.h>
 
 NS_ASSUME_NONNULL_BEGIN
@@ -21,6 +24,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UILabel *userExperience;
 @property (weak, nonatomic) IBOutlet UILabel *userBio;
 @property (weak, nonatomic) IBOutlet UILabel *userProfileName;
+@property (weak, nonatomic) IBOutlet UICollectionView *gridView;
+
+@property (weak, nonatomic) Profile *profile;
 
 @end
 

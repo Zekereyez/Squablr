@@ -3,8 +3,10 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -45,7 +47,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LNW-5F-USM">
-                                <rect key="frame" x="214" y="500" width="87" height="31"/>
+                                <rect key="frame" x="208" y="500" width="93" height="31"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="tinted" title="Login"/>
                                 <connections>
@@ -56,7 +58,7 @@
                                 <rect key="frame" x="87" y="176" width="240" height="128"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xBi-eI-hzg" customClass="GIDSignInButton">
-                                <rect key="frame" x="113" y="570" width="188" height="48"/>
+                                <rect key="frame" x="101" y="570" width="212" height="48"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <gestureRecognizers/>
                                 <connections>
@@ -72,13 +74,13 @@
                             <constraint firstItem="DqC-dI-8HC" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="5LU-VP-Yjn"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="xBi-eI-hzg" secondAttribute="bottom" constant="244" id="9OU-vH-2GG"/>
                             <constraint firstItem="LNW-5F-USM" firstAttribute="baseline" secondItem="Zfi-Qh-6vB" secondAttribute="firstBaseline" id="GV0-Rc-Tdd"/>
+                            <constraint firstItem="Zfi-Qh-6vB" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="113" id="Mm5-cE-LIs"/>
                             <constraint firstItem="KW1-YC-uSE" firstAttribute="leading" secondItem="Zfi-Qh-6vB" secondAttribute="leading" id="N9L-yL-9As"/>
                             <constraint firstItem="oA1-v9-ACd" firstAttribute="trailing" secondItem="KW1-YC-uSE" secondAttribute="trailing" id="PJn-Kv-8T9"/>
-                            <constraint firstItem="xBi-eI-hzg" firstAttribute="trailing" secondItem="DqC-dI-8HC" secondAttribute="trailing" constant="-26" id="Q3A-lS-iSC"/>
-                            <constraint firstItem="LNW-5F-USM" firstAttribute="leading" secondItem="Zfi-Qh-6vB" secondAttribute="trailing" constant="14" id="RhL-yp-NIB"/>
+                            <constraint firstItem="LNW-5F-USM" firstAttribute="leading" secondItem="Zfi-Qh-6vB" secondAttribute="leading" constant="95" id="PbP-uW-VSU"/>
+                            <constraint firstItem="xBi-eI-hzg" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="101" id="adQ-nB-10H"/>
                             <constraint firstItem="DqC-dI-8HC" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="87" id="cAE-u1-ZLC"/>
                             <constraint firstItem="DqC-dI-8HC" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="132" id="dsE-MP-inz"/>
-                            <constraint firstItem="xBi-eI-hzg" firstAttribute="leading" secondItem="DqC-dI-8HC" secondAttribute="leading" constant="26" id="ec7-7Z-c6U"/>
                             <constraint firstItem="Zfi-Qh-6vB" firstAttribute="top" secondItem="KW1-YC-uSE" secondAttribute="bottom" constant="36" id="erG-ec-YOh"/>
                             <constraint firstItem="DqC-dI-8HC" firstAttribute="centerX" secondItem="oA1-v9-ACd" secondAttribute="centerX" id="fM6-gk-057"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Zfi-Qh-6vB" secondAttribute="bottom" constant="331" id="i1D-KL-Hlw"/>
@@ -86,7 +88,9 @@
                             <constraint firstItem="Zfi-Qh-6vB" firstAttribute="baseline" secondItem="LNW-5F-USM" secondAttribute="baseline" id="nes-P3-QMD"/>
                             <constraint firstItem="KW1-YC-uSE" firstAttribute="trailing" secondItem="LNW-5F-USM" secondAttribute="trailing" id="oqu-7C-IwV"/>
                             <constraint firstItem="KW1-YC-uSE" firstAttribute="top" secondItem="oA1-v9-ACd" secondAttribute="bottom" constant="31" id="reY-3L-zgl"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="xBi-eI-hzg" secondAttribute="trailing" constant="101" id="uw2-w1-vak"/>
                             <constraint firstItem="oA1-v9-ACd" firstAttribute="top" secondItem="DqC-dI-8HC" secondAttribute="bottom" constant="61" id="x7R-1m-L7t"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="LNW-5F-USM" secondAttribute="trailing" constant="113" id="xaa-e6-9i1"/>
                             <constraint firstItem="xBi-eI-hzg" firstAttribute="top" secondItem="Zfi-Qh-6vB" secondAttribute="bottom" constant="39" id="zK0-Fa-suK"/>
                         </constraints>
                     </view>
@@ -112,7 +116,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <tabBarItem key="tabBarItem" title=" " image="boxing-glove" id="IzW-8V-kT3">
-                        <inset key="imageInsets" minX="0.0" minY="224" maxX="0.0" maxY="225"/>
+                        <inset key="imageInsets" minX="0.0" minY="240" maxX="0.0" maxY="225"/>
                     </tabBarItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Sjr-kZ-Tkz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -130,7 +134,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <tabBarItem key="tabBarItem" title=" " image="chat (1)" selectedImage="chat (1)" id="GWM-rv-nJ6">
-                        <inset key="imageInsets" minX="0.0" minY="240" maxX="0.0" maxY="225"/>
+                        <inset key="imageInsets" minX="0.0" minY="255" maxX="0.0" maxY="225"/>
                     </tabBarItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yVM-lH-1tU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -231,12 +235,39 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rth-2i-i30">
-                                <rect key="frame" x="20" y="150" width="374" height="300"/>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="hmd-lE-ITp">
+                                <rect key="frame" x="0.0" y="150" width="414" height="300"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <viewLayoutGuide key="contentLayoutGuide" id="X7c-ix-ZBd"/>
-                                <viewLayoutGuide key="frameLayoutGuide" id="Q7i-vG-MIN"/>
-                            </scrollView>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="QOb-4a-Z7e">
+                                    <size key="itemSize" width="346" height="300"/>
+                                    <size key="estimatedItemSize" width="346" height="300"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ProfilePictureCell" id="eLM-up-6cs" customClass="ProfilePictureCell">
+                                        <rect key="frame" x="0.0" y="0.0" width="346" height="300"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="WVi-WD-5ED">
+                                            <rect key="frame" x="0.0" y="0.0" width="346" height="300"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KYP-oc-HxE" customClass="PFImageView">
+                                                    <rect key="frame" x="0.0" y="0.0" width="346" height="300"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <color key="backgroundColor" systemColor="systemCyanColor"/>
+                                                </imageView>
+                                            </subviews>
+                                        </collectionViewCellContentView>
+                                        <size key="customSize" width="346" height="300"/>
+                                        <connections>
+                                            <outlet property="profileImage" destination="KYP-oc-HxE" id="XRE-WY-mrD"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="cHS-iG-YMY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -253,8 +284,20 @@
                                 </connections>
                             </button>
                         </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" image="plus" catalog="system" style="plain" id="ixa-Ux-xcA">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="CFj-6R-yV0">
+                                <rect key="frame" x="302" y="11" width="92" height="34.5"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="plus" catalog="system" title=" "/>
+                                <connections>
+                                    <action selector="didTapPhotoPicker:" destination="F5R-bj-4CQ" eventType="touchUpInside" id="3KP-al-VU4"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="gridView" destination="hmd-lE-ITp" id="m5x-iQ-oQM"/>
                         <outlet property="userAge" destination="WAJ-jj-M5Y" id="2J0-yC-Yhy"/>
                         <outlet property="userBio" destination="3ES-Iw-EqG" id="axQ-0N-RQf"/>
                         <outlet property="userExperience" destination="14B-U7-nUM" id="ZCZ-wg-7j3"/>
@@ -356,10 +399,11 @@
             <objects>
                 <tabBarController storyboardIdentifier="tabController" automaticallyAdjustsScrollViewInsets="NO" id="g1K-H3-vCp" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" backgroundImage="person.fill" catalog="system" id="IoI-f8-Y3c">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="IoI-f8-Y3c">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <imageReference key="backgroundImage" image="person.fill" catalog="system" symbolScale="small"/>
                     </tabBar>
                     <connections>
                         <segue destination="EeT-HJ-QnV" kind="relationship" relationship="viewControllers" id="7Tk-CI-g7w"/>
@@ -376,7 +420,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="EeT-HJ-QnV" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title=" " image="user (1)" selectedImage="user (1)" id="vTh-J2-1tU">
-                        <inset key="imageInsets" minX="0.0" minY="240" maxX="0.0" maxY="225"/>
+                        <inset key="imageInsets" minX="0.0" minY="255" maxX="0.0" maxY="225"/>
                     </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Fef-rq-FKK">
@@ -399,9 +443,13 @@
         <image name="boxing-glove" width="512" height="512"/>
         <image name="chat (1)" width="512" height="512"/>
         <image name="person.fill" catalog="system" width="128" height="120"/>
+        <image name="plus" catalog="system" width="128" height="113"/>
         <image name="user (1)" width="512" height="512"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemCyanColor">
+            <color red="0.19607843137254902" green="0.67843137254901964" blue="0.90196078431372551" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
