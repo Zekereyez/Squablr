@@ -74,8 +74,6 @@
     [user saveInBackground];
     [self.gridView reloadData];
     
-    NSLog(@"%@", self.userProfilePhotos[0]);
-    
     // Dismiss UIImagePickerController to go back to your original view controller
     [self dismissViewControllerAnimated:YES completion:nil];
 }
@@ -130,30 +128,8 @@
             [self loadUserProfileInfo];
             [self.gridView reloadData];
         }
-        else {
-            // Log error
-            NSLog(@"%@", error.localizedDescription);
-        }
     }];
 }
-
-- (void)queryUserImages {
-    PFQuery *profileQuery = [PFQuery queryWithClassName:@"Profile"];
-    [profileQuery whereKey:@"name" equalTo:[PFUser currentUser].username];
-    // fetch data asynchronously
-    [profileQuery findObjectsInBackgroundWithBlock:^(NSArray *profiles, NSError * _Nullable error) {
-        if (profiles) {
-            // Handle fetched data
-            [self.gridView reloadData];
-            NSLog(@"%@", self.userProfilePhotos);
-        }
-        else {
-            // Log error
-            NSLog(@"%@", error.localizedDescription);
-        }
-    }];
-}
-
 
 -(void) loadUserProfileInfo {
     // Extract the array element properties for the user and assign into profile labels
@@ -175,7 +151,6 @@
 
 - (nonnull __kindof UICollectionViewCell *)collectionView:(nonnull UICollectionView *)collectionView cellForItemAtIndexPath:(nonnull NSIndexPath *)indexPath {
     ProfilePictureCell *cell = [self.gridView dequeueReusableCellWithReuseIdentifier:@"ProfilePictureCell" forIndexPath:indexPath];
-    NSLog(@"%@",self.userProfileInfo);
     cell.profileImage.file = self.userProfilePhotos[indexPath.item];
 
     [cell.profileImage loadInBackground];
