@@ -6,14 +6,11 @@
 //
 
 #import "ProfileViewController.h"
-#import "LoginViewController.h"
-#import "Profile.h"
-#import "UIKit+AFNetworking.h"
-#import "ProfilePictureCell.h"
+#import "Parse/PFImageView.h"
 
 @interface ProfileViewController () <UICollectionViewDataSource, UICollectionViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
-@property (nonatomic, strong) NSMutableArray *arrayOfUserInfo;
-@property (nonatomic, strong) NSMutableArray *postArray;
+@property (nonatomic, strong) NSMutableArray *userProfileInfo;
+@property (nonatomic, strong) NSMutableArray *userProfilePhotos;
 @end
 
 @implementation ProfileViewController
@@ -22,6 +19,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self queryUserProfileInfo];
+//    [self queryUserImages];
     self.gridView.dataSource = self;
     self.gridView.delegate = self;
     UICollectionViewFlowLayout *layout = (UICollectionViewFlowLayout *) self.gridView.collectionViewLayout;
@@ -31,7 +29,7 @@
     CGFloat itemWidth = (self.gridView.frame.size.width / 3 - 15);
     CGFloat itemHeight = itemWidth;
     layout.itemSize = CGSizeMake(itemWidth, itemHeight);
-    self.postArray = [[NSMutableArray alloc] init];
+    self.userProfilePhotos = [[NSMutableArray alloc] init];
     // Need to query for user photos here prob make it a function
     
     // So we have a picture picker function for the addition of a picture
@@ -44,7 +42,7 @@
     NSURL *url = [NSURL URLWithString:pic.url];
     
     if (pic) {
-        [self.userProfilePic setImageWithURL:url];
+//        [self.userProfilePic setImageWithURL:url];
     }
     
 }
@@ -72,14 +70,29 @@
 
     // Do something with the images (based on your use case)
     [self resizeImage:editedImage withSize:CGSizeMake(500.00, 500.00)];
-    self.userProfilePic.image = editedImage;
+//    self.userProfilePic.image = editedImage;
     
     // Working method for assigning a user a profile image
+    // TODO: TIME TO MODULARIZE AND CREATE AND UPLOAD ARRAY OF USER IMAGES
     NSData *imageData = UIImagePNGRepresentation(editedImage);
     PFFileObject *imageFile = [PFFileObject fileObjectWithName:@"image.png" data:imageData];
     PFUser *user = [PFUser currentUser];
     user[@"profile"][@"imageFile"] = [Profile getPFFileFromImage:editedImage];
+    // Adds image into the Parse image array
+    [self.userProfilePhotos addObject:imageFile];
+    user[@"profile"][@"profileImages"] = self.userProfilePhotos;
     [user saveInBackground];
+    
+    // load the picture into the local array
+    if (self.userProfilePhotos != nil) {
+        [self.userProfilePhotos addObject:imageFile];
+        [self.gridView reloadData];
+    }
+    else {
+        self.userProfilePhotos = [[NSMutableArray alloc] initWithObjects:imageFile, nil];
+    }
+    
+    NSLog(@"%@", self.userProfilePhotos[0]);
     
     // Dismiss UIImagePickerController to go back to your original view controller
     [self dismissViewControllerAnimated:YES completion:nil];
@@ -129,9 +142,11 @@
     [postQuery findObjectsInBackgroundWithBlock:^(NSArray<Profile *> * _Nullable userInfo, NSError * _Nullable error) {
         if (userInfo) {
             // Handle fetched data
-            self.arrayOfUserInfo = [NSMutableArray arrayWithArray:userInfo];
+            self.userProfileInfo = [NSMutableArray arrayWithArray:userInfo];
+            self.userProfilePhotos = userInfo[0][@"profileImages"];
             // If the call is successful we need to load the info into the user profile
             [self loadUserProfileInfo];
+            [self.gridView reloadData];
         }
         else {
             // Log error
@@ -140,32 +155,58 @@
     }];
 }
 
+- (void)queryUserImages {
+    PFQuery *profileQuery = [PFQuery queryWithClassName:@"Profile"];
+    [profileQuery whereKey:@"name" equalTo:[PFUser currentUser].username];
+    // fetch data asynchronously
+    [profileQuery findObjectsInBackgroundWithBlock:^(NSArray *profiles, NSError * _Nullable error) {
+        if (profiles) {
+            // Handle fetched data
+            //self.userProfilePhotos = profiles[0]@"profileImages"];
+            [self.gridView reloadData];
+            NSLog(@"%@", self.userProfilePhotos);
+        }
+        else {
+            // Log error
+            NSLog(@"%@", error.localizedDescription);
+        }
+    }];
+}
+
+
 -(void) loadUserProfileInfo {
     // Extract the array element properties for the user and assign into profile labels
     // TODO: Make sure the arrayofusers has only one element in it
-    if (self.arrayOfUserInfo.count == 0) {return;}
-    if (self.arrayOfUserInfo.count == 1) {
-        NSString *age = [self.arrayOfUserInfo[0] age];
+    if (self.userProfileInfo.count == 0) {return;}
+    if (self.userProfileInfo.count == 1) {
+        NSString *age = [self.userProfileInfo[0] age];
         self.userAge.text = [NSString stringWithFormat:@"%@", age];
-        NSString *weight = [self.arrayOfUserInfo[0] weightClass];
+        NSString *weight = [self.userProfileInfo[0] weightClass];
         self.userWeight.text = [NSString stringWithFormat:@"%@", weight];
-        NSString *stance = [self.arrayOfUserInfo[0] stance];
+        NSString *stance = [self.userProfileInfo[0] stance];
         self.userStance.text = [NSString stringWithFormat:@"%@", stance];
-        NSString *experience = [self.arrayOfUserInfo[0] experience];
+        NSString *experience = [self.userProfileInfo[0] experience];
         self.userExperience.text = [NSString stringWithFormat:@"%@", experience];
-        NSString *bio = [self.arrayOfUserInfo[0] biography];
+        NSString *bio = [self.userProfileInfo[0] biography];
         self.userBio.text = [NSString stringWithFormat:@"%@", bio];
     }
 }
 
 - (nonnull __kindof UICollectionViewCell *)collectionView:(nonnull UICollectionView *)collectionView cellForItemAtIndexPath:(nonnull NSIndexPath *)indexPath {
     // placeholder info for the time being
-    ProfilePictureCell *cell;
+    ProfilePictureCell *cell = [self.gridView dequeueReusableCellWithReuseIdentifier:@"ProfilePictureCell" forIndexPath:indexPath];
+    NSLog(@"%@",self.userProfileInfo);
+    cell.profileImage.file = self.userProfilePhotos[indexPath.item];
+//    NSLog(@"%@", self.userProfilePhotos);
+//    NSLog(@"%ld", (long)indexPath.item);
+//    NSLog(@"%@", self.userProfilePhotos[indexPath.item]);
+
+    [cell.profileImage loadInBackground];
     return cell;
 }
 
 - (NSInteger)collectionView:(nonnull UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return self.postArray.count;
+    return self.userProfilePhotos.count;
 }
 
 @end
