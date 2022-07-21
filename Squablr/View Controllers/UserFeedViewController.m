@@ -8,15 +8,6 @@
 #import "UserFeedViewController.h"
 
 @interface UserFeedViewController ()
-@property (nonatomic, strong) NSArray *colors;
-@property (nonatomic) NSUInteger colorIndex;
-@property (nonatomic) BOOL loadCardFromXib;
-@property (nonatomic, strong) UIBarButtonItem *reloadBarButtonItem;
-@property (nonatomic, strong) UIBarButtonItem *leftBarButtonItem;
-@property (nonatomic, strong) UIBarButtonItem *upBarButtonItem;
-@property (nonatomic, strong) UIBarButtonItem *rightBarButtonItem;
-@property (nonatomic, strong) UIBarButtonItem *downBarButtonItem;
-
 
 @end
 
@@ -30,7 +21,6 @@
     self.view.backgroundColor = [UIColor whiteColor];
 
     // Do any additional setup after loading the view, typically from a nib.
-
     ZLSwipeableView *swipeableView = [[ZLSwipeableView alloc] initWithFrame:CGRectZero];
     self.swipeableView = swipeableView;
     [self.view addSubview:self.swipeableView];
@@ -91,13 +81,6 @@
     [actionSheet showInView:self.view];
 }
 
-#pragma mark - UIActionSheetDelegate
-- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
-    self.loadCardFromXib = buttonIndex == 1;
-    self.colorIndex = 0;
-    [self.swipeableView discardAllViews];
-    [self.swipeableView loadViewsIfNeeded];
-}
 
 #pragma mark - ZLSwipeableViewDelegate
 
@@ -134,36 +117,10 @@
 #pragma mark - ZLSwipeableViewDataSource
 
 - (UIView *)nextViewForSwipeableView:(ZLSwipeableView *)swipeableView {
-    if (self.colorIndex >= self.colors.count) {
-        self.colorIndex = 0;
-    }
 
     CardView *view = [[CardView alloc] initWithFrame:swipeableView.bounds];
     view.backgroundColor = [UIColor darkGrayColor];
 
-    if (self.loadCardFromXib) {
-        UIView *contentView =
-            [[NSBundle mainBundle] loadNibNamed:@"CardContentView" owner:self options:nil][0];
-        contentView.translatesAutoresizingMaskIntoConstraints = NO;
-        [view addSubview:contentView];
-
-        // This is important:
-        // https://github.com/zhxnlai/ZLSwipeableView/issues/9
-        NSDictionary *metrics =
-            @{ @"height" : @(view.bounds.size.height),
-               @"width" : @(view.bounds.size.width) };
-        NSDictionary *views = NSDictionaryOfVariableBindings(contentView);
-        [view addConstraints:[NSLayoutConstraint
-                                 constraintsWithVisualFormat:@"H:|[contentView(width)]"
-                                                     options:0
-                                                     metrics:metrics
-                                                       views:views]];
-        [view addConstraints:[NSLayoutConstraint
-                                 constraintsWithVisualFormat:@"V:|[contentView(height)]"
-                                                     options:0
-                                                     metrics:metrics
-                                                       views:views]];
-    }
     return view;
 }
 
