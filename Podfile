@@ -10,6 +10,7 @@ target 'Squablr' do
   pod 'Parse'
   pod 'AFNetworking'
   pod 'Parse/UI'
+  pod 'ZLSwipeableView'
 
   target 'SquablrTests' do
     inherit! :search_paths
