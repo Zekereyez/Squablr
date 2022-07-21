@@ -9,7 +9,7 @@
 #import "Profile.h"
 
 @interface EditProfileViewController ()
-@property (nonatomic, strong) NSMutableArray *userProfileInfo;
+@property (nonatomic, strong) Profile *userProfileInfo;
 
 @end
 
@@ -35,7 +35,10 @@
     user[@"profile"][@"experience"] = experience;
     user[@"profile"][@"biography"] = self.bioField.text;
     [user saveInBackground];
+    [self refreshUserFields];
     [self dismissViewControllerAnimated:YES completion:nil];
+    // this code is essential as it allows the profile vc to update and show the user
+    // that the information they have entered has been updated!
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     UIViewController *profileVC = [storyboard instantiateViewControllerWithIdentifier:@"profileVC"];
     self.view.window.rootViewController = profileVC;
@@ -48,7 +51,7 @@
     [postQuery findObjectsInBackgroundWithBlock:^(NSArray<Profile *> * _Nullable userInfo, NSError * _Nullable error) {
         if (userInfo) {
             // Handle fetched data
-            self.userProfileInfo = [NSMutableArray arrayWithArray:userInfo];
+            self.userProfileInfo = [userInfo objectAtIndex:0];
             // If the call is successful we need to load the info into the user profile
             [self loadUserProfileInfo];
         }
@@ -57,17 +60,16 @@
 
 -(void) loadUserProfileInfo {
     // Extract the array element properties for the user and assign into profile fields
-    if (self.userProfileInfo.count == 0) {return;}
-    if (self.userProfileInfo.count == 1) {
-        NSString *age = [self.userProfileInfo[0] age];
+    if (self.userProfileInfo) {
+        NSString *age = [self.userProfileInfo.age stringValue];
         self.ageField.text = [NSString stringWithFormat:@"%@", age];
-        NSString *weight = [self.userProfileInfo[0] weightClass];
+        NSString *weight = [self.userProfileInfo.weightClass stringValue];
         self.weightField.text = [NSString stringWithFormat:@"%@", weight];
-        NSString *stance = [self.userProfileInfo[0] stance];
+        NSString *stance = self.userProfileInfo.stance;
         self.stanceField.text = [NSString stringWithFormat:@"%@", stance];
-        NSString *experience = [self.userProfileInfo[0] experience];
+        NSString *experience = [self.userProfileInfo.experience stringValue];
         self.experienceField.text = [NSString stringWithFormat:@"%@", experience];
-        NSString *bio = [self.userProfileInfo[0] biography];
+        NSString *bio = self.userProfileInfo.biography;
         self.bioField.text = [NSString stringWithFormat:@"%@", bio];
     }
 }
