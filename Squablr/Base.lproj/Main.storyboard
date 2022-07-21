@@ -512,7 +512,7 @@
         <!-- -->
         <scene sceneID="q3m-n7-ahT">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="EeT-HJ-QnV" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="profileNav" automaticallyAdjustsScrollViewInsets="NO" id="EeT-HJ-QnV" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title=" " image="user (1)" selectedImage="user (1)" id="vTh-J2-1tU">
                         <inset key="imageInsets" minX="0.0" minY="255" maxX="0.0" maxY="225"/>
                     </tabBarItem>
