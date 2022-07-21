@@ -40,7 +40,7 @@
     // this code is essential as it allows the profile vc to update and show the user
     // that the information they have entered has been updated!
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    UIViewController *profileVC = [storyboard instantiateViewControllerWithIdentifier:@"profileNav"];
+    UIViewController *profileVC = [storyboard instantiateViewControllerWithIdentifier:@"tabController"];
     self.view.window.rootViewController = profileVC;
 }
 
