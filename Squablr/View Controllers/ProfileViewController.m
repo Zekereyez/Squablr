@@ -24,7 +24,6 @@
     UICollectionViewFlowLayout *layout = (UICollectionViewFlowLayout *) self.gridView.collectionViewLayout;
     layout.minimumLineSpacing = 0;
     layout.minimumInteritemSpacing = 0;
-    NSLog(@"%f", self.gridView.frame.size.width);
     CGFloat itemWidth = (self.gridView.frame.size.width / 3 - 15);
     CGFloat itemHeight = itemWidth;
     layout.itemSize = CGSizeMake(itemWidth, itemHeight);

@@ -22,6 +22,7 @@
 }
 - (IBAction)didTapDone:(id)sender {
     PFUser *user = [PFUser currentUser];
+    // This is the way to get the field texts to become an integer
     NSString *userAge = self.ageField.text;
     NSNumber *age = [NSNumber numberWithInteger:[userAge integerValue]];
     user[@"profile"][@"age"] = age;

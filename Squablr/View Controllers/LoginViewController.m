@@ -37,9 +37,8 @@ static NSString * const kClientID =
     
     [PFUser logInWithUsernameInBackground:username password:password block:^(PFUser * user, NSError *  error) {
         if (error != nil) {
-            NSLog(@"User log in failed: %@", error.localizedDescription);
+            return;
         } else {
-            NSLog(@"User logged in successfully");
             // Display view controller that needs to shown after successful login
             // Manual segue is better since we are able to use the pull refresh
             // rather than having to run the app again once logged in
