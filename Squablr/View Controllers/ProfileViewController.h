@@ -8,7 +8,6 @@
 #import <UIKit/UIKit.h>
 #import <Parse/Parse.h>
 #import "LoginViewController.h"
-#import "Utility.h"
 #import "Profile.h"
 #import "UIKit+AFNetworking.h"
 #import "ProfilePictureCell.h"

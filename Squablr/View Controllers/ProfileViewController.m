@@ -116,14 +116,8 @@
 -(void) queryUserProfileInfo {
     _userProfileName.text = [NSString stringWithFormat:@"%@", [PFUser currentUser].username];
     // Now to load the info we need to query from here based on the user name
-//    PFQuery *postQuery = [PFQuery queryWithClassName:@"Profile"];
-//    [postQuery whereKey:@"name" equalTo:[PFUser currentUser].username];
-    
-    [Utility performActionWithCompletion:^{
-        // insert the assignment code
-        
-    }];
-    PFQuery *postQuery = [Utility queryType];
+    PFQuery *postQuery = [PFQuery queryWithClassName:@"Profile"];
+    [postQuery whereKey:@"name" equalTo:[PFUser currentUser].username];
     // fetch data asynchronously
     [postQuery findObjectsInBackgroundWithBlock:^(NSArray<Profile *> * _Nullable userInfo, NSError * _Nullable error) {
         if (userInfo) {
