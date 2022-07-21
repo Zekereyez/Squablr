@@ -70,10 +70,9 @@
     // enforce that the username isn't already taken
     [newUser signUpInBackgroundWithBlock:^(BOOL succeeded, NSError * error) {
         if (error != nil) {
-            NSLog(@"Error: %@", error.localizedDescription);
+            return;
         } else {
             // Manually segue now that network call has succeeded
-            NSLog(@"User registered successfully");
             UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
             UserFeedViewController *feedVC = [storyboard instantiateViewControllerWithIdentifier:@"tabController"];
             self.view.window.rootViewController = feedVC;

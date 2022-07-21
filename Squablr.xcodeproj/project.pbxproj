@@ -143,6 +143,15 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		9EB5589C2888ADD80089E915 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				9EC744A12880DF880072271A /* ProfilePictureCell.h */,
+				9EC744A22880DF880072271A /* ProfilePictureCell.m */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		9EF5EB022874A2F6008BA3CC = {
 			isa = PBXGroup;
 			children = (
@@ -168,6 +177,7 @@
 		9EF5EB0D2874A2F6008BA3CC /* Squablr */ = {
 			isa = PBXGroup;
 			children = (
+				9EB5589C2888ADD80089E915 /* Views */,
 				9EF5EB572878B479008BA3CC /* Models */,
 				9EF5EB462877A806008BA3CC /* View Controllers */,
 				9EF5EB0E2874A2F6008BA3CC /* AppDelegate.h */,
@@ -217,8 +227,6 @@
 				9EF5EB552878B30B008BA3CC /* ProfileViewController.m */,
 				9EC7449B287F745E0072271A /* EditProfileViewController.h */,
 				9EC7449C287F745E0072271A /* EditProfileViewController.m */,
-				9EC744A12880DF880072271A /* ProfilePictureCell.h */,
-				9EC744A22880DF880072271A /* ProfilePictureCell.m */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
