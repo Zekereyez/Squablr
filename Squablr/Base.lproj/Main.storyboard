@@ -112,6 +112,13 @@
                     <view key="view" contentMode="scaleToFill" id="dML-cn-1t5">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XHS-da-S45" customClass="ZLSwipeableView">
+                                <rect key="frame" x="20" y="88" width="374" height="593"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="yFI-VS-GnS"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>

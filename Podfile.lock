@@ -35,12 +35,14 @@ PODS:
     - Bolts/Tasks (= 1.9.1)
   - Parse/UI (1.19.3):
     - Parse/Core
+  - ZLSwipeableView (0.0.8)
 
 DEPENDENCIES:
   - AFNetworking
   - GoogleSignIn
   - Parse
   - Parse/UI
+  - ZLSwipeableView
 
 SPEC REPOS:
   trunk:
@@ -51,6 +53,7 @@ SPEC REPOS:
     - GTMAppAuth
     - GTMSessionFetcher
     - Parse
+    - ZLSwipeableView
 
 SPEC CHECKSUMS:
   AFNetworking: 7864c38297c79aaca1500c33288e429c3451fdce
@@ -60,7 +63,8 @@ SPEC CHECKSUMS:
   GTMAppAuth: 4d8f864896f3646f0c33baf38a28362f4c601e15
   GTMSessionFetcher: 5595ec75acf5be50814f81e9189490412bad82ba
   Parse: 0abb63a0ff6fa34a3f64b81d595a294e2ece143a
+  ZLSwipeableView: df385760ff4838935cdbcb62878ac5acd7355949
 
-PODFILE CHECKSUM: 58c91b95a245a8512393b483651a3fb1ed896c74
+PODFILE CHECKSUM: c14a724666b72839785782a62f355f7695ecae74
 
 COCOAPODS: 1.11.3
