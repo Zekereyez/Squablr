@@ -118,7 +118,7 @@
     return view;
 }
 
-#pragma mark - ()
+#pragma mark - Color Card Function
 
 - (UIColor *)colorForName:(NSString *)name {
     NSString *sanitizedName = [name stringByReplacingOccurrencesOfString:@" " withString:@""];

@@ -14,6 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface UserFeedViewController : UIViewController <ZLSwipeableViewDataSource, ZLSwipeableViewDelegate, UIActionSheetDelegate>
 
 @property (nonatomic, strong) ZLSwipeableView *swipeableView;
+
 - (UIView *)nextViewForSwipeableView:(ZLSwipeableView *)swipeableView;
 
 @end
