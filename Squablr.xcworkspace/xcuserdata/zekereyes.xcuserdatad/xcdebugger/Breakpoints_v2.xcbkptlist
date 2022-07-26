@@ -7,16 +7,32 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "2F641A6D-CB28-411C-9C32-A288D110B729"
+            uuid = "9B714A85-963B-4BAA-8F1B-7AAE2D7213D3"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Squablr/View Controllers/ProfileViewController.m"
+            filePath = "Squablr/View Controllers/UserFeedViewController.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "126"
-            endingLineNumber = "126"
-            landmarkName = "-queryUserProfileInfo"
+            startingLineNumber = "120"
+            endingLineNumber = "120"
+            landmarkName = "-nextViewForSwipeableView:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "13C5938E-D805-4FCA-9794-CEC8508B87D1"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Squablr/View Controllers/UserFeedViewController.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "121"
+            endingLineNumber = "121"
+            landmarkName = "-nextViewForSwipeableView:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

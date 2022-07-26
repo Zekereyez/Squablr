@@ -46,7 +46,7 @@
     self.layer.cornerRadius = 10.0;
     
     // Creating UIImage view programmatically
-    UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 350, 500)];
+    PFImageView *imageView = [[PFImageView alloc] initWithFrame:CGRectMake(0, 0, 350, 500)];
     imageView.image = [UIImage imageNamed:@"banana.png"];
     imageView.contentMode = UIViewContentModeScaleAspectFill;
     imageView.layer.cornerRadius = 10.0;

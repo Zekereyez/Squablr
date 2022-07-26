@@ -8,7 +8,8 @@
 #import "UserFeedViewController.h"
 
 @interface UserFeedViewController ()
-
+@property (nonatomic, strong) NSMutableArray *userProfileInfo;
+@property (nonatomic, strong) NSMutableArray *userProfilePhotos;
 @end
 
 @implementation UserFeedViewController
@@ -16,6 +17,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    [self queryUserProfileInfo];
     self.navigationController.toolbarHidden = NO;
     self.view.clipsToBounds = YES;
     self.view.backgroundColor = [UIColor whiteColor];
@@ -113,7 +115,11 @@
 - (UIView *)nextViewForSwipeableView:(ZLSwipeableView *)swipeableView {
 
     CardView *view = [[CardView alloc] initWithFrame:swipeableView.bounds];
-    view.backgroundColor = [UIColor darkGrayColor];
+    view.backgroundColor = [UIColor blueColor];
+    // Attempt to load user info into the card view
+    view.imageView.file = self.userProfilePhotos[0];
+    [view.imageView loadInBackground];
+    [self.userProfilePhotos removeObjectAtIndex:0];
 
     return view;
 }
@@ -126,5 +132,21 @@
     Class colorClass = [UIColor class];
     return [colorClass performSelector:NSSelectorFromString(selectorString)];
 }
+
+-(void) queryUserProfileInfo {
+    // Now to load the info we need to query from here based on the user name
+    PFQuery *postQuery = [PFQuery queryWithClassName:@"Profile"];
+    [postQuery whereKey:@"name" equalTo:[PFUser currentUser].username];
+    // fetch data asynchronously
+    [postQuery findObjectsInBackgroundWithBlock:^(NSArray<Profile *> * _Nullable userInfo, NSError * _Nullable error) {
+        if (userInfo) {
+            // Handle fetched data
+            self.userProfileInfo = [NSMutableArray arrayWithArray:userInfo];
+            self.userProfilePhotos = userInfo[0][@"profileImages"];
+        }
+    }];
+}
+
+
 
 @end
