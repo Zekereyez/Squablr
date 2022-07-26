@@ -36,14 +36,14 @@
     NSDictionary *metrics = @{};
 
     [self.view addConstraints:[NSLayoutConstraint
-                                  constraintsWithVisualFormat:@"|-50-[swipeableView]-50-|"
+                                  constraintsWithVisualFormat:@"|-20-[swipeableView]-20-|"
                                                       options:0
                                                       metrics:metrics
                                                         views:NSDictionaryOfVariableBindings(
                                                                   swipeableView)]];
 
     [self.view addConstraints:[NSLayoutConstraint
-                                  constraintsWithVisualFormat:@"V:|-120-[swipeableView]-100-|"
+                                  constraintsWithVisualFormat:@"V:|-50-[swipeableView]-90-|"
                                                       options:0
                                                       metrics:metrics
                                                         views:NSDictionaryOfVariableBindings(

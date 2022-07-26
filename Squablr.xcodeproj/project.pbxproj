@@ -10,6 +10,7 @@
 		21B3A8762CE0E80FFF14F9F9 /* Pods_Squablr.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F0FBCF2F67734291CE03D13 /* Pods_Squablr.framework */; };
 		285EEFC8D72B610B9172E57B /* Pods_Squablr_SquablrUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6644716D576D48C884510C82 /* Pods_Squablr_SquablrUITests.framework */; };
 		9EB5589F2889EF000089E915 /* CardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EB5589E2889EF000089E915 /* CardView.m */; };
+		9EB558A3289069AD0089E915 /* banana.png in Resources */ = {isa = PBXBuildFile; fileRef = 9EB558A2289069AD0089E915 /* banana.png */; };
 		9EC7449D287F745E0072271A /* EditProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EC7449C287F745E0072271A /* EditProfileViewController.m */; };
 		9EC744A32880DF880072271A /* ProfilePictureCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EC744A22880DF880072271A /* ProfilePictureCell.m */; };
 		9EF5EB102874A2F6008BA3CC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EF5EB0F2874A2F6008BA3CC /* AppDelegate.m */; };
@@ -58,6 +59,7 @@
 		6644716D576D48C884510C82 /* Pods_Squablr_SquablrUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Squablr_SquablrUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9EB5589D2889EF000089E915 /* CardView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CardView.h; sourceTree = "<group>"; };
 		9EB5589E2889EF000089E915 /* CardView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CardView.m; sourceTree = "<group>"; };
+		9EB558A2289069AD0089E915 /* banana.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = banana.png; path = ../../../../banana.png; sourceTree = "<group>"; };
 		9EC7449B287F745E0072271A /* EditProfileViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EditProfileViewController.h; sourceTree = "<group>"; };
 		9EC7449C287F745E0072271A /* EditProfileViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EditProfileViewController.m; sourceTree = "<group>"; };
 		9EC744A12880DF880072271A /* ProfilePictureCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProfilePictureCell.h; sourceTree = "<group>"; };
@@ -153,6 +155,7 @@
 				9EC744A22880DF880072271A /* ProfilePictureCell.m */,
 				9EB5589D2889EF000089E915 /* CardView.h */,
 				9EB5589E2889EF000089E915 /* CardView.m */,
+				9EB558A2289069AD0089E915 /* banana.png */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -355,6 +358,7 @@
 			files = (
 				9EF5EB1E2874A2F7008BA3CC /* LaunchScreen.storyboard in Resources */,
 				9EF5EB1B2874A2F7008BA3CC /* Assets.xcassets in Resources */,
+				9EB558A3289069AD0089E915 /* banana.png in Resources */,
 				9EF5EB192874A2F6008BA3CC /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

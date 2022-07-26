@@ -45,9 +45,17 @@
     // Corner Radius
     self.layer.cornerRadius = 10.0;
     
+    // Creating UIImage view programmatically
+    UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 350, 500)];
+    imageView.image = [UIImage imageNamed:@"banana.png"];
+    imageView.contentMode = UIViewContentModeScaleAspectFill;
+    imageView.layer.cornerRadius = 10.0;
+    imageView.layer.masksToBounds = true;
+    [self addSubview:imageView];
+    
     // Username label
-    UILabel *username = [[UILabel alloc]initWithFrame:CGRectMake(25, 400, 200, 40)];
-    username.text = @"USERNAME";
+    UILabel *username = [[UILabel alloc]initWithFrame:CGRectMake(25, 500, 200, 40)];
+    username.text = @"Banana Man";
     username.numberOfLines = 1;
     username.baselineAdjustment = UIBaselineAdjustmentAlignBaselines; // or UIBaselineAdjustmentAlignCenters, or UIBaselineAdjustmentNone
     username.adjustsFontSizeToFitWidth = YES;
@@ -59,8 +67,8 @@
     [self addSubview:username];
     
     // Age Label
-    UILabel *age = [[UILabel alloc]initWithFrame:CGRectMake(125, 400, 200, 40)];
-    age.text = @"Age";
+    UILabel *age = [[UILabel alloc]initWithFrame:CGRectMake(125, 500, 200, 40)];
+    age.text = @"27";
     age.numberOfLines = 1;
     age.baselineAdjustment = UIBaselineAdjustmentAlignBaselines; // or UIBaselineAdjustmentAlignCenters, or UIBaselineAdjustmentNone
     age.adjustsFontSizeToFitWidth = YES;
@@ -72,8 +80,8 @@
     [self addSubview:age];
     
     // Biography label
-    UILabel *bio = [[UILabel alloc]initWithFrame:CGRectMake(25, 440, 200, 40)];
-    bio.text = @"Biography";
+    UILabel *bio = [[UILabel alloc]initWithFrame:CGRectMake(25, 540, 200, 40)];
+    bio.text = @"Banana. 🍌";
     bio.numberOfLines = 1;
     bio.baselineAdjustment = UIBaselineAdjustmentAlignBaselines; // or UIBaselineAdjustmentAlignCenters, or UIBaselineAdjustmentNone
     bio.adjustsFontSizeToFitWidth = YES;
