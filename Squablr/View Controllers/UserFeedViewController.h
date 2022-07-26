@@ -8,6 +8,8 @@
 #import <UIKit/UIKit.h>
 #import "ZLSwipeableView.h"
 #import "CardView.h"
+#import "Parse/Parse.h"
+#import "Profile.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
