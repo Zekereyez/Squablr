@@ -151,6 +151,8 @@
 			children = (
 				9EC744A12880DF880072271A /* ProfilePictureCell.h */,
 				9EC744A22880DF880072271A /* ProfilePictureCell.m */,
+				9EB5589D2889EF000089E915 /* CardView.h */,
+				9EB5589E2889EF000089E915 /* CardView.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -239,8 +241,6 @@
 			children = (
 				9EF5EB582878B5A2008BA3CC /* Profile.h */,
 				9EF5EB592878B5A2008BA3CC /* Profile.m */,
-				9EB5589D2889EF000089E915 /* CardView.h */,
-				9EB5589E2889EF000089E915 /* CardView.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";

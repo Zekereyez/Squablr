@@ -9,6 +9,10 @@
 
 @implementation CardView
 
+@dynamic name;
+@dynamic age;
+@dynamic bio;
+
 - (instancetype)init {
     self = [super init];
     if (self) {
