@@ -9,10 +9,6 @@
 
 @implementation CardView
 
-@dynamic name;
-@dynamic age;
-@dynamic bio;
-
 - (instancetype)init {
     self = [super init];
     if (self) {
@@ -48,6 +44,46 @@
 
     // Corner Radius
     self.layer.cornerRadius = 10.0;
+    
+    // Username label
+    UILabel *username = [[UILabel alloc]initWithFrame:CGRectMake(25, 400, 200, 40)];
+    username.text = @"USERNAME";
+    username.numberOfLines = 1;
+    username.baselineAdjustment = UIBaselineAdjustmentAlignBaselines; // or UIBaselineAdjustmentAlignCenters, or UIBaselineAdjustmentNone
+    username.adjustsFontSizeToFitWidth = YES;
+    username.minimumScaleFactor = 10.0f/12.0f;
+    username.clipsToBounds = YES;
+    username.backgroundColor = [UIColor clearColor];
+    username.textColor = [UIColor blackColor];
+    username.textAlignment = NSTextAlignmentLeft;
+    [self addSubview:username];
+    
+    // Age Label
+    UILabel *age = [[UILabel alloc]initWithFrame:CGRectMake(125, 400, 200, 40)];
+    age.text = @"Age";
+    age.numberOfLines = 1;
+    age.baselineAdjustment = UIBaselineAdjustmentAlignBaselines; // or UIBaselineAdjustmentAlignCenters, or UIBaselineAdjustmentNone
+    age.adjustsFontSizeToFitWidth = YES;
+    age.minimumScaleFactor = 10.0f/12.0f;
+    age.clipsToBounds = YES;
+    age.backgroundColor = [UIColor clearColor];
+    age.textColor = [UIColor blackColor];
+    age.textAlignment = NSTextAlignmentLeft;
+    [self addSubview:age];
+    
+    // Biography label
+    UILabel *bio = [[UILabel alloc]initWithFrame:CGRectMake(25, 440, 200, 40)];
+    bio.text = @"Biography";
+    bio.numberOfLines = 1;
+    bio.baselineAdjustment = UIBaselineAdjustmentAlignBaselines; // or UIBaselineAdjustmentAlignCenters, or UIBaselineAdjustmentNone
+    bio.adjustsFontSizeToFitWidth = YES;
+    bio.minimumScaleFactor = 10.0f/12.0f;
+    bio.clipsToBounds = YES;
+    bio.backgroundColor = [UIColor clearColor];
+    bio.textColor = [UIColor blackColor];
+    bio.textAlignment = NSTextAlignmentLeft;
+    [self addSubview:bio];
+    
 }
 
 @end

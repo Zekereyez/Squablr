@@ -11,9 +11,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface CardView : UIView
-@property (nonatomic, strong) NSString *name;
-@property (nonatomic, strong) NSNumber *age;
-@property (nonatomic, strong) NSString *bio;
+
 @end
 
 NS_ASSUME_NONNULL_END
