@@ -39,9 +39,21 @@
         imageView.layer.cornerRadius = 10.0;
         imageView.layer.masksToBounds = true;
         [self addSubview:imageView];
+        // Name Label
+        UILabel *name = [[UILabel alloc]initWithFrame:CGRectMake(25, 500, 200, 40)];
+        name.text = profile.name;
+        name.numberOfLines = 0;
+        name.baselineAdjustment = UIBaselineAdjustmentAlignBaselines; // or UIBaselineAdjustmentAlignCenters, or UIBaselineAdjustmentNone
+        name.adjustsFontSizeToFitWidth = YES;
+        name.minimumScaleFactor = 10.0f/12.0f;
+        name.clipsToBounds = YES;
+        name.backgroundColor = [UIColor clearColor];
+        name.textColor = [UIColor blackColor];
+        name.textAlignment = NSTextAlignmentLeft;
+        [self addSubview:name];
         // Age Label
         UILabel *age = [[UILabel alloc]initWithFrame:CGRectMake(125, 500, 200, 40)];
-        age.text = profile.name;
+        age.text = [profile.age stringValue];
         age.numberOfLines = 0;
         age.baselineAdjustment = UIBaselineAdjustmentAlignBaselines; // or UIBaselineAdjustmentAlignCenters, or UIBaselineAdjustmentNone
         age.adjustsFontSizeToFitWidth = YES;
