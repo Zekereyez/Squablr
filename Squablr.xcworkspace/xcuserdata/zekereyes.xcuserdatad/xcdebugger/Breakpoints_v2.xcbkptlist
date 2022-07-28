@@ -108,8 +108,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "100"
             endingLineNumber = "100"
-            landmarkName = "UserFeedViewController"
-            landmarkType = "3">
+            landmarkName = "-nextViewForSwipeableView:"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
