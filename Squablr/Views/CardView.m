@@ -50,6 +50,7 @@
         name.backgroundColor = [UIColor clearColor];
         name.textColor = [UIColor blackColor];
         name.textAlignment = NSTextAlignmentLeft;
+        name.translatesAutoresizingMaskIntoConstraints = NO;
         [self addSubview:name];
         // Age Label
         UILabel *age = [[UILabel alloc]initWithFrame:CGRectMake(125, 500, 200, 40)];
@@ -62,6 +63,7 @@
         age.backgroundColor = [UIColor clearColor];
         age.textColor = [UIColor blackColor];
         age.textAlignment = NSTextAlignmentLeft;
+        age.translatesAutoresizingMaskIntoConstraints = NO;
         [self addSubview:age];
         // Biography label
         UILabel *bio = [[UILabel alloc]initWithFrame:CGRectMake(25, 540, 200, 40)];
@@ -74,8 +76,22 @@
         bio.backgroundColor = [UIColor clearColor];
         bio.textColor = [UIColor blackColor];
         bio.textAlignment = NSTextAlignmentLeft;
+        bio.translatesAutoresizingMaskIntoConstraints = NO;
         [self addSubview:bio];
+        // Name label layout
+        NSLayoutConstraint *left = [NSLayoutConstraint constraintWithItem:name attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeLeft multiplier:1 constant:10];
+        NSLayoutConstraint *top = [NSLayoutConstraint constraintWithItem:name attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:imageView attribute:NSLayoutAttributeBottom multiplier:1 constant:10];
+        [self addConstraints:@[left, top]];
+        // Age label layout
+        NSLayoutConstraint *rightAge = [NSLayoutConstraint constraintWithItem:age attribute:NSLayoutAttributeRight relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeRight multiplier:1 constant:-10];
+        NSLayoutConstraint *topAge = [NSLayoutConstraint constraintWithItem:age attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:imageView attribute:NSLayoutAttributeBottom multiplier:1 constant:10];
+        [self addConstraints:@[rightAge, topAge]];
+        // Bio layout
+        NSLayoutConstraint *bioTop = [NSLayoutConstraint constraintWithItem:bio attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:name attribute:NSLayoutAttributeBottom multiplier:1 constant:10];
+        NSLayoutConstraint *bioLeft = [NSLayoutConstraint constraintWithItem:bio attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeLeft multiplier:1 constant:10];
+        [self addConstraints:@[bioTop, bioLeft]];
     }
+    
     return self;
 }
 
@@ -111,56 +127,6 @@
 
     // Corner Radius
     self.layer.cornerRadius = 10.0;
-    /*
-    
-    // Creating UIImage view programmatically
-    PFImageView *imageView = [[PFImageView alloc] initWithFrame:CGRectMake(0, 0, 350, 500)];
-    imageView.image = [UIImage imageNamed:@"banana.png"];
-    imageView.contentMode = UIViewContentModeScaleAspectFill;
-    imageView.layer.cornerRadius = 10.0;
-    imageView.layer.masksToBounds = true;
-    [self addSubview:imageView];
-    
-    // Username label
-    UILabel *username = [[UILabel alloc]initWithFrame:CGRectMake(25, 500, 200, 40)];
-    username.text = @"Banana Man";
-    username.numberOfLines = 1;
-    username.baselineAdjustment = UIBaselineAdjustmentAlignBaselines; // or UIBaselineAdjustmentAlignCenters, or UIBaselineAdjustmentNone
-    username.adjustsFontSizeToFitWidth = YES;
-    username.minimumScaleFactor = 10.0f/12.0f;
-    username.clipsToBounds = YES;
-    username.backgroundColor = [UIColor clearColor];
-    username.textColor = [UIColor blackColor];
-    username.textAlignment = NSTextAlignmentLeft;
-    [self addSubview:username];
-    
-    // Age Label
-    UILabel *age = [[UILabel alloc]initWithFrame:CGRectMake(125, 500, 200, 40)];
-    age.text = @"27";
-    age.numberOfLines = 1;
-    age.baselineAdjustment = UIBaselineAdjustmentAlignBaselines; // or UIBaselineAdjustmentAlignCenters, or UIBaselineAdjustmentNone
-    age.adjustsFontSizeToFitWidth = YES;
-    age.minimumScaleFactor = 10.0f/12.0f;
-    age.clipsToBounds = YES;
-    age.backgroundColor = [UIColor clearColor];
-    age.textColor = [UIColor blackColor];
-    age.textAlignment = NSTextAlignmentLeft;
-    [self addSubview:age];
-    
-    // Biography label
-    UILabel *bio = [[UILabel alloc]initWithFrame:CGRectMake(25, 540, 200, 40)];
-    bio.text = @"Banana. 🍌";
-    bio.numberOfLines = 1;
-    bio.baselineAdjustment = UIBaselineAdjustmentAlignBaselines; // or UIBaselineAdjustmentAlignCenters, or UIBaselineAdjustmentNone
-    bio.adjustsFontSizeToFitWidth = YES;
-    bio.minimumScaleFactor = 10.0f/12.0f;
-    bio.clipsToBounds = YES;
-    bio.backgroundColor = [UIColor clearColor];
-    bio.textColor = [UIColor blackColor];
-    bio.textAlignment = NSTextAlignmentLeft;
-    [self addSubview:bio];
-     */
-    
 }
 
 @end

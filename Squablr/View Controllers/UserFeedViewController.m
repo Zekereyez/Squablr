@@ -105,7 +105,6 @@
         CardView *view = [[CardView alloc] initWithProfile:swipeableView.bounds profile:currentProfile];
         view.backgroundColor = [UIColor systemGrayColor];
         self.profileIndex++;
-        view.delegate = self;
         return view;
     }
     return nil;
@@ -150,7 +149,6 @@
     self.swipeableView.translatesAutoresizingMaskIntoConstraints = NO;
 
     NSDictionary *metrics = @{};
-
     [self.view addConstraints:[NSLayoutConstraint
                                   constraintsWithVisualFormat:@"|-20-[swipeableView]-20-|"
                                                       options:0
@@ -165,7 +163,5 @@
                                                         views:NSDictionaryOfVariableBindings(
                                                                   swipeableView)]];
 }
-
-
 
 @end
