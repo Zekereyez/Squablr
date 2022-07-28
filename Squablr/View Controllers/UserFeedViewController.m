@@ -102,7 +102,6 @@
     if (self.profileIndex < self.userProfileInfo.count) {
         // Access the profile array with the current profile index
         Profile *currentProfile = self.userProfileInfo[self.profileIndex];
-        NSLog(@"%@", self.userProfileInfo);
         CardView *view = [[CardView alloc] initWithProfile:swipeableView.bounds profile:currentProfile];
         view.backgroundColor = [UIColor systemGrayColor];
         self.profileIndex++;
