@@ -25,6 +25,61 @@
     return self;
 }
 
+- (instancetype)initWithProfile:(CGRect)frame profile:(Profile *)profile {
+    self = [super initWithFrame:frame];
+    if (self) {
+        [self setup];
+        self.profile = profile;
+        // Creating UIImage view programmatically
+        PFImageView *imageView = [[PFImageView alloc] initWithFrame:CGRectMake(0, 0, 350, 500)];
+        imageView.image = nil;
+        imageView.file = [profile[@"profileImages"] firstObject]; // TODO: Change this to the user profile images
+        [imageView loadInBackground];
+        imageView.contentMode = UIViewContentModeScaleAspectFill;
+        imageView.layer.cornerRadius = 10.0;
+        imageView.layer.masksToBounds = true;
+        [self addSubview:imageView];
+        // Age Label
+        UILabel *age = [[UILabel alloc]initWithFrame:CGRectMake(125, 500, 200, 40)];
+        age.text = profile.name;
+        age.numberOfLines = 0;
+        age.baselineAdjustment = UIBaselineAdjustmentAlignBaselines; // or UIBaselineAdjustmentAlignCenters, or UIBaselineAdjustmentNone
+        age.adjustsFontSizeToFitWidth = YES;
+        age.minimumScaleFactor = 10.0f/12.0f;
+        age.clipsToBounds = YES;
+        age.backgroundColor = [UIColor clearColor];
+        age.textColor = [UIColor blackColor];
+        age.textAlignment = NSTextAlignmentLeft;
+        [self addSubview:age];
+        // Biography label
+        UILabel *bio = [[UILabel alloc]initWithFrame:CGRectMake(25, 540, 200, 40)];
+        bio.text = profile.biography;
+        bio.numberOfLines = 0;
+        bio.baselineAdjustment = UIBaselineAdjustmentAlignBaselines; // or UIBaselineAdjustmentAlignCenters, or UIBaselineAdjustmentNone
+        bio.adjustsFontSizeToFitWidth = YES;
+        bio.minimumScaleFactor = 10.0f/12.0f;
+        bio.clipsToBounds = YES;
+        bio.backgroundColor = [UIColor clearColor];
+        bio.textColor = [UIColor blackColor];
+        bio.textAlignment = NSTextAlignmentLeft;
+        [self addSubview:bio];
+    }
+    return self;
+}
+
+- (instancetype)initWithLoad:(CGRect)frame {
+    self = [super initWithFrame:frame];
+    if (self) {
+        [self setup];
+        UIActivityIndicatorView *spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleMedium];
+        spinner.frame = CGRectOffset(self.frame, 0, 0);
+        spinner.center = self.center;
+        [spinner startAnimating];
+        [self addSubview:spinner];
+    }
+    return self;
+}
+
 - (instancetype)initWithCoder:(NSCoder *)aDecoder {
     self = [super initWithCoder:aDecoder];
     if (self) {
@@ -44,6 +99,7 @@
 
     // Corner Radius
     self.layer.cornerRadius = 10.0;
+    /*
     
     // Creating UIImage view programmatically
     PFImageView *imageView = [[PFImageView alloc] initWithFrame:CGRectMake(0, 0, 350, 500)];
@@ -91,6 +147,7 @@
     bio.textColor = [UIColor blackColor];
     bio.textAlignment = NSTextAlignmentLeft;
     [self addSubview:bio];
+     */
     
 }
 
