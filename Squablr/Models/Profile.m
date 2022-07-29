@@ -30,6 +30,8 @@
     newUser.stance = @"Orthodox";
     newUser.experience = @(1);
     newUser.biography = @"I'm new here! (:";
+    newUser.userUsageCount = @(0);
+    newUser.eloScore = @(0);
     // This creates the user pointer to the profile class
     PFUser *user = [PFUser currentUser];
     user[@"profile"] = newUser;

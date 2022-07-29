@@ -1,0 +1,6 @@
+framework module App_Update_Tracker {
+  umbrella header "App-Update-Tracker-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -1,5 +1,6 @@
 ${PODS_ROOT}/Target Support Files/Pods-Squablr-SquablrUITests/Pods-Squablr-SquablrUITests-frameworks.sh
 ${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework
+${BUILT_PRODUCTS_DIR}/App-Update-Tracker/App_Update_Tracker.framework
 ${BUILT_PRODUCTS_DIR}/AppAuth/AppAuth.framework
 ${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework
 ${BUILT_PRODUCTS_DIR}/GTMAppAuth/GTMAppAuth.framework

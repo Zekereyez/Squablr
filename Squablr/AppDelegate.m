@@ -6,6 +6,7 @@
 //
 
 #import "AppDelegate.h"
+#import "AppUpdateTracker.h"
 
 @interface AppDelegate ()
 
@@ -15,6 +16,13 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    // Override point for customization after application launch.
+    [AppUpdateTracker registerForFirstInstallWithBlock:^(NSTimeInterval installTimeSinceEpoch, NSUInteger installCount) {
+        NSLog(@"first install detected at: %f amount of times app was (re)installed: %lu", installTimeSinceEpoch, (unsigned long)installCount);
+    }];
+    [AppUpdateTracker registerForIncrementedUseCountWithBlock:^(NSUInteger useCount) {
+        NSLog(@"incremented use count to: %lu", (unsigned long)useCount);
+    }];
     // Code to initialize Parse
     ParseClientConfiguration *config = [ParseClientConfiguration  configurationWithBlock:^(id<ParseMutableClientConfiguration> configuration) {
 

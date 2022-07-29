@@ -160,4 +160,10 @@
                                                                   swipeableView)]];
 }
 
+- (NSMutableArray *)userRankingSystem:(NSMutableArray *) unrankedUserObjArray;{
+    NSMutableArray *sortedUserObjArray;
+    
+    return sortedUserObjArray;
+}
+
 @end

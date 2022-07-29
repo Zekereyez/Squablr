@@ -19,6 +19,11 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSNumber *experience;
 @property (nonatomic, strong) NSString *biography;
 @property (nonatomic, strong) PFFileObject *imageFile;
+@property (nonatomic, strong) NSNumber *userUsageCount;
+// an elo score will be the name of the score that we are
+// giving users in how they are ranked and is a means to
+// standardize our users for our recommendation algorithm
+@property (nonatomic, strong) NSNumber *eloScore; // an elo score signifies how "good" a user profile is and we will match users with similar scores
 + (void) writeUserToParse: (PFBooleanResultBlock  _Nullable)completion;
 + (PFFileObject *)getPFFileFromImage: (UIImage * _Nullable)image;
 @end
