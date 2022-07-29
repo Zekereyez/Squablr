@@ -89,7 +89,8 @@
         // Bio layout
         NSLayoutConstraint *bioLabelTopEdgeToParent = [NSLayoutConstraint constraintWithItem:bioLabel attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:nameLabel attribute:NSLayoutAttributeBottom multiplier:1 constant:10];
         NSLayoutConstraint *bioLabelLeftEdgeToParent = [NSLayoutConstraint constraintWithItem:bioLabel attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeLeft multiplier:1 constant:10];
-        [self addConstraints:@[bioLabelTopEdgeToParent, bioLabelLeftEdgeToParent]];
+        NSLayoutConstraint *bioLabelRightEdgeToParent = [NSLayoutConstraint constraintWithItem:bioLabel attribute:NSLayoutAttributeRight relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeRight multiplier:1 constant:-10];
+        [self addConstraints:@[bioLabelTopEdgeToParent, bioLabelLeftEdgeToParent, bioLabelRightEdgeToParent]];
     }
     
     return self;

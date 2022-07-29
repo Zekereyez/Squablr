@@ -119,7 +119,7 @@
 -(void) queryUserProfileInfo {
     // Now to load the info we need to query from here based on the user name
     PFQuery *postQuery = [PFQuery queryWithClassName:@"Profile"];
-    postQuery.limit = 6;
+    postQuery.limit = 50;
     // fetch data asynchronously
     [postQuery findObjectsInBackgroundWithBlock:^(NSArray<Profile *> * _Nullable userInfo, NSError * _Nullable error) {
         if (userInfo) {
