@@ -25,7 +25,7 @@
     return self;
 }
 
-- (instancetype)initWithProfile:(CGRect)frame profile:(Profile *)profile {
+- (instancetype)initWithBounds:(CGRect)frame profile:(Profile *)profile {
     self = [super initWithFrame:frame];
     if (self) {
         [self setup];
@@ -40,71 +40,58 @@
         imageView.layer.masksToBounds = true;
         [self addSubview:imageView];
         // Name Label
-        UILabel *name = [[UILabel alloc]initWithFrame:CGRectMake(25, 500, 200, 40)];
-        name.text = profile.name;
-        name.numberOfLines = 0;
-        name.baselineAdjustment = UIBaselineAdjustmentAlignBaselines; // or UIBaselineAdjustmentAlignCenters, or UIBaselineAdjustmentNone
-        name.adjustsFontSizeToFitWidth = YES;
-        name.minimumScaleFactor = 10.0f/12.0f;
-        name.clipsToBounds = YES;
-        name.backgroundColor = [UIColor clearColor];
-        name.textColor = [UIColor blackColor];
-        name.textAlignment = NSTextAlignmentLeft;
-        name.translatesAutoresizingMaskIntoConstraints = NO;
-        [self addSubview:name];
+        UILabel *nameLabel = [[UILabel alloc]initWithFrame:CGRectMake(25, 500, 200, 40)];
+        nameLabel.text = profile.name;
+        nameLabel.numberOfLines = 0;
+        nameLabel.baselineAdjustment = UIBaselineAdjustmentAlignBaselines; // or UIBaselineAdjustmentAlignCenters, or UIBaselineAdjustmentNone
+        nameLabel.adjustsFontSizeToFitWidth = YES;
+        nameLabel.minimumScaleFactor = 10.0f/12.0f;
+        nameLabel.clipsToBounds = YES;
+        nameLabel.backgroundColor = [UIColor clearColor];
+        nameLabel.textColor = [UIColor blackColor];
+        nameLabel.textAlignment = NSTextAlignmentLeft;
+        nameLabel.translatesAutoresizingMaskIntoConstraints = NO;
+        [self addSubview:nameLabel];
         // Age Label
-        UILabel *age = [[UILabel alloc]initWithFrame:CGRectMake(125, 500, 200, 40)];
-        age.text = [profile.age stringValue];
-        age.numberOfLines = 0;
-        age.baselineAdjustment = UIBaselineAdjustmentAlignBaselines; // or UIBaselineAdjustmentAlignCenters, or UIBaselineAdjustmentNone
-        age.adjustsFontSizeToFitWidth = YES;
-        age.minimumScaleFactor = 10.0f/12.0f;
-        age.clipsToBounds = YES;
-        age.backgroundColor = [UIColor clearColor];
-        age.textColor = [UIColor blackColor];
-        age.textAlignment = NSTextAlignmentLeft;
-        age.translatesAutoresizingMaskIntoConstraints = NO;
-        [self addSubview:age];
+        UILabel *ageLabel = [[UILabel alloc]initWithFrame:CGRectMake(125, 500, 200, 40)];
+        ageLabel.text = [profile.age stringValue];
+        ageLabel.numberOfLines = 0;
+        ageLabel.baselineAdjustment = UIBaselineAdjustmentAlignBaselines; // or UIBaselineAdjustmentAlignCenters, or UIBaselineAdjustmentNone
+        ageLabel.adjustsFontSizeToFitWidth = YES;
+        ageLabel.minimumScaleFactor = 10.0f/12.0f;
+        ageLabel.clipsToBounds = YES;
+        ageLabel.backgroundColor = [UIColor clearColor];
+        ageLabel.textColor = [UIColor blackColor];
+        ageLabel.textAlignment = NSTextAlignmentLeft;
+        ageLabel.translatesAutoresizingMaskIntoConstraints = NO;
+        [self addSubview:ageLabel];
         // Biography label
-        UILabel *bio = [[UILabel alloc]initWithFrame:CGRectMake(25, 540, 200, 40)];
-        bio.text = profile.biography;
-        bio.numberOfLines = 0;
-        bio.baselineAdjustment = UIBaselineAdjustmentAlignBaselines; // or UIBaselineAdjustmentAlignCenters, or UIBaselineAdjustmentNone
-        bio.adjustsFontSizeToFitWidth = YES;
-        bio.minimumScaleFactor = 10.0f/12.0f;
-        bio.clipsToBounds = YES;
-        bio.backgroundColor = [UIColor clearColor];
-        bio.textColor = [UIColor blackColor];
-        bio.textAlignment = NSTextAlignmentLeft;
-        bio.translatesAutoresizingMaskIntoConstraints = NO;
-        [self addSubview:bio];
+        UILabel *bioLabel = [[UILabel alloc]initWithFrame:CGRectMake(25, 540, 200, 40)];
+        bioLabel.text = profile.biography;
+        bioLabel.numberOfLines = 0;
+        bioLabel.baselineAdjustment = UIBaselineAdjustmentAlignBaselines; // or UIBaselineAdjustmentAlignCenters, or UIBaselineAdjustmentNone
+        bioLabel.adjustsFontSizeToFitWidth = YES;
+        bioLabel.minimumScaleFactor = 10.0f/12.0f;
+        bioLabel.clipsToBounds = YES;
+        bioLabel.backgroundColor = [UIColor clearColor];
+        bioLabel.textColor = [UIColor blackColor];
+        bioLabel.textAlignment = NSTextAlignmentLeft;
+        bioLabel.translatesAutoresizingMaskIntoConstraints = NO;
+        [self addSubview:bioLabel];
         // Name label layout
-        NSLayoutConstraint *left = [NSLayoutConstraint constraintWithItem:name attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeLeft multiplier:1 constant:10];
-        NSLayoutConstraint *top = [NSLayoutConstraint constraintWithItem:name attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:imageView attribute:NSLayoutAttributeBottom multiplier:1 constant:10];
-        [self addConstraints:@[left, top]];
+        NSLayoutConstraint *nameLabelLeftEdgeToParent = [NSLayoutConstraint constraintWithItem:nameLabel attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeLeft multiplier:1 constant:10];
+        NSLayoutConstraint *nameLabelTopEdgeToParent = [NSLayoutConstraint constraintWithItem:nameLabel attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:imageView attribute:NSLayoutAttributeBottom multiplier:1 constant:10];
+        [self addConstraints:@[nameLabelLeftEdgeToParent, nameLabelTopEdgeToParent]];
         // Age label layout
-        NSLayoutConstraint *rightAge = [NSLayoutConstraint constraintWithItem:age attribute:NSLayoutAttributeRight relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeRight multiplier:1 constant:-10];
-        NSLayoutConstraint *topAge = [NSLayoutConstraint constraintWithItem:age attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:imageView attribute:NSLayoutAttributeBottom multiplier:1 constant:10];
-        [self addConstraints:@[rightAge, topAge]];
+        NSLayoutConstraint *ageLabelRightEdgeToParent = [NSLayoutConstraint constraintWithItem:ageLabel attribute:NSLayoutAttributeRight relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeRight multiplier:1 constant:-10];
+        NSLayoutConstraint *ageLabelTopEdgeToParent = [NSLayoutConstraint constraintWithItem:ageLabel attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:imageView attribute:NSLayoutAttributeBottom multiplier:1 constant:10];
+        [self addConstraints:@[ageLabelRightEdgeToParent, ageLabelTopEdgeToParent]];
         // Bio layout
-        NSLayoutConstraint *bioTop = [NSLayoutConstraint constraintWithItem:bio attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:name attribute:NSLayoutAttributeBottom multiplier:1 constant:10];
-        NSLayoutConstraint *bioLeft = [NSLayoutConstraint constraintWithItem:bio attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeLeft multiplier:1 constant:10];
-        [self addConstraints:@[bioTop, bioLeft]];
+        NSLayoutConstraint *bioLabelTopEdgeToParent = [NSLayoutConstraint constraintWithItem:bioLabel attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:nameLabel attribute:NSLayoutAttributeBottom multiplier:1 constant:10];
+        NSLayoutConstraint *bioLabelLeftEdgeToParent = [NSLayoutConstraint constraintWithItem:bioLabel attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeLeft multiplier:1 constant:10];
+        [self addConstraints:@[bioLabelTopEdgeToParent, bioLabelLeftEdgeToParent]];
     }
     
-    return self;
-}
-
-- (instancetype)initWithLoad:(CGRect)frame {
-    self = [super initWithFrame:frame];
-    if (self) {
-        [self setup];
-        UIActivityIndicatorView *spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleMedium];
-        spinner.frame = CGRectOffset(self.frame, 0, 0);
-        spinner.center = self.center;
-        [spinner startAnimating];
-        [self addSubview:spinner];
-    }
     return self;
 }
 
@@ -127,6 +114,9 @@
 
     // Corner Radius
     self.layer.cornerRadius = 10.0;
+    
+    // Background Color
+    self.backgroundColor = [UIColor systemGrayColor];
 }
 
 @end

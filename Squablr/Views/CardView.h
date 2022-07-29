@@ -25,7 +25,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property UILabel *username;
 @property UILabel *bio;
 
-- (instancetype)initWithProfile:(CGRect)frame profile:(Profile *)profile;
+- (instancetype)initWithBounds:(CGRect)frame profile:(Profile *)profile;
 @end
 
 NS_ASSUME_NONNULL_END

@@ -8,11 +8,9 @@
 #import "UserFeedViewController.h"
 
 @interface UserFeedViewController ()
-@property (nonatomic, strong) NSMutableArray *userProfileInfo;
+@property (nonatomic, strong) NSMutableArray *arrayOfUserObjects;
 @property (nonatomic, strong) NSMutableArray *userProfilePhotos;
 @property (nonatomic) NSUInteger profileIndex;
-@property (nonatomic, strong) Profile *profileToShow;
-@property (nonatomic, strong) PFUser *user;
 @end
 
 @implementation UserFeedViewController
@@ -99,11 +97,10 @@
 
 - (UIView *)nextViewForSwipeableView:(ZLSwipeableView *)swipeableView {
     // call the line below with the initwithProfile
-    if (self.profileIndex < self.userProfileInfo.count) {
+    if (self.profileIndex < self.arrayOfUserObjects.count) {
         // Access the profile array with the current profile index
-        Profile *currentProfile = self.userProfileInfo[self.profileIndex];
-        CardView *view = [[CardView alloc] initWithProfile:swipeableView.bounds profile:currentProfile];
-        view.backgroundColor = [UIColor systemGrayColor];
+        Profile *currentProfile = self.arrayOfUserObjects[self.profileIndex];
+        CardView *view = [[CardView alloc] initWithBounds:swipeableView.bounds profile:currentProfile];
         self.profileIndex++;
         return view;
     }
@@ -125,10 +122,9 @@
     postQuery.limit = 6;
     // fetch data asynchronously
     [postQuery findObjectsInBackgroundWithBlock:^(NSArray<Profile *> * _Nullable userInfo, NSError * _Nullable error) {
-//        NSLog(@"%@", userInfo);
         if (userInfo) {
             // Handle fetched data
-            self.userProfileInfo = [NSMutableArray arrayWithArray:userInfo];
+            self.arrayOfUserObjects = [NSMutableArray arrayWithArray:userInfo];
             // This is here so we guarantee that the user profile info is filled with
             // profile objects before the cards are initialized so we do not get any errors
             // or blank filled cards
