@@ -72,7 +72,8 @@
     user[@"profile"][@"profileImages"] = self.userProfilePhotos;
     [user saveInBackground];
     [self.gridView reloadData];
-    
+    // loads the user profile pics faster
+    [self loadUserProfileInfo];
     // Dismiss UIImagePickerController to go back to your original view controller
     [self dismissViewControllerAnimated:YES completion:nil];
 }
