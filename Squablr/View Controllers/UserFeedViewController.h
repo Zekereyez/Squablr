@@ -10,6 +10,7 @@
 #import "CardView.h"
 #import "Parse/Parse.h"
 #import "Profile.h"
+#import "math.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
