@@ -8,9 +8,14 @@
 #import "UserFeedViewController.h"
 
 @interface UserFeedViewController ()
+@property (nonatomic, strong) NSMutableArray *currentUserProfileInfo;
 @property (nonatomic, strong) NSMutableArray *arrayOfUserObjects;
 @property (nonatomic, strong) NSMutableArray *userPlaceHolderArray;
+@property (nonatomic, strong) NSDictionary *userProfilesandEloScores;
 @property (nonatomic) NSUInteger profileIndex;
+@property (nonatomic) NSUInteger currUserWeight;
+@property (nonatomic) NSUInteger currUserExperience;
+
 @end
 
 @implementation UserFeedViewController
@@ -165,7 +170,13 @@
     NSMutableArray *sortedUserObjArray;
     NSDictionary *userObjEloScorePair;
     NSNumber *eloScore;
+    // we want to grab the current users information ie important metrics like weight
+    // and experience and make calculations based on that info
+    // Loads up the users profile information into an array
+    [self queryForCurrentUserInfo];
+    // Loop through the array of user objects and determine elo scores
     for (Profile *unscoredUser in unrankedUserObjArray) {
+        [self weightCalculation:unscoredUser.weightClass];
         NSLog(@"%@", unscoredUser.name);
         NSLog(@"%@", unscoredUser.biography);
         if (unscoredUser.biography.length == 0) {
@@ -173,6 +184,32 @@
         }
     }
     return sortedUserObjArray;
+}
+
+- (NSNumber *)weightCalculation:(NSNumber *) currentUserOnFeedWeight {
+    
+    return @3;
+}
+
+- (NSNumber *)experienceCalculation:(NSNumber *) currentUserOnFeedExp {
+    return @1;
+}
+
+- (void) queryForCurrentUserInfo {
+    PFQuery *postQuery = [PFQuery queryWithClassName:@"Profile"];
+    [postQuery whereKey:@"name" equalTo:[PFUser currentUser].username];
+    // fetch data asynchronously
+    [postQuery findObjectsInBackgroundWithBlock:^(NSArray<Profile *> * _Nullable userInfo, NSError * _Nullable error) {
+        if (userInfo) {
+            // Handle fetched data
+            self.currentUserProfileInfo = [NSMutableArray arrayWithArray:userInfo];
+        }
+    }];
+    [self loadUserInfoIntoVariables];
+}
+- (void) loadUserInfoIntoVariables {
+    self.currUserWeight = [[self.currentUserProfileInfo[0] weightClass] integerValue];
+    self.currUserExperience = [[self.currentUserProfileInfo[0] experience] integerValue];
 }
 
 @end
