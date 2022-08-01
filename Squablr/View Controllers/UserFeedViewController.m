@@ -9,7 +9,7 @@
 
 @interface UserFeedViewController ()
 @property (nonatomic, strong) NSMutableArray *arrayOfUserObjects;
-@property (nonatomic, strong) NSMutableArray *userProfilePhotos;
+@property (nonatomic, strong) NSMutableArray *userPlaceHolderArray;
 @property (nonatomic) NSUInteger profileIndex;
 @end
 
@@ -125,6 +125,7 @@
         if (userInfo) {
             // Handle fetched data
             self.arrayOfUserObjects = [NSMutableArray arrayWithArray:userInfo];
+            self.userPlaceHolderArray = [self userRankingSystem:_arrayOfUserObjects];
             // This is here so we guarantee that the user profile info is filled with
             // profile objects before the cards are initialized so we do not get any errors
             // or blank filled cards
@@ -162,7 +163,15 @@
 
 - (NSMutableArray *)userRankingSystem:(NSMutableArray *) unrankedUserObjArray;{
     NSMutableArray *sortedUserObjArray;
-    
+    NSDictionary *userObjEloScorePair;
+    NSNumber *eloScore;
+    for (Profile *unscoredUser in unrankedUserObjArray) {
+        NSLog(@"%@", unscoredUser.name);
+        NSLog(@"%@", unscoredUser.biography);
+        if (unscoredUser.biography.length == 0) {
+            
+        }
+    }
     return sortedUserObjArray;
 }
 
