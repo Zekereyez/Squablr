@@ -58,4 +58,26 @@
     // If any sessions were discarded while the application was not running, this will be called shortly after application:didFinishLaunchingWithOptions.
     // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
 }
+
+-(void)applicationWillEnterForeground:(UIApplication *)application {
+    // probably would be the place to make the timer  and create it?
+    // the only problem is if it will even be accessible since its in
+    // this function maybe i need to make it like a global function
+}
+
+-(void)applicationDidBecomeActive:(UIApplication *)application {
+    // Here is where I would start the timer of the user
+    // i should probably create the timer in the did finish loading that way we can
+    // have it already prepped?
+    
+    // would pause the timer in the application going in background function i think
+    // seems like it would work here for that
+    
+}
+
+- (void)applicationDidEnterBackground:(UIApplication *)application {
+    // pause timer in here since the user is no longer active on the app
+    
+}
+
 @end
