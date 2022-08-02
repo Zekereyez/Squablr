@@ -208,8 +208,23 @@
     return (1 / weightSquared);
 }
 
-- (NSNumber *)experienceCalculation:(NSNumber *) currentUserOnFeedExp {
-    return @1;
+- (double)experienceCalculation:(NSNumber *) currentUserOnFeedExp {
+    NSNumber *currentUserExp = self.currUserExperience;
+    NSInteger *expDiff = (currentUserExp.integerValue - currentUserOnFeedExp.integerValue);
+//    NSNumber *difference = currentUserWeight. - currentUserOnFeedWeight;
+    NSNumber *experienceToNumber = [NSNumber numberWithInteger:expDiff];
+    NSLog(@"%@", @"Exp difference: ");
+    NSLog(@"%i", expDiff);
+    NSLog(@"%@", @"USER exp: ");
+    NSLog(@"%@", currentUserExp);
+    if (experienceToNumber == 0) {
+        // change the weight since denominator cannot be 0
+        // hence same weight and 1 lb apart will be treated the same
+        experienceToNumber = @2;
+    }
+    double w = [experienceToNumber doubleValue];
+    double weightSquared = pow(w, 2);
+    return (1 / weightSquared);
 }
 
 - (void) queryForCurrentUserInfo {
