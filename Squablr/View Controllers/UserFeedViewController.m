@@ -177,11 +177,13 @@
     // Loop through the array of user objects and determine elo scores
     for (Profile *unscoredUser in unrankedUserObjArray) {
         NSNumber *weight = unscoredUser.weightClass;
-        double item = [self weightCalculation:weight];
+        NSNumber *experience = unscoredUser.experience;
+        double weightScore = [self weightCalculation:weight];
+        double experienceScore = [self experienceCalculation:experience];
         NSLog(@"%@", unscoredUser.name);
         NSLog(@"%@", unscoredUser.biography);
         NSLog(@"%@", @"Weight score: ");
-        NSLog(@"%f", item);
+        NSLog(@"%f", weightScore);
         if (unscoredUser.biography.length == 0) {
             
         }
