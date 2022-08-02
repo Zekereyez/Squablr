@@ -192,15 +192,16 @@
 - (double)weightCalculation:(NSNumber *) currentUserOnFeedWeight {
     NSNumber *currentUserWeight = self.currUserWeight;
     NSInteger *weightDiff = (currentUserWeight.integerValue - currentUserOnFeedWeight.integerValue);
+//    NSNumber *difference = currentUserWeight. - currentUserOnFeedWeight;
     NSNumber *weight = [NSNumber numberWithInteger:weightDiff];
     NSLog(@"%@", @"Weight: ");
-    NSLog(@"%@", weightDiff);
+    NSLog(@"%i", weightDiff);
     NSLog(@"%@", @"USER: ");
     NSLog(@"%@", currentUserWeight);
-    if (weightDiff == 0) {
+    if (weight == 0) {
         // change the weight since denominator cannot be 0
         // hence same weight and 1 lb apart will be treated the same
-        weightDiff = @1;
+        weight = @2;
     }
     double w = [weight doubleValue];
     double weightSquared = pow(w, 2);
