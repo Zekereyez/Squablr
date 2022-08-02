@@ -65,27 +65,25 @@
     // probably would be the place to make the timer  and create it?
     // the only problem is if it will even be accessible since its in
     // this function maybe i need to make it like a global function
-    self.timer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(writeToParse) userInfo:nil repeats:YES];
+//    self.timer = [NSTimer scheduledTimerWithTimeInterval:10.0 target:self selector:@selector(writeToParse) userInfo:nil repeats:YES];
+    NSLog(@"%@", @"Will enter foreground method");
+}
+
+-(void)applicationDidBecomeActive:(UIApplication *)application {
+    // Start the user timer
+    self.timer = [NSTimer scheduledTimerWithTimeInterval:10.0 target:self selector:@selector(writeToParse) userInfo:nil repeats:YES];
+    NSLog(@"%@", @"App did become active");
+}
+
+- (void)applicationDidEnterBackground:(UIApplication *)application {
+    // pause timer in here since the user is no longer active on the app/no longer in the foreground
+    [self.timer invalidate];
+    NSLog(@"%@", @"App entered the background aka no longer active");
 }
 
 - (void) writeToParse {
     // update the current user count of app usage to parse
-    
-}
-
--(void)applicationDidBecomeActive:(UIApplication *)application {
-    // Here is where I would start the timer of the user
-    // i should probably create the timer in the did finish loading that way we can
-    // have it already prepped?
-    
-    // would pause the timer in the application going in background function i think
-    // seems like it would work here for that
-    
-}
-
-- (void)applicationDidEnterBackground:(UIApplication *)application {
-    // pause timer in here since the user is no longer active on the app
-    [self.timer invalidate];
+    NSLog(@"%@", @"Call to parse method!");
     
 }
 

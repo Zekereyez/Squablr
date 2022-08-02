@@ -180,10 +180,10 @@
         NSNumber *experience = unscoredUser.experience;
         double weightScore = [self weightCalculation:weight];
         double experienceScore = [self experienceCalculation:experience];
-        NSLog(@"%@", unscoredUser.name);
-        NSLog(@"%@", unscoredUser.biography);
-        NSLog(@"%@", @"Weight score: ");
-        NSLog(@"%f", weightScore);
+//        NSLog(@"%@", unscoredUser.name);
+//        NSLog(@"%@", unscoredUser.biography);
+//        NSLog(@"%@", @"Weight score: ");
+//        NSLog(@"%f", weightScore);
         if (unscoredUser.biography.length == 0) {
             
         }
@@ -196,10 +196,10 @@
     NSInteger *weightDiff = (currentUserWeight.integerValue - currentUserOnFeedWeight.integerValue);
 //    NSNumber *difference = currentUserWeight. - currentUserOnFeedWeight;
     NSNumber *weight = [NSNumber numberWithInteger:weightDiff];
-    NSLog(@"%@", @"Weight: ");
-    NSLog(@"%i", weightDiff);
-    NSLog(@"%@", @"USER: ");
-    NSLog(@"%@", currentUserWeight);
+//    NSLog(@"%@", @"Weight: ");
+//    NSLog(@"%i", weightDiff);
+//    NSLog(@"%@", @"USER: ");
+//    NSLog(@"%@", currentUserWeight);
     if (weight == 0) {
         // change the weight since denominator cannot be 0
         // hence same weight and 1 lb apart will be treated the same
@@ -215,10 +215,10 @@
     NSInteger *expDiff = (currentUserExp.integerValue - currentUserOnFeedExp.integerValue);
 //    NSNumber *difference = currentUserWeight. - currentUserOnFeedWeight;
     NSNumber *experienceToNumber = [NSNumber numberWithInteger:expDiff];
-    NSLog(@"%@", @"Exp difference: ");
-    NSLog(@"%i", expDiff);
-    NSLog(@"%@", @"USER exp: ");
-    NSLog(@"%@", currentUserExp);
+//    NSLog(@"%@", @"Exp difference: ");
+//    NSLog(@"%i", expDiff);
+//    NSLog(@"%@", @"USER exp: ");
+//    NSLog(@"%@", currentUserExp);
     if (experienceToNumber == 0) {
         // change the weight since denominator cannot be 0
         // hence same weight and 1 lb apart will be treated the same
@@ -237,7 +237,6 @@
         if (userInfo) {
             // Handle fetched data
             self.currentUserProfileInfo = [NSMutableArray arrayWithArray:userInfo];
-            NSLog(@"%@", userInfo);
             [self loadUserInfoIntoVariables];
         }
         else {
