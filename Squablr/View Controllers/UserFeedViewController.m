@@ -13,8 +13,8 @@
 @property (nonatomic, strong) NSMutableArray *userPlaceHolderArray;
 @property (nonatomic, strong) NSDictionary *userProfilesandEloScores;
 @property (nonatomic) NSUInteger profileIndex;
-@property (nonatomic) NSUInteger currUserWeight;
-@property (nonatomic) NSUInteger currUserExperience;
+@property (nonatomic) NSNumber *currUserWeight;
+@property (nonatomic) NSNumber *currUserExperience;
 
 @end
 
@@ -176,7 +176,9 @@
     [self queryForCurrentUserInfo];
     // Loop through the array of user objects and determine elo scores
     for (Profile *unscoredUser in unrankedUserObjArray) {
-        [self weightCalculation:unscoredUser.weightClass];
+        NSNumber *weight = unscoredUser.weightClass;
+        double item = [self weightCalculation:weight];
+        NSLog(@"%f", item);
         NSLog(@"%@", unscoredUser.name);
         NSLog(@"%@", unscoredUser.biography);
         if (unscoredUser.biography.length == 0) {
@@ -186,9 +188,21 @@
     return sortedUserObjArray;
 }
 
-- (NSNumber *)weightCalculation:(NSNumber *) currentUserOnFeedWeight {
-    
-    return @3;
+- (double)weightCalculation:(NSNumber *) currentUserOnFeedWeight {
+    NSNumber *currentUserWeight = self.currUserWeight;
+    NSInteger *weightDiff = (currentUserWeight.integerValue - currentUserOnFeedWeight.integerValue);
+    NSNumber *weight = [NSNumber numberWithInteger:weightDiff];
+//    NSNumber *weightDiff = @1;
+    if (weightDiff == 0) {
+        // change the weight since we will created a ratio
+        // and the denominator cannot be 0
+        weightDiff = @1;
+    }
+    double w = [weight doubleValue];
+    double weightSquared = pow(w, 2);
+    NSNumber *i = [NSNumber numberWithInteger:weightSquared];
+//    double ratio = 1 / i;
+    return weightSquared + 0.2;
 }
 
 - (NSNumber *)experienceCalculation:(NSNumber *) currentUserOnFeedExp {
@@ -203,13 +217,16 @@
         if (userInfo) {
             // Handle fetched data
             self.currentUserProfileInfo = [NSMutableArray arrayWithArray:userInfo];
+            NSLog(@"%@", userInfo);
+            [self loadUserInfoIntoVariables];
         }
     }];
-    [self loadUserInfoIntoVariables];
 }
 - (void) loadUserInfoIntoVariables {
-    self.currUserWeight = [[self.currentUserProfileInfo[0] weightClass] integerValue];
-    self.currUserExperience = [[self.currentUserProfileInfo[0] experience] integerValue];
+    NSLog(@"%@", [self.currentUserProfileInfo[0] name]);
+    self.currUserWeight = [self.currentUserProfileInfo[0] weightClass];
+    NSLog(@"%@", self.currUserWeight);
+    self.currUserExperience = [self.currentUserProfileInfo[0] experience];
 }
 
 @end
