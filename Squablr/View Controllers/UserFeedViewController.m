@@ -23,6 +23,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    // we want to grab the current users information ie important metrics like weight
+    // and experience and make calculations based on that info
+    // Loads up the users profile information into an array
+    [self queryForCurrentUserInfo];
     // query for the 50 profiles in db
     [self queryUserProfileInfo];
     
@@ -170,17 +174,14 @@
     NSMutableArray *sortedUserObjArray;
     NSDictionary *userObjEloScorePair;
     NSNumber *eloScore;
-    // we want to grab the current users information ie important metrics like weight
-    // and experience and make calculations based on that info
-    // Loads up the users profile information into an array
-    [self queryForCurrentUserInfo];
     // Loop through the array of user objects and determine elo scores
     for (Profile *unscoredUser in unrankedUserObjArray) {
         NSNumber *weight = unscoredUser.weightClass;
         double item = [self weightCalculation:weight];
-        NSLog(@"%f", item);
         NSLog(@"%@", unscoredUser.name);
         NSLog(@"%@", unscoredUser.biography);
+        NSLog(@"%@", @"Weight score: ");
+        NSLog(@"%f", item);
         if (unscoredUser.biography.length == 0) {
             
         }
@@ -192,17 +193,18 @@
     NSNumber *currentUserWeight = self.currUserWeight;
     NSInteger *weightDiff = (currentUserWeight.integerValue - currentUserOnFeedWeight.integerValue);
     NSNumber *weight = [NSNumber numberWithInteger:weightDiff];
-//    NSNumber *weightDiff = @1;
+    NSLog(@"%@", @"Weight: ");
+    NSLog(@"%@", weightDiff);
+    NSLog(@"%@", @"USER: ");
+    NSLog(@"%@", currentUserWeight);
     if (weightDiff == 0) {
-        // change the weight since we will created a ratio
-        // and the denominator cannot be 0
+        // change the weight since denominator cannot be 0
+        // hence same weight and 1 lb apart will be treated the same
         weightDiff = @1;
     }
     double w = [weight doubleValue];
     double weightSquared = pow(w, 2);
-    NSNumber *i = [NSNumber numberWithInteger:weightSquared];
-//    double ratio = 1 / i;
-    return weightSquared + 0.2;
+    return (1 / weightSquared);
 }
 
 - (NSNumber *)experienceCalculation:(NSNumber *) currentUserOnFeedExp {
@@ -219,6 +221,9 @@
             self.currentUserProfileInfo = [NSMutableArray arrayWithArray:userInfo];
             NSLog(@"%@", userInfo);
             [self loadUserInfoIntoVariables];
+        }
+        else {
+            return;
         }
     }];
 }
