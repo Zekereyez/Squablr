@@ -10,6 +10,8 @@
 
 @interface AppDelegate ()
 
+@property NSTimer *timer;
+
 @end
 
 @implementation AppDelegate
@@ -63,6 +65,12 @@
     // probably would be the place to make the timer  and create it?
     // the only problem is if it will even be accessible since its in
     // this function maybe i need to make it like a global function
+    self.timer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(writeToParse) userInfo:nil repeats:YES];
+}
+
+- (void) writeToParse {
+    // update the current user count of app usage to parse
+    
 }
 
 -(void)applicationDidBecomeActive:(UIApplication *)application {
@@ -77,6 +85,7 @@
 
 - (void)applicationDidEnterBackground:(UIApplication *)application {
     // pause timer in here since the user is no longer active on the app
+    [self.timer invalidate];
     
 }
 
