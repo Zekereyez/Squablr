@@ -11,6 +11,7 @@
 		285EEFC8D72B610B9172E57B /* Pods_Squablr_SquablrUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6644716D576D48C884510C82 /* Pods_Squablr_SquablrUITests.framework */; };
 		9E2818C82899A75F00B1062E /* ParseUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E2818C72899A75F00B1062E /* ParseUtils.m */; };
 		9E2818CC2899CA8E00B1062E /* RankingAlgorithmUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E2818CB2899CA8E00B1062E /* RankingAlgorithmUtils.m */; };
+		9E2818CF289AED9100B1062E /* Like.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E2818CE289AED9100B1062E /* Like.m */; };
 		9EB5589F2889EF000089E915 /* CardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EB5589E2889EF000089E915 /* CardView.m */; };
 		9EB558A3289069AD0089E915 /* banana.png in Resources */ = {isa = PBXBuildFile; fileRef = 9EB558A2289069AD0089E915 /* banana.png */; };
 		9EC7449D287F745E0072271A /* EditProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EC7449C287F745E0072271A /* EditProfileViewController.m */; };
@@ -63,6 +64,8 @@
 		9E2818C72899A75F00B1062E /* ParseUtils.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ParseUtils.m; sourceTree = "<group>"; };
 		9E2818CA2899CA8E00B1062E /* RankingAlgorithmUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RankingAlgorithmUtils.h; sourceTree = "<group>"; };
 		9E2818CB2899CA8E00B1062E /* RankingAlgorithmUtils.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RankingAlgorithmUtils.m; sourceTree = "<group>"; };
+		9E2818CD289AED9100B1062E /* Like.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Like.h; sourceTree = "<group>"; };
+		9E2818CE289AED9100B1062E /* Like.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Like.m; sourceTree = "<group>"; };
 		9EB5589D2889EF000089E915 /* CardView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CardView.h; sourceTree = "<group>"; };
 		9EB5589E2889EF000089E915 /* CardView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CardView.m; sourceTree = "<group>"; };
 		9EB558A2289069AD0089E915 /* banana.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = banana.png; path = ../../../../banana.png; sourceTree = "<group>"; };
@@ -262,6 +265,8 @@
 			children = (
 				9EF5EB582878B5A2008BA3CC /* Profile.h */,
 				9EF5EB592878B5A2008BA3CC /* Profile.m */,
+				9E2818CD289AED9100B1062E /* Like.h */,
+				9E2818CE289AED9100B1062E /* Like.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -515,6 +520,7 @@
 				9EF5EB212874A2F7008BA3CC /* main.m in Sources */,
 				9EF5EB132874A2F6008BA3CC /* SceneDelegate.m in Sources */,
 				9EF5EB562878B30B008BA3CC /* ProfileViewController.m in Sources */,
+				9E2818CF289AED9100B1062E /* Like.m in Sources */,
 				9E2818CC2899CA8E00B1062E /* RankingAlgorithmUtils.m in Sources */,
 				9EF5EB5A2878B5A2008BA3CC /* Profile.m in Sources */,
 				9EF5EB4F287891A5008BA3CC /* UserFeedViewController.m in Sources */,
