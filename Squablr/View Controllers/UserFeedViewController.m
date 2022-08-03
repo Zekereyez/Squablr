@@ -68,9 +68,10 @@
         // Send like to parse since profile not null
         if (currentProfile) {
             // insert the parse method to send like
-            [ParseUtils saveLikeToParse:currentProfile];
+            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+                [ParseUtils saveLikeToParse:currentProfile];
+            });
         }
-        
     }
 }
 

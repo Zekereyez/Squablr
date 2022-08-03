@@ -19,17 +19,18 @@
 
 + (void) saveLikeToParse:(Profile *) likedUserProfile {
     // Get user profile
-    Profile *userProfile = [self getCurrentUserProfileInfo];
+    Profile *currentUserProfile = [self getCurrentUserProfileInfo];
     // check if profile["likes"] doesnt have the user liked already
-    if (! [userProfile[@"Likes"] containsObject:likedUserProfile.objectId] ) {
+    NSArray<NSString *>* currentUserLikes = currentUserProfile[@"Likes"];
+    if (! [currentUserLikes containsObject:likedUserProfile.objectId] ) {
         // copy the array of likes since we cant write innit directly
-        NSMutableArray *userLikedProfiles = [[NSMutableArray alloc] initWithArray:userProfile[@"Likes"] copyItems:YES];
+        NSMutableArray *currentUserNewLikes = [[NSMutableArray alloc] initWithArray:currentUserLikes copyItems:YES];
         // add the profile object id into the copy of array
-        [userLikedProfiles addObject:likedUserProfile.objectId];
+        [currentUserNewLikes addObject:likedUserProfile.objectId];
         // load that array as the user profile liked array
-        userProfile[@"Likes"] = userLikedProfiles;
+        currentUserProfile[@"Likes"] = currentUserNewLikes;
         // Save changes to parse
-        [userProfile saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+        [currentUserProfile saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
             if (error) {
                 NSLog(@"Error: %@", error.localizedDescription);
             }
