@@ -8,13 +8,8 @@
 #import "UserFeedViewController.h"
 
 @interface UserFeedViewController ()
-@property (nonatomic, strong) NSMutableArray *currentUserProfileInfo;
 @property (nonatomic, strong) NSMutableArray *arrayOfUserObjects;
-@property (nonatomic, strong) NSMutableArray *userPlaceHolderArray;
-@property (nonatomic, strong) NSDictionary *userProfilesandEloScores;
 @property (nonatomic) NSUInteger profileIndex;
-@property (nonatomic) NSNumber *currUserWeight;
-@property (nonatomic) NSNumber *currUserExperience;
 
 @end
 

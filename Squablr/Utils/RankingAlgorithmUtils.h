@@ -12,7 +12,9 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface RankingAlgorithmUtils : NSObject
+
 + (void) sortProfilesByCompatibility: (NSMutableArray *) profiles;
+
 @end
 
 NS_ASSUME_NONNULL_END

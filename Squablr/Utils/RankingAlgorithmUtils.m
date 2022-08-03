@@ -57,7 +57,6 @@ static const double _EXPERIENCE_MULTIPLIER = 0.7;
 }
 
 + (double) _weightCalculation:(NSNumber *) userOnFeedWeight withCurrentUserWeight: (NSNumber *) currentUserWeight;{
-//    NSNumber *difference = currentUserWeight. - currentUserOnFeedWeight;
     double weightDifferential = currentUserWeight.integerValue - userOnFeedWeight.integerValue;
     if (weightDifferential < 1) {
         // change the weight since denominator cannot be 0
