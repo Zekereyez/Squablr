@@ -55,7 +55,7 @@
           inDirection:(ZLSwipeableViewDirection)direction {
     // Handle direction
     if (direction == ZLSwipeableViewDirectionLeft) {
-        // means that user disliked and can be put in "seen"
+        // means that user disliked and can be put in "seen" array
         // or even recycled for later again
     }
     else if (direction == ZLSwipeableViewDirectionRight) {

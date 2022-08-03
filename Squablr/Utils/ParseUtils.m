@@ -30,14 +30,7 @@
         // load that array as the user profile liked array
         currentUserProfile[@"Likes"] = currentUserNewLikes;
         // Save changes to parse
-        [currentUserProfile saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
-            if (error) {
-                NSLog(@"Error: %@", error.localizedDescription);
-            }
-            else {
-                NSLog(@"Successfully saved like");
-            }
-        }];
+        [currentUserProfile saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {}];
     }
 }
 
