@@ -9,7 +9,7 @@
 
 @interface MatchesViewController () <UITableViewDataSource, UITableViewDelegate>
 
-@property (nonatomic, strong) NSMutableArray *arrayOfTweets;
+@property (nonatomic, strong) NSMutableArray *arrayOfMatches;
 
 @end
 
@@ -21,6 +21,11 @@
     // Source and delegate
     self.tableView.dataSource = self;
     self.tableView.dataSource = self;
+    
+    // Make parse utils call that will return the array of users matches
+    // so that we can fill in the current property of matches
+    // and use the count and shit and fill the items in the cell with the names
+    // of the users... seems about right
 }
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
     MatchCell *match = [tableView dequeueReusableCellWithIdentifier:@"MatchCell" forIndexPath:indexPath];;
