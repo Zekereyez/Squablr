@@ -134,7 +134,7 @@
         if (userInfo) {
             // Handle fetched data
             self.arrayOfUserObjects = [NSMutableArray arrayWithArray:userInfo];
-            self.userPlaceHolderArray = [self userRankingSystem:_arrayOfUserObjects];
+            [self sortUsersByCompatibility:_arrayOfUserObjects];
             // This is here so we guarantee that the user profile info is filled with
             // profile objects before the cards are initialized so we do not get any errors
             // or blank filled cards
@@ -170,63 +170,34 @@
                                                                   swipeableView)]];
 }
 
-- (NSMutableArray *)userRankingSystem:(NSMutableArray *) unrankedUserObjArray;{
+- (void)sortUsersByCompatibility:(NSMutableArray *) profiles {
     NSMutableArray *sortedUserObjArray;
-    NSDictionary *userObjEloScorePair;
-    NSNumber *eloScore;
+    NSMutableDictionary *userObjEloScorePair = [[NSMutableDictionary alloc] init];
+    double eloScore;
     // Loop through the array of user objects and determine elo scores
-    for (Profile *unscoredUser in unrankedUserObjArray) {
+    for (Profile *unscoredUser in profiles) {
+        eloScore = 0.0;
         NSNumber *weight = unscoredUser.weightClass;
         NSNumber *experience = unscoredUser.experience;
-        double weightScore = [self weightCalculation:weight];
-        double experienceScore = [self experienceCalculation:experience];
+        double weightScore = [RankingAlgorithmUtils weightCalculation:self.currUserWeight :weight];
+        double experienceScore = [RankingAlgorithmUtils experienceCalculation:self.currUserExperience :experience];
 //        NSLog(@"%@", unscoredUser.name);
 //        NSLog(@"%@", unscoredUser.biography);
 //        NSLog(@"%@", @"Weight score: ");
 //        NSLog(@"%f", weightScore);
+        eloScore = weightScore * 5 + experienceScore * 6;
+        
         if (unscoredUser.biography.length == 0) {
-            
+            // user is penalized for not having a bio
+            eloScore -= 5;
         }
+        NSString *item = [NSNumber numberWithDouble:eloScore];
     }
-    return sortedUserObjArray;
-}
-
-- (double)weightCalculation:(NSNumber *) currentUserOnFeedWeight {
-    NSNumber *currentUserWeight = self.currUserWeight;
-    NSInteger *weightDiff = (currentUserWeight.integerValue - currentUserOnFeedWeight.integerValue);
-//    NSNumber *difference = currentUserWeight. - currentUserOnFeedWeight;
-    NSNumber *weight = [NSNumber numberWithInteger:weightDiff];
-//    NSLog(@"%@", @"Weight: ");
-//    NSLog(@"%i", weightDiff);
-//    NSLog(@"%@", @"USER: ");
-//    NSLog(@"%@", currentUserWeight);
-    if (weight == 0) {
-        // change the weight since denominator cannot be 0
-        // hence same weight and 1 lb apart will be treated the same
-        weight = @2;
+    
+    for (NSString *key in [userObjEloScorePair allKeys]) {
+        NSLog(@"%@", [userObjEloScorePair objectForKey:key]);
     }
-    double w = [weight doubleValue];
-    double weightSquared = pow(w, 2);
-    return (1 / weightSquared);
-}
-
-- (double)experienceCalculation:(NSNumber *) currentUserOnFeedExp {
-    NSNumber *currentUserExp = self.currUserExperience;
-    NSInteger *expDiff = (currentUserExp.integerValue - currentUserOnFeedExp.integerValue);
-//    NSNumber *difference = currentUserWeight. - currentUserOnFeedWeight;
-    NSNumber *experienceToNumber = [NSNumber numberWithInteger:expDiff];
-//    NSLog(@"%@", @"Exp difference: ");
-//    NSLog(@"%i", expDiff);
-//    NSLog(@"%@", @"USER exp: ");
-//    NSLog(@"%@", currentUserExp);
-    if (experienceToNumber == 0) {
-        // change the weight since denominator cannot be 0
-        // hence same weight and 1 lb apart will be treated the same
-        experienceToNumber = @2;
-    }
-    double w = [experienceToNumber doubleValue];
-    double weightSquared = pow(w, 2);
-    return (1 / weightSquared);
+    
 }
 
 - (void) queryForCurrentUserInfo {
