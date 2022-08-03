@@ -72,7 +72,6 @@
                 [ParseUtils saveLikeToParse:currentProfile];
             });
         }
-        // 
     }
 }
 
