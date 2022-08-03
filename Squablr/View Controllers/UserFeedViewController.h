@@ -11,6 +11,7 @@
 #import "Parse/Parse.h"
 #import "Profile.h"
 #import "math.h"
+#import "ParseUtils.h"
 #import "RankingAlgorithmUtils.h"
 
 NS_ASSUME_NONNULL_BEGIN

@@ -17,6 +17,23 @@
     return profile;
 }
 
++ (void) saveLikeToParse:(Profile *) likedUserProfile {
+    // Get user profile
+    Profile *currentUserProfile = [self getCurrentUserProfileInfo];
+    // check if profile["likes"] doesnt have the user liked already
+    NSArray<NSString *>* currentUserLikes = currentUserProfile[@"Likes"];
+    if (! [currentUserLikes containsObject:likedUserProfile.objectId] ) {
+        // copy the array of likes since we cant write innit directly
+        NSMutableArray *currentUserNewLikes = [[NSMutableArray alloc] initWithArray:currentUserLikes copyItems:YES];
+        // add the profile object id into the copy of array
+        [currentUserNewLikes addObject:likedUserProfile.objectId];
+        // load that array as the user profile liked array
+        currentUserProfile[@"Likes"] = currentUserNewLikes;
+        // Save changes to parse
+        [currentUserProfile saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {}];
+    }
+}
+
 
 
 @end

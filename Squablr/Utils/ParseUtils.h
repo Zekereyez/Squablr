@@ -14,6 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface ParseUtils : NSObject
 
 + (Profile *) getCurrentUserProfileInfo;
++ (void) saveLikeToParse:(Profile *) likedUserProfile;
 
 @end
 

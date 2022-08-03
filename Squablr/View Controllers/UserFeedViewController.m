@@ -55,10 +55,23 @@
           inDirection:(ZLSwipeableViewDirection)direction {
     // Handle direction
     if (direction == ZLSwipeableViewDirectionLeft) {
-        
+        // means that user disliked and can be put in "seen" array
+        // or even recycled for later again
     }
     else if (direction == ZLSwipeableViewDirectionRight) {
-        
+        // User has liked the current profile so send a like to parse
+        // cast the UIView to Card View
+        CardView *profileCard = (CardView *) view;
+        // Card View has a profile object so we can extract the
+        // necessary information we need to write the like to parse
+        Profile *currentProfile = profileCard.profile;
+        // Send like to parse since profile not null
+        if (currentProfile) {
+            // insert the parse method to send like
+            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+                [ParseUtils saveLikeToParse:currentProfile];
+            });
+        }
     }
 }
 
