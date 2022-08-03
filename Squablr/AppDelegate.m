@@ -55,36 +55,4 @@
     return [[UISceneConfiguration alloc] initWithName:@"Default Configuration" sessionRole:connectingSceneSession.role];
 }
 
-- (void)application:(UIApplication *)application didDiscardSceneSessions:(NSSet<UISceneSession *> *)sceneSessions {
-    // Called when the user discards a scene session.
-    // If any sessions were discarded while the application was not running, this will be called shortly after application:didFinishLaunchingWithOptions.
-    // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
-}
-
--(void)applicationWillEnterForeground:(UIApplication *)application {
-    // probably would be the place to make the timer  and create it?
-    // the only problem is if it will even be accessible since its in
-    // this function maybe i need to make it like a global function
-//    self.timer = [NSTimer scheduledTimerWithTimeInterval:10.0 target:self selector:@selector(writeToParse) userInfo:nil repeats:YES];
-    NSLog(@"%@", @"Will enter foreground method");
-}
-
--(void)applicationDidBecomeActive:(UIApplication *)application {
-    // Start the user timer
-    self.timer = [NSTimer scheduledTimerWithTimeInterval:10.0 target:self selector:@selector(writeToParse) userInfo:nil repeats:YES];
-    NSLog(@"%@", @"App did become active");
-}
-
-- (void)applicationDidEnterBackground:(UIApplication *)application {
-    // pause timer in here since the user is no longer active on the app/no longer in the foreground
-    [self.timer invalidate];
-    NSLog(@"%@", @"App entered the background aka no longer active");
-}
-
-- (void) writeToParse {
-    // update the current user count of app usage to parse
-    NSLog(@"%@", @"Call to parse method!");
-    
-}
-
 @end
