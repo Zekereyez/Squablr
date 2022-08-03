@@ -51,18 +51,18 @@
     // the function is going to return a dictionary that we need for sorting
     // we sort the profiles array with a comparator
     NSMutableDictionary *compatibilityScoresWithUsers = [self _computeCompatibilityScoresForProfiles:profiles];
+    
 }
 
 + (NSMutableDictionary<NSString *, NSNumber *> *) _computeCompatibilityScoresForProfiles:(NSMutableArray *) profiles {
     // Get the current user profile information
     Profile* currentUserProfile = [ParseUtils getCurrentUserProfileInfo];
     // Extract user information for util functions
-    NSMutableDictionary *compatibilityScoresWithUsers = [[NSMutableDictionary alloc] init];
-    double score = 0;
+    NSMutableDictionary<NSString *, NSNumber *> *compatibilityScoresWithUsers = [[NSMutableDictionary alloc] init];
     for (Profile *unscoredUser in profiles) {
-        score = [self _computeCompatibilityScoreForProfile:unscoredUser withCurrentUserProfile:currentUserProfile];
+        double score = [self _computeCompatibilityScoreForProfile:unscoredUser withCurrentUserProfile:currentUserProfile];
         // Put the score into the dictionary with the user
-        
+        [compatibilityScoresWithUsers setValue:[NSNumber numberWithDouble:score] forKey:unscoredUser.objectId];
     }
     // return the dictionary with user information
     return compatibilityScoresWithUsers;
