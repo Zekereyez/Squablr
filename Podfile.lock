@@ -14,6 +14,7 @@ PODS:
   - AFNetworking/Serialization (4.0.1)
   - AFNetworking/UIKit (4.0.1):
     - AFNetworking/NSURLSession
+  - App-Update-Tracker (2.1.1)
   - AppAuth (1.5.0):
     - AppAuth/Core (= 1.5.0)
     - AppAuth/ExternalUserAgent (= 1.5.0)
@@ -39,6 +40,7 @@ PODS:
 
 DEPENDENCIES:
   - AFNetworking
+  - App-Update-Tracker (~> 2.0)
   - GoogleSignIn
   - Parse
   - Parse/UI
@@ -47,6 +49,7 @@ DEPENDENCIES:
 SPEC REPOS:
   trunk:
     - AFNetworking
+    - App-Update-Tracker
     - AppAuth
     - Bolts
     - GoogleSignIn
@@ -57,6 +60,7 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   AFNetworking: 7864c38297c79aaca1500c33288e429c3451fdce
+  App-Update-Tracker: 17394d337597304f0df2691ca682dd08800f1cd1
   AppAuth: 80317d99ac7ff2801a2f18ff86b48cd315ed465d
   Bolts: 8c1e8aab2f603387b8b9924f57d1d64f43d3ffdc
   GoogleSignIn: 3c68388ac221f379676e8f1cb115df3aaf73b93f
@@ -65,6 +69,6 @@ SPEC CHECKSUMS:
   Parse: 0abb63a0ff6fa34a3f64b81d595a294e2ece143a
   ZLSwipeableView: df385760ff4838935cdbcb62878ac5acd7355949
 
-PODFILE CHECKSUM: c14a724666b72839785782a62f355f7695ecae74
+PODFILE CHECKSUM: dc16d2fd74d81a788703e3041399a0d8b2e8f830
 
 COCOAPODS: 1.11.3

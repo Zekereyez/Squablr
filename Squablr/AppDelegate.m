@@ -6,8 +6,11 @@
 //
 
 #import "AppDelegate.h"
+#import "AppUpdateTracker.h"
 
 @interface AppDelegate ()
+
+@property NSTimer *timer;
 
 @end
 
@@ -15,6 +18,13 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    // Override point for customization after application launch.
+    [AppUpdateTracker registerForFirstInstallWithBlock:^(NSTimeInterval installTimeSinceEpoch, NSUInteger installCount) {
+        NSLog(@"first install detected at: %f amount of times app was (re)installed: %lu", installTimeSinceEpoch, (unsigned long)installCount);
+    }];
+    [AppUpdateTracker registerForIncrementedUseCountWithBlock:^(NSUInteger useCount) {
+        NSLog(@"incremented use count to: %lu", (unsigned long)useCount);
+    }];
     // Code to initialize Parse
     ParseClientConfiguration *config = [ParseClientConfiguration  configurationWithBlock:^(id<ParseMutableClientConfiguration> configuration) {
 
@@ -45,9 +55,4 @@
     return [[UISceneConfiguration alloc] initWithName:@"Default Configuration" sessionRole:connectingSceneSession.role];
 }
 
-- (void)application:(UIApplication *)application didDiscardSceneSessions:(NSSet<UISceneSession *> *)sceneSessions {
-    // Called when the user discards a scene session.
-    // If any sessions were discarded while the application was not running, this will be called shortly after application:didFinishLaunchingWithOptions.
-    // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
-}
 @end

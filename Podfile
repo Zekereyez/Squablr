@@ -11,6 +11,7 @@ target 'Squablr' do
   pod 'AFNetworking'
   pod 'Parse/UI'
   pod 'ZLSwipeableView'
+  pod 'App-Update-Tracker', '~> 2.0'
 
   target 'SquablrTests' do
     inherit! :search_paths

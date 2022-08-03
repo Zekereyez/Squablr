@@ -9,8 +9,8 @@
 
 @interface UserFeedViewController ()
 @property (nonatomic, strong) NSMutableArray *arrayOfUserObjects;
-@property (nonatomic, strong) NSMutableArray *userProfilePhotos;
 @property (nonatomic) NSUInteger profileIndex;
+
 @end
 
 @implementation UserFeedViewController
@@ -18,7 +18,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    // query for the 50 profiles in db
     [self queryUserProfileInfo];
     
     self.profileIndex = 0;
@@ -48,17 +47,6 @@
 - (void)handleDown:(UIBarButtonItem *)sender {
     [self.swipeableView swipeTopViewToDown];
 }
-
-- (void)handleReload:(UIBarButtonItem *)sender {
-    UIActionSheet *actionSheet =
-        [[UIActionSheet alloc] initWithTitle:@"Load Cards"
-                                    delegate:self
-                           cancelButtonTitle:@"Cancel"
-                      destructiveButtonTitle:nil
-                           otherButtonTitles:@"Programmatically", @"From Xib", nil];
-    [actionSheet showInView:self.view];
-}
-
 
 #pragma mark - ZLSwipeableViewDelegate
 
@@ -107,15 +95,6 @@
     return nil;
 }
 
-#pragma mark - Color Card Function
-
-- (UIColor *)colorForName:(NSString *)name {
-    NSString *sanitizedName = [name stringByReplacingOccurrencesOfString:@" " withString:@""];
-    NSString *selectorString = [NSString stringWithFormat:@"flat%@Color", sanitizedName];
-    Class colorClass = [UIColor class];
-    return [colorClass performSelector:NSSelectorFromString(selectorString)];
-}
-
 -(void) queryUserProfileInfo {
     // Now to load the info we need to query from here based on the user name
     PFQuery *postQuery = [PFQuery queryWithClassName:@"Profile"];
@@ -125,6 +104,7 @@
         if (userInfo) {
             // Handle fetched data
             self.arrayOfUserObjects = [NSMutableArray arrayWithArray:userInfo];
+            [RankingAlgorithmUtils sortProfilesByCompatibility:self.arrayOfUserObjects];
             // This is here so we guarantee that the user profile info is filled with
             // profile objects before the cards are initialized so we do not get any errors
             // or blank filled cards
@@ -159,5 +139,4 @@
                                                         views:NSDictionaryOfVariableBindings(
                                                                   swipeableView)]];
 }
-
 @end

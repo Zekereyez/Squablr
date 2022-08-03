@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		21B3A8762CE0E80FFF14F9F9 /* Pods_Squablr.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F0FBCF2F67734291CE03D13 /* Pods_Squablr.framework */; };
 		285EEFC8D72B610B9172E57B /* Pods_Squablr_SquablrUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6644716D576D48C884510C82 /* Pods_Squablr_SquablrUITests.framework */; };
+		9E2818C82899A75F00B1062E /* ParseUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E2818C72899A75F00B1062E /* ParseUtils.m */; };
+		9E2818CC2899CA8E00B1062E /* RankingAlgorithmUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E2818CB2899CA8E00B1062E /* RankingAlgorithmUtils.m */; };
 		9EB5589F2889EF000089E915 /* CardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EB5589E2889EF000089E915 /* CardView.m */; };
 		9EB558A3289069AD0089E915 /* banana.png in Resources */ = {isa = PBXBuildFile; fileRef = 9EB558A2289069AD0089E915 /* banana.png */; };
 		9EC7449D287F745E0072271A /* EditProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EC7449C287F745E0072271A /* EditProfileViewController.m */; };
@@ -57,6 +59,10 @@
 		4E38C9359E902DD1E0FC2FCB /* Pods-Squablr.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Squablr.release.xcconfig"; path = "Target Support Files/Pods-Squablr/Pods-Squablr.release.xcconfig"; sourceTree = "<group>"; };
 		5F0FBCF2F67734291CE03D13 /* Pods_Squablr.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Squablr.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6644716D576D48C884510C82 /* Pods_Squablr_SquablrUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Squablr_SquablrUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9E2818C62899A75F00B1062E /* ParseUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ParseUtils.h; sourceTree = "<group>"; };
+		9E2818C72899A75F00B1062E /* ParseUtils.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ParseUtils.m; sourceTree = "<group>"; };
+		9E2818CA2899CA8E00B1062E /* RankingAlgorithmUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RankingAlgorithmUtils.h; sourceTree = "<group>"; };
+		9E2818CB2899CA8E00B1062E /* RankingAlgorithmUtils.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RankingAlgorithmUtils.m; sourceTree = "<group>"; };
 		9EB5589D2889EF000089E915 /* CardView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CardView.h; sourceTree = "<group>"; };
 		9EB5589E2889EF000089E915 /* CardView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CardView.m; sourceTree = "<group>"; };
 		9EB558A2289069AD0089E915 /* banana.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = banana.png; path = ../../../../banana.png; sourceTree = "<group>"; };
@@ -148,6 +154,17 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		9E2818C52899A73100B1062E /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				9E2818C62899A75F00B1062E /* ParseUtils.h */,
+				9E2818C72899A75F00B1062E /* ParseUtils.m */,
+				9E2818CA2899CA8E00B1062E /* RankingAlgorithmUtils.h */,
+				9E2818CB2899CA8E00B1062E /* RankingAlgorithmUtils.m */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 		9EB5589C2888ADD80089E915 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -185,6 +202,7 @@
 		9EF5EB0D2874A2F6008BA3CC /* Squablr */ = {
 			isa = PBXGroup;
 			children = (
+				9E2818C52899A73100B1062E /* Utils */,
 				9EB5589C2888ADD80089E915 /* Views */,
 				9EF5EB572878B479008BA3CC /* Models */,
 				9EF5EB462877A806008BA3CC /* View Controllers */,
@@ -491,11 +509,13 @@
 				9EC7449D287F745E0072271A /* EditProfileViewController.m in Sources */,
 				9EF5EB102874A2F6008BA3CC /* AppDelegate.m in Sources */,
 				9EF5EB5D2878E151008BA3CC /* MatchesViewController.m in Sources */,
+				9E2818C82899A75F00B1062E /* ParseUtils.m in Sources */,
 				9EC744A32880DF880072271A /* ProfilePictureCell.m in Sources */,
 				9EB5589F2889EF000089E915 /* CardView.m in Sources */,
 				9EF5EB212874A2F7008BA3CC /* main.m in Sources */,
 				9EF5EB132874A2F6008BA3CC /* SceneDelegate.m in Sources */,
 				9EF5EB562878B30B008BA3CC /* ProfileViewController.m in Sources */,
+				9E2818CC2899CA8E00B1062E /* RankingAlgorithmUtils.m in Sources */,
 				9EF5EB5A2878B5A2008BA3CC /* Profile.m in Sources */,
 				9EF5EB4F287891A5008BA3CC /* UserFeedViewController.m in Sources */,
 				9EF5EB492877A971008BA3CC /* SignUpViewController.m in Sources */,
