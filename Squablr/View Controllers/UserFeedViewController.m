@@ -67,7 +67,8 @@
         Profile *currentProfile = profileCard.profile;
         // Send like to parse since profile not null
         if (currentProfile) {
-            // insert the parse method to send like 
+            // insert the parse method to send like
+            [ParseUtils saveLikeToParse:currentProfile];
         }
         
     }
