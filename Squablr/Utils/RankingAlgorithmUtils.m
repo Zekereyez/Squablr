@@ -10,48 +10,30 @@
 
 @implementation RankingAlgorithmUtils
 
-+ (double) _weightCalculation:(NSNumber *) userOnFeedWeight withCurrentUserWeight: (NSNumber *) currentUserWeight;{
-    NSInteger *weightDiff = (currentUserWeight.integerValue - userOnFeedWeight.integerValue);
-//    NSNumber *difference = currentUserWeight. - currentUserOnFeedWeight;
-    NSNumber *weight = [NSNumber numberWithInteger:weightDiff];
-//    NSLog(@"%@", @"Weight: ");
-//    NSLog(@"%i", weightDiff);
-//    NSLog(@"%@", @"USER: ");
-//    NSLog(@"%@", currentUserWeight);
-    if (weight == 0) {
-        // change the weight since denominator cannot be 0
-        // hence same weight and 1 lb apart will be treated the same
-        weight = @2;
-    }
-    double w = [weight doubleValue];
-    double weightSquared = pow(w, 2);
-    return (1 / weightSquared);
-}
+static const double _WEIGHT_DIFFERENTIAL_EXPONENT = 2;
+static const double _EXPERIENCE_DIFFERENTIAL_EXPONENT = 1.5;
 
-+ (double) _experienceCalculation:(NSNumber *) userOnFeedExp withCurrentUserExperience: (NSNumber *) currentUserExp {
-    NSInteger *expDiff = (currentUserExp.integerValue - userOnFeedExp.integerValue);
-//    NSNumber *difference = currentUserWeight. - currentUserOnFeedWeight;
-    NSNumber *experienceToNumber = [NSNumber numberWithInteger:expDiff];
-//    NSLog(@"%@", @"Exp difference: ");
-//    NSLog(@"%i", expDiff);
-//    NSLog(@"%@", @"USER exp: ");
-//    NSLog(@"%@", currentUserExp);
-    if (experienceToNumber == 0) {
-        // change the weight since denominator cannot be 0
-        // hence same weight and 1 lb apart will be treated the same
-        experienceToNumber = @2;
-    }
-    double w = [experienceToNumber doubleValue];
-    double weightSquared = pow(w, 2);
-    return (1 / weightSquared);
-}
+static const double _WEIGHT_MULTIPLIER = 0.3;
+static const double _EXPERIENCE_MULTIPLIER = 0.7;
 
 + (void) sortProfilesByCompatibility: (NSMutableArray *) profiles {
     // send the profiles to compute compatibility scores for profiles function
     // the function is going to return a dictionary that we need for sorting
-    // we sort the profiles array with a comparator
     NSMutableDictionary *compatibilityScoresWithUsers = [self _computeCompatibilityScoresForProfiles:profiles];
-    
+    // We sort the profiles array with a comparator
+    [profiles sortUsingComparator:^NSComparisonResult(Profile *p1, Profile *p2){
+        double p1Score = [compatibilityScoresWithUsers[p1.objectId] doubleValue];
+        double p2Score = [compatibilityScoresWithUsers[p2.objectId] doubleValue];
+        if (p1Score > p2Score) {
+            return (NSComparisonResult)NSOrderedDescending;
+        }
+        else if (p1Score < p2Score) {
+            return (NSComparisonResult)NSOrderedAscending;
+        }
+        else {
+            return (NSComparisonResult)NSOrderedSame;
+        }
+    }];
 }
 
 + (NSMutableDictionary<NSString *, NSNumber *> *) _computeCompatibilityScoresForProfiles:(NSMutableArray *) profiles {
@@ -71,8 +53,32 @@
 + (double) _computeCompatibilityScoreForProfile:(Profile *) userProfileFromFeed withCurrentUserProfile:(Profile *) currentUserProfile {
     double weightScore = [self _weightCalculation:userProfileFromFeed.weightClass withCurrentUserWeight:currentUserProfile.weightClass];
     double experienceScore = [self _experienceCalculation:userProfileFromFeed.experience withCurrentUserExperience:currentUserProfile.experience];
-    return weightScore + experienceScore;
+    return _WEIGHT_MULTIPLIER * weightScore + _EXPERIENCE_MULTIPLIER * experienceScore;
 }
 
++ (double) _weightCalculation:(NSNumber *) userOnFeedWeight withCurrentUserWeight: (NSNumber *) currentUserWeight;{
+//    NSNumber *difference = currentUserWeight. - currentUserOnFeedWeight;
+    double weightDifferential = currentUserWeight.integerValue - userOnFeedWeight.integerValue;
+    if (weightDifferential < 1) {
+        // change the weight since denominator cannot be 0
+        // hence same weight and 1 lb apart will be treated the same
+        weightDifferential = 1;
+    }
+    double weightExponentiation = pow(weightDifferential, _WEIGHT_DIFFERENTIAL_EXPONENT);
+    double inverseweightExponentiation = (1 / weightExponentiation);
+    return inverseweightExponentiation;
+}
+
++ (double) _experienceCalculation:(NSNumber *) userOnFeedExp withCurrentUserExperience: (NSNumber *) currentUserExp {
+    double experienceDifferential = (currentUserExp.integerValue - userOnFeedExp.integerValue);
+    if (experienceDifferential < 1) {
+        // change the weight since denominator cannot be 0
+        // hence same weight and 1 lb apart will be treated the same
+        experienceDifferential = 1;
+    }
+    double experienceExponentiation = pow(experienceDifferential, _EXPERIENCE_DIFFERENTIAL_EXPONENT);
+    double inversedExponentiation = (1 / experienceExponentiation);
+    return inversedExponentiation;
+}
 
 @end

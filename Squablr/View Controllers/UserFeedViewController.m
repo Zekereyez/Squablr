@@ -23,11 +23,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    // we want to grab the current users information ie important metrics like weight
-    // and experience and make calculations based on that info
-    // Loads up the users profile information into an array
-    [self queryForCurrentUserInfo];
-    // query for the 50 profiles in db
     [self queryUserProfileInfo];
     
     self.profileIndex = 0;
@@ -57,17 +52,6 @@
 - (void)handleDown:(UIBarButtonItem *)sender {
     [self.swipeableView swipeTopViewToDown];
 }
-
-- (void)handleReload:(UIBarButtonItem *)sender {
-    UIActionSheet *actionSheet =
-        [[UIActionSheet alloc] initWithTitle:@"Load Cards"
-                                    delegate:self
-                           cancelButtonTitle:@"Cancel"
-                      destructiveButtonTitle:nil
-                           otherButtonTitles:@"Programmatically", @"From Xib", nil];
-    [actionSheet showInView:self.view];
-}
-
 
 #pragma mark - ZLSwipeableViewDelegate
 
@@ -116,15 +100,6 @@
     return nil;
 }
 
-#pragma mark - Color Card Function
-
-- (UIColor *)colorForName:(NSString *)name {
-    NSString *sanitizedName = [name stringByReplacingOccurrencesOfString:@" " withString:@""];
-    NSString *selectorString = [NSString stringWithFormat:@"flat%@Color", sanitizedName];
-    Class colorClass = [UIColor class];
-    return [colorClass performSelector:NSSelectorFromString(selectorString)];
-}
-
 -(void) queryUserProfileInfo {
     // Now to load the info we need to query from here based on the user name
     PFQuery *postQuery = [PFQuery queryWithClassName:@"Profile"];
@@ -134,7 +109,7 @@
         if (userInfo) {
             // Handle fetched data
             self.arrayOfUserObjects = [NSMutableArray arrayWithArray:userInfo];
-            [self sortUsersByCompatibility:_arrayOfUserObjects];
+            [RankingAlgorithmUtils sortProfilesByCompatibility:self.arrayOfUserObjects];
             // This is here so we guarantee that the user profile info is filled with
             // profile objects before the cards are initialized so we do not get any errors
             // or blank filled cards
@@ -169,57 +144,4 @@
                                                         views:NSDictionaryOfVariableBindings(
                                                                   swipeableView)]];
 }
-
-- (void)sortUsersByCompatibility:(NSMutableArray *) profiles {
-    NSMutableArray *sortedUserObjArray;
-    NSMutableDictionary *userObjEloScorePair = [[NSMutableDictionary alloc] init];
-    double eloScore;
-    // Loop through the array of user objects and determine elo scores
-    for (Profile *unscoredUser in profiles) {
-        eloScore = 0.0;
-        NSNumber *weight = unscoredUser.weightClass;
-        NSNumber *experience = unscoredUser.experience;
-        double weightScore = [RankingAlgorithmUtils weightCalculation:self.currUserWeight :weight];
-        double experienceScore = [RankingAlgorithmUtils experienceCalculation:self.currUserExperience :experience];
-//        NSLog(@"%@", unscoredUser.name);
-//        NSLog(@"%@", unscoredUser.biography);
-//        NSLog(@"%@", @"Weight score: ");
-//        NSLog(@"%f", weightScore);
-        eloScore = weightScore * 5 + experienceScore * 6;
-        
-        if (unscoredUser.biography.length == 0) {
-            // user is penalized for not having a bio
-            eloScore -= 5;
-        }
-        NSString *item = [NSNumber numberWithDouble:eloScore];
-    }
-    
-    for (NSString *key in [userObjEloScorePair allKeys]) {
-        NSLog(@"%@", [userObjEloScorePair objectForKey:key]);
-    }
-    
-}
-
-- (void) queryForCurrentUserInfo {
-    PFQuery *postQuery = [PFQuery queryWithClassName:@"Profile"];
-    [postQuery whereKey:@"name" equalTo:[PFUser currentUser].username];
-    // fetch data asynchronously
-    [postQuery findObjectsInBackgroundWithBlock:^(NSArray<Profile *> * _Nullable userInfo, NSError * _Nullable error) {
-        if (userInfo) {
-            // Handle fetched data
-            self.currentUserProfileInfo = [NSMutableArray arrayWithArray:userInfo];
-            [self loadUserInfoIntoVariables];
-        }
-        else {
-            return;
-        }
-    }];
-}
-- (void) loadUserInfoIntoVariables {
-    NSLog(@"%@", [self.currentUserProfileInfo[0] name]);
-    self.currUserWeight = [self.currentUserProfileInfo[0] weightClass];
-    NSLog(@"%@", self.currUserWeight);
-    self.currUserExperience = [self.currentUserProfileInfo[0] experience];
-}
-
 @end
