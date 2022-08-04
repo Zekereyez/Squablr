@@ -42,10 +42,7 @@
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
     MatchCell *matchCell = [tableView dequeueReusableCellWithIdentifier:@"MatchCell" forIndexPath:indexPath];
     Profile *profile = self.arrayOfMatches[indexPath.row];
-    // Reference which profile to the Match Cell
     matchCell.matchedUsername.text = profile.name;
-    NSLog(@"%@", self.arrayOfMatches);
-    NSLog(@"%@", matchCell);
     return matchCell;
 }
 
