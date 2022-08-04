@@ -73,13 +73,7 @@
                 [ParseUtils saveLikeToParse:currentProfile];
                 // Determine if the user has already liked the currentProfile
                 bool matched = [ParseUtils likedUserProfileHasMatchedWithUser:currentProfile];
-                if (matched) {
-                    // call matched method
-                    NSLog(@"USER MATCHED!! 🥊 👩‍❤️‍💋‍👨");
-                }
-                else {
-                    // carry on ig
-                }
+                // TODO: Create match animation for matched users
             });
         }
     }

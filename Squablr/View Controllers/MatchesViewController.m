@@ -22,10 +22,11 @@
     self.tableView.dataSource = self;
     self.tableView.dataSource = self;
     
-    // Make parse utils call that will return the array of users matches
-    // so that we can fill in the current property of matches
-    // and use the count and shit and fill the items in the cell with the names
-    // of the users... seems about right
+}
+
+- (void) viewWillAppear:(BOOL)animated {
+    // Load the current users matches everytime the
+    // user navigates to the match tab
     [self loadMatches];
 }
 
