@@ -8,8 +8,10 @@
 #import "UserFeedViewController.h"
 
 @interface UserFeedViewController ()
+
 @property (nonatomic, strong) NSMutableArray *arrayOfUserObjects;
 @property (nonatomic) NSUInteger profileIndex;
+//@property (
 
 @end
 
@@ -42,7 +44,7 @@
     self.animator = [[UIDynamicAnimator alloc] initWithReferenceView:self.view];
     
     // Call the animation
-    [self demoGravity];
+    [self demo];
     
 }
 
@@ -69,8 +71,57 @@
 
 #pragma mark - UIDynamicAnimator Delegate
 
+- (void)demo {
+
+    UIGravityBehavior *gravityBehavior = [[UIGravityBehavior alloc] initWithItems:@[self.blackBall]];
+
+//    [self.animator addBehavior:gravityBehavior];
+    
+    self.pushBehavior = [[UIPushBehavior alloc] initWithItems:@[self.blackBall] mode:UIPushBehaviorModeContinuous];
+    // The direction of the ball but needs to change on impact
+    self.pushBehavior.pushDirection = CGVectorMake(2, 2);
+    [self.animator addBehavior:self.pushBehavior];
+    
+    // Create bounds for the image to be contained within and bounce around
+    
+    
+    
+    // Collision behavior ie what happens when hits a certain point
+    UICollisionBehavior *collisionBehavior = [[UICollisionBehavior alloc] initWithItems:@[self.blackBall]];
+
+    // Necessary Tab bar boundary since tab bar is above the bottom of the screen
+    // and is not fitted at the edge of the view
+    [collisionBehavior addBoundaryWithIdentifier:@"tabbar"
+
+                                       fromPoint:self.tabBarController.tabBar.frame.origin
+
+                                         toPoint:CGPointMake(self.tabBarController.tabBar.frame.origin.x + self.tabBarController.tabBar.frame.size.width, self.tabBarController.tabBar.frame.origin.y)];
+    
+    // Creates a boundary around the whole phone screen so all edges are now a boundary
+    collisionBehavior.translatesReferenceBoundsIntoBoundary = true;
+
+    // Calls delegate methods which in this case change the color of the ball on impact
+    [self.animator addBehavior:collisionBehavior];
+
+    // The behavior of the item when a collision happens
+    UIDynamicItemBehavior *ballBehavior = [[UIDynamicItemBehavior alloc] initWithItems:@[self.blackBall]];
+
+    ballBehavior.elasticity = 0.65;
+
+    [self.animator addBehavior:ballBehavior];
+    
+    gravityBehavior.action = ^{
+
+            NSLog(@"%f", self.blackBall.center.y);
+
+        };
+    
+    collisionBehavior.collisionDelegate = self;
+}
+
 -(void)collisionBehavior:(UICollisionBehavior *)behavior beganContactForItem:(id)item withBoundaryIdentifier:(id)identifier atPoint:(CGPoint)p {
     self.blackBall.backgroundColor = [UIColor blueColor];
+    // change the direction of the vector coordinates when they hit bounds no?
 }
 
 -(void)collisionBehavior:(UICollisionBehavior *)behavior endedContactForItem:(id)item withBoundaryIdentifier:(id)identifier{

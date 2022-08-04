@@ -21,6 +21,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, strong) UIDynamicAnimator *animator;
 @property (nonatomic, strong) UIView *blackBall;
+@property (nonatomic, strong) UIPushBehavior *pushBehavior;
 @property (nonatomic, strong) ZLSwipeableView *swipeableView;
 
 - (UIView *)nextViewForSwipeableView:(ZLSwipeableView *)swipeableView;
