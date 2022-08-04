@@ -26,14 +26,30 @@
     // so that we can fill in the current property of matches
     // and use the count and shit and fill the items in the cell with the names
     // of the users... seems about right
+    [self loadMatches];
 }
+
+- (void) loadMatches {
+    [ParseUtils queryUserMatchesWithBlock:^(NSArray<Profile *> * _Nullable matches, NSError * _Nullable error) {
+        if (matches) {
+            self.arrayOfMatches = [NSMutableArray arrayWithArray:matches];
+            [self.tableView reloadData];
+        }
+    }];
+}
+
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
-    MatchCell *match = [tableView dequeueReusableCellWithIdentifier:@"MatchCell" forIndexPath:indexPath];;
-    return match;
+    MatchCell *matchCell = [tableView dequeueReusableCellWithIdentifier:@"MatchCell" forIndexPath:indexPath];
+    Profile *profile = self.arrayOfMatches[indexPath.row];
+    // Reference which profile to the Match Cell
+    matchCell.matchedUsername.text = profile.name;
+    NSLog(@"%@", self.arrayOfMatches);
+    NSLog(@"%@", matchCell);
+    return matchCell;
 }
 
 - (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 2;
+    return self.arrayOfMatches.count;
 }
 
 @end

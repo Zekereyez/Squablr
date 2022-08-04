@@ -110,7 +110,7 @@
             <objects>
                 <viewController id="fs0-Ci-AoX" customClass="UserFeedViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dML-cn-1t5">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XHS-da-S45" customClass="ZLSwipeableView">
@@ -141,7 +141,7 @@
             <objects>
                 <viewController id="BYh-Oa-dH4" customClass="MatchesViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="QNg-So-83J">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="DFH-eO-tfc">
@@ -155,14 +155,19 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="209"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="MatchedUserName" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zWA-Xz-9qu">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MatchedUserName" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zWA-Xz-9qu">
                                                     <rect key="frame" x="42" y="43" width="321" height="82"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" systemColor="systemPurpleColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="zWA-Xz-9qu" firstAttribute="leading" secondItem="IeZ-mN-bHl" secondAttribute="leadingMargin" constant="22" id="5KU-nZ-hDU"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="zWA-Xz-9qu" secondAttribute="bottom" constant="73" id="Cr2-cJ-iut"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="zWA-Xz-9qu" secondAttribute="trailing" constant="31" id="TAd-kO-Bwc"/>
+                                                <constraint firstItem="zWA-Xz-9qu" firstAttribute="top" secondItem="IeZ-mN-bHl" secondAttribute="topMargin" constant="32" id="U3M-zB-hxu"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="matchedUsername" destination="zWA-Xz-9qu" id="DCk-Ed-fnc"/>
@@ -196,7 +201,7 @@
             <objects>
                 <viewController storyboardIdentifier="profileVC" id="F5R-bj-4CQ" customClass="ProfileViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ts0-Fy-uzb">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J8D-kz-GE0">
@@ -366,7 +371,7 @@
             <objects>
                 <viewController storyboardIdentifier="editProfileVC" id="qwn-Xa-hta" customClass="EditProfileViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="KoT-lb-d07">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Edit Info" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CeG-NH-npY">

@@ -25,6 +25,7 @@
     self.navigationController.toolbarHidden = NO;
     self.view.clipsToBounds = YES;
     self.view.backgroundColor = [UIColor whiteColor];
+    
 }
 
 - (void)viewDidLayoutSubviews {

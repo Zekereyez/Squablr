@@ -62,6 +62,17 @@
     }
 }
 
++ (void) queryUserMatchesWithBlock:(PFQueryArrayResultBlock)block {
+    // Get current user profile info
+    Profile *currentUserProfile = [self getCurrentUserProfileInfo];
+    // Store the current user matches in array
+    NSMutableArray *currentUserMatches = [[NSMutableArray alloc] initWithArray:currentUserProfile[@"Matches"] copyItems:YES];
+    // Query the profile class 
+    PFQuery *userIsInCurrentUserMatchesArrayQuery = [PFQuery queryWithClassName:@"Profile"];
+    [userIsInCurrentUserMatchesArrayQuery whereKey:@"objectId" containedIn:currentUserMatches];
+    [userIsInCurrentUserMatchesArrayQuery findObjectsInBackgroundWithBlock:block];
+}
+
 
 
 @end
