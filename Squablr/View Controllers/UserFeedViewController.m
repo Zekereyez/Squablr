@@ -18,13 +18,31 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    [self queryUserProfileInfo];
+//    [self queryUserProfileInfo];
     
     self.profileIndex = 0;
     
     self.navigationController.toolbarHidden = NO;
     self.view.clipsToBounds = YES;
     self.view.backgroundColor = [UIColor whiteColor];
+    
+    self.blackBall = [[UIView alloc] initWithFrame:CGRectMake(100.0, 100.0, 50.0, 50.0)];
+
+    self.blackBall.backgroundColor = [UIColor blackColor];
+
+    self.blackBall.layer.cornerRadius = 25.0;
+
+    self.blackBall.layer.borderColor = [UIColor blackColor].CGColor;
+
+    self.blackBall.layer.borderWidth = 0.0;
+
+    [self.view addSubview:self.blackBall];
+
+    // Initialize the animator.
+    self.animator = [[UIDynamicAnimator alloc] initWithReferenceView:self.view];
+    
+    // Demo the animation
+    [self demoGravity];
     
 }
 
@@ -47,6 +65,55 @@
 
 - (void)handleDown:(UIBarButtonItem *)sender {
     [self.swipeableView swipeTopViewToDown];
+}
+
+#pragma mark - UIDynamicAnimator Delegate
+-(void)demoGravity{
+
+    UIGravityBehavior *gravityBehavior = [[UIGravityBehavior alloc] initWithItems:@[self.blackBall]];
+
+    [self.animator addBehavior:gravityBehavior];
+    
+//    UIPushBehavior *pushBehavior = [[UIPushBehavior alloc] init];
+//    [pushBehavior addItem:self.blackBall];
+//    pushBehavior.pushDirection = CGVectorMake(100, 100);
+//    [self.animator addBehavior:pushBehavior];
+    
+    
+//     Collision behavior ie what happens when hits a certain point
+    UICollisionBehavior *collisionBehavior = [[UICollisionBehavior alloc] initWithItems:@[self.blackBall]];
+
+    [collisionBehavior addBoundaryWithIdentifier:@"tabbar"
+
+                                       fromPoint:self.tabBarController.tabBar.frame.origin
+
+                                         toPoint:CGPointMake(self.tabBarController.tabBar.frame.origin.x + self.tabBarController.tabBar.frame.size.width, self.tabBarController.tabBar.frame.origin.y)];
+
+    // Calls delegate methods which in this case change the color of the ball on impact
+    [self.animator addBehavior:collisionBehavior];
+
+    // The behavior of the item when a collision happens
+    UIDynamicItemBehavior *ballBehavior = [[UIDynamicItemBehavior alloc] initWithItems:@[self.blackBall]];
+
+    ballBehavior.elasticity = 0.65;
+
+    [self.animator addBehavior:ballBehavior];
+    
+    gravityBehavior.action = ^{
+
+            NSLog(@"%f", self.blackBall.center.y);
+
+        };
+    
+    collisionBehavior.collisionDelegate = self;
+}
+
+-(void)collisionBehavior:(UICollisionBehavior *)behavior beganContactForItem:(id)item withBoundaryIdentifier:(id)identifier atPoint:(CGPoint)p {
+    self.blackBall.backgroundColor = [UIColor blueColor];
+}
+
+-(void)collisionBehavior:(UICollisionBehavior *)behavior endedContactForItem:(id)item withBoundaryIdentifier:(id)identifier{
+      self.blackBall.backgroundColor = [UIColor blackColor];
 }
 
 #pragma mark - ZLSwipeableViewDelegate
