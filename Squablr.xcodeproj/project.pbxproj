@@ -12,6 +12,7 @@
 		9E2818C82899A75F00B1062E /* ParseUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E2818C72899A75F00B1062E /* ParseUtils.m */; };
 		9E2818CC2899CA8E00B1062E /* RankingAlgorithmUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E2818CB2899CA8E00B1062E /* RankingAlgorithmUtils.m */; };
 		9E34077B289B2FB9003DF202 /* MatchCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E34077A289B2FB9003DF202 /* MatchCell.m */; };
+		9E34077E289C7885003DF202 /* AnimationUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E34077D289C7885003DF202 /* AnimationUtils.m */; };
 		9EB5589F2889EF000089E915 /* CardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EB5589E2889EF000089E915 /* CardView.m */; };
 		9EB558A3289069AD0089E915 /* banana.png in Resources */ = {isa = PBXBuildFile; fileRef = 9EB558A2289069AD0089E915 /* banana.png */; };
 		9EC7449D287F745E0072271A /* EditProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EC7449C287F745E0072271A /* EditProfileViewController.m */; };
@@ -66,6 +67,8 @@
 		9E2818CB2899CA8E00B1062E /* RankingAlgorithmUtils.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RankingAlgorithmUtils.m; sourceTree = "<group>"; };
 		9E340779289B2FB9003DF202 /* MatchCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MatchCell.h; sourceTree = "<group>"; };
 		9E34077A289B2FB9003DF202 /* MatchCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MatchCell.m; sourceTree = "<group>"; };
+		9E34077C289C7885003DF202 /* AnimationUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AnimationUtils.h; sourceTree = "<group>"; };
+		9E34077D289C7885003DF202 /* AnimationUtils.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AnimationUtils.m; sourceTree = "<group>"; };
 		9EB5589D2889EF000089E915 /* CardView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CardView.h; sourceTree = "<group>"; };
 		9EB5589E2889EF000089E915 /* CardView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CardView.m; sourceTree = "<group>"; };
 		9EB558A2289069AD0089E915 /* banana.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = banana.png; path = ../../../../banana.png; sourceTree = "<group>"; };
@@ -164,6 +167,8 @@
 				9E2818C72899A75F00B1062E /* ParseUtils.m */,
 				9E2818CA2899CA8E00B1062E /* RankingAlgorithmUtils.h */,
 				9E2818CB2899CA8E00B1062E /* RankingAlgorithmUtils.m */,
+				9E34077C289C7885003DF202 /* AnimationUtils.h */,
+				9E34077D289C7885003DF202 /* AnimationUtils.m */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -512,6 +517,7 @@
 			files = (
 				9EF5EB162874A2F6008BA3CC /* ViewController.m in Sources */,
 				9EC7449D287F745E0072271A /* EditProfileViewController.m in Sources */,
+				9E34077E289C7885003DF202 /* AnimationUtils.m in Sources */,
 				9EF5EB102874A2F6008BA3CC /* AppDelegate.m in Sources */,
 				9E34077B289B2FB9003DF202 /* MatchCell.m in Sources */,
 				9EF5EB5D2878E151008BA3CC /* MatchesViewController.m in Sources */,
