@@ -25,6 +25,7 @@
     self.navigationController.toolbarHidden = NO;
     self.view.clipsToBounds = YES;
     self.view.backgroundColor = [UIColor whiteColor];
+    
 }
 
 - (void)viewDidLayoutSubviews {
@@ -70,6 +71,9 @@
             // insert the parse method to send like
             dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
                 [ParseUtils saveLikeToParse:currentProfile];
+                // Determine if the user has already liked the currentProfile
+                bool matched = [ParseUtils likedUserProfileHasMatchedWithUser:currentProfile];
+                // TODO: Create match animation for matched users
             });
         }
     }

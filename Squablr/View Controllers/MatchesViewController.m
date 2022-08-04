@@ -7,7 +7,9 @@
 
 #import "MatchesViewController.h"
 
-@interface MatchesViewController ()
+@interface MatchesViewController () <UITableViewDataSource, UITableViewDelegate>
+
+@property (nonatomic, strong) NSMutableArray *arrayOfMatches;
 
 @end
 
@@ -16,5 +18,36 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    // Source and delegate
+    self.tableView.dataSource = self;
+    self.tableView.dataSource = self;
+    
 }
+
+- (void) viewWillAppear:(BOOL)animated {
+    // Load the current users matches everytime the
+    // user navigates to the match tab
+    [self loadMatches];
+}
+
+- (void) loadMatches {
+    [ParseUtils queryUserMatchesWithBlock:^(NSArray<Profile *> * _Nullable matches, NSError * _Nullable error) {
+        if (matches) {
+            self.arrayOfMatches = [NSMutableArray arrayWithArray:matches];
+            [self.tableView reloadData];
+        }
+    }];
+}
+
+- (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
+    MatchCell *matchCell = [tableView dequeueReusableCellWithIdentifier:@"MatchCell" forIndexPath:indexPath];
+    Profile *profile = self.arrayOfMatches[indexPath.row];
+    matchCell.matchedUsername.text = profile.name;
+    return matchCell;
+}
+
+- (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return self.arrayOfMatches.count;
+}
+
 @end
