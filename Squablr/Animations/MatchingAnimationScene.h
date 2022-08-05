@@ -8,6 +8,6 @@
 #import <SpriteKit/SpriteKit.h>
 #import "AppDelegate.h"
 
-@interface MyScene : SKScene
+@interface MatchingAnimationScene : SKScene
 
 @end

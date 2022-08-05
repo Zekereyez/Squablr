@@ -5,9 +5,9 @@
 //  Created by Zeke Reyes on 8/4/22.
 //
 
-#import "MyScene.h"
+#import "MatchingAnimationScene.h"
 
-@implementation MyScene
+@implementation MatchingAnimationScene
 
 
 -(id)initWithSize:(CGSize)size {

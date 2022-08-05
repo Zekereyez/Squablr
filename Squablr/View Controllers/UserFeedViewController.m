@@ -7,15 +7,13 @@
 #import <SpriteKit/SpriteKit.h>
 
 #import "UserFeedViewController.h"
-#import "MyScene.h"
+#import "MatchingAnimationScene.h"
 
 @interface UserFeedViewController ()
 
 @property (nonatomic, strong) NSMutableArray *arrayOfUserObjects;
 @property (nonatomic) NSUInteger profileIndex;
-@property (nonatomic) CGFloat xPos;
-@property (nonatomic) CGFloat yPos;
-@property (nonatomic) MyScene *scene;
+@property (nonatomic) MatchingAnimationScene *matchingAnimationScene;
 @property (nonatomic) SKView *skView;
 
 @end
@@ -66,10 +64,10 @@
         _skView = [SKView new];
         _skView.frame = self.view.frame;
         [self.view addSubview: _skView];
-        MyScene* scene = [[MyScene alloc] initWithSize:self.view.frame.size];
-        [_skView presentScene:scene];
+        self.matchingAnimationScene = [[MatchingAnimationScene alloc] initWithSize:self.view.frame.size];
+        [_skView presentScene:self.matchingAnimationScene];
         _skView.backgroundColor = UIColor.clearColor;
-        self.scene = scene;
+        self.matchingAnimationScene = self.matchingAnimationScene;
     }
     else if (direction == ZLSwipeableViewDirectionRight) {
         // Removing the scene
