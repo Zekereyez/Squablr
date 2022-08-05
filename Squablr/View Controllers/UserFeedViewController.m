@@ -74,8 +74,9 @@
         _skView = [SKView new];
         _skView.frame = self.view.frame;
         [self.view addSubview: _skView];
-        MyScene* scene = [MyScene new];
+        MyScene* scene = [[MyScene alloc] initWithSize:self.view.frame.size];
         [_skView presentScene:scene];
+//        _skView.backgroundColor = UIColor.clearColor;
         self.scene = scene;
     }
     else if (direction == ZLSwipeableViewDirectionRight) {
