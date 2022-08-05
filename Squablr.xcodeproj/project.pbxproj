@@ -13,6 +13,8 @@
 		9E2818CC2899CA8E00B1062E /* RankingAlgorithmUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E2818CB2899CA8E00B1062E /* RankingAlgorithmUtils.m */; };
 		9E34077B289B2FB9003DF202 /* MatchCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E34077A289B2FB9003DF202 /* MatchCell.m */; };
 		9E34077E289C7885003DF202 /* AnimationUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E34077D289C7885003DF202 /* AnimationUtils.m */; };
+		9E340782289CC082003DF202 /* MyScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 9E340781289CC082003DF202 /* MyScene.sks */; };
+		9E340785289CC098003DF202 /* MyScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E340784289CC098003DF202 /* MyScene.m */; };
 		9EB5589F2889EF000089E915 /* CardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EB5589E2889EF000089E915 /* CardView.m */; };
 		9EB558A3289069AD0089E915 /* banana.png in Resources */ = {isa = PBXBuildFile; fileRef = 9EB558A2289069AD0089E915 /* banana.png */; };
 		9EC7449D287F745E0072271A /* EditProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EC7449C287F745E0072271A /* EditProfileViewController.m */; };
@@ -69,6 +71,9 @@
 		9E34077A289B2FB9003DF202 /* MatchCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MatchCell.m; sourceTree = "<group>"; };
 		9E34077C289C7885003DF202 /* AnimationUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AnimationUtils.h; sourceTree = "<group>"; };
 		9E34077D289C7885003DF202 /* AnimationUtils.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AnimationUtils.m; sourceTree = "<group>"; };
+		9E340781289CC082003DF202 /* MyScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MyScene.sks; sourceTree = "<group>"; };
+		9E340783289CC098003DF202 /* MyScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyScene.h; sourceTree = "<group>"; };
+		9E340784289CC098003DF202 /* MyScene.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyScene.m; sourceTree = "<group>"; };
 		9EB5589D2889EF000089E915 /* CardView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CardView.h; sourceTree = "<group>"; };
 		9EB5589E2889EF000089E915 /* CardView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CardView.m; sourceTree = "<group>"; };
 		9EB558A2289069AD0089E915 /* banana.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = banana.png; path = ../../../../banana.png; sourceTree = "<group>"; };
@@ -255,6 +260,9 @@
 				9EF5EB482877A971008BA3CC /* SignUpViewController.m */,
 				9EF5EB4D287891A5008BA3CC /* UserFeedViewController.h */,
 				9EF5EB4E287891A5008BA3CC /* UserFeedViewController.m */,
+				9E340781289CC082003DF202 /* MyScene.sks */,
+				9E340783289CC098003DF202 /* MyScene.h */,
+				9E340784289CC098003DF202 /* MyScene.m */,
 				9EF5EB5B2878E151008BA3CC /* MatchesViewController.h */,
 				9EF5EB5C2878E151008BA3CC /* MatchesViewController.m */,
 				9EF5EB542878B30B008BA3CC /* ProfileViewController.h */,
@@ -386,6 +394,7 @@
 			files = (
 				9EF5EB1E2874A2F7008BA3CC /* LaunchScreen.storyboard in Resources */,
 				9EF5EB1B2874A2F7008BA3CC /* Assets.xcassets in Resources */,
+				9E340782289CC082003DF202 /* MyScene.sks in Resources */,
 				9EB558A3289069AD0089E915 /* banana.png in Resources */,
 				9EF5EB192874A2F6008BA3CC /* Main.storyboard in Resources */,
 			);
@@ -515,6 +524,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9E340785289CC098003DF202 /* MyScene.m in Sources */,
 				9EF5EB162874A2F6008BA3CC /* ViewController.m in Sources */,
 				9EC7449D287F745E0072271A /* EditProfileViewController.m in Sources */,
 				9E34077E289C7885003DF202 /* AnimationUtils.m in Sources */,
