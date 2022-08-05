@@ -4,12 +4,17 @@
 //
 //  Created by Zeke Reyes on 7/8/22.
 //
+#import <SpriteKit/SpriteKit.h>
 
 #import "UserFeedViewController.h"
+#import "MatchingAnimationScene.h"
 
 @interface UserFeedViewController ()
+
 @property (nonatomic, strong) NSMutableArray *arrayOfUserObjects;
 @property (nonatomic) NSUInteger profileIndex;
+@property (nonatomic) MatchingAnimationScene *matchingAnimationScene;
+@property (nonatomic) SKView *skView;
 
 @end
 
@@ -34,7 +39,6 @@
 #pragma mark - Action
 
 - (void)handleLeft:(UIBarButtonItem *)sender {
-    [self.swipeableView swipeTopViewToLeft];
 }
 
 - (void)handleRight:(UIBarButtonItem *)sender {
@@ -56,10 +60,19 @@
           inDirection:(ZLSwipeableViewDirection)direction {
     // Handle direction
     if (direction == ZLSwipeableViewDirectionLeft) {
-        // means that user disliked and can be put in "seen" array
-        // or even recycled for later again
+        // How to activate the animation scene
+        _skView = [SKView new];
+        _skView.frame = self.view.frame;
+        [self.view addSubview: _skView];
+        self.matchingAnimationScene = [[MatchingAnimationScene alloc] initWithSize:self.view.frame.size];
+        [_skView presentScene:self.matchingAnimationScene];
+        _skView.backgroundColor = UIColor.clearColor;
+        self.matchingAnimationScene = self.matchingAnimationScene;
     }
     else if (direction == ZLSwipeableViewDirectionRight) {
+        // Removing the scene
+        [_skView removeFromSuperview];
+        [_skView presentScene:nil];
         // User has liked the current profile so send a like to parse
         // cast the UIView to Card View
         CardView *profileCard = (CardView *) view;

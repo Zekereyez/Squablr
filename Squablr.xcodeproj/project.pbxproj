@@ -12,8 +12,9 @@
 		9E2818C82899A75F00B1062E /* ParseUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E2818C72899A75F00B1062E /* ParseUtils.m */; };
 		9E2818CC2899CA8E00B1062E /* RankingAlgorithmUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E2818CB2899CA8E00B1062E /* RankingAlgorithmUtils.m */; };
 		9E34077B289B2FB9003DF202 /* MatchCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E34077A289B2FB9003DF202 /* MatchCell.m */; };
+		9E340782289CC082003DF202 /* MyScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 9E340781289CC082003DF202 /* MyScene.sks */; };
+		9E340785289CC098003DF202 /* MatchingAnimationScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E340784289CC098003DF202 /* MatchingAnimationScene.m */; };
 		9EB5589F2889EF000089E915 /* CardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EB5589E2889EF000089E915 /* CardView.m */; };
-		9EB558A3289069AD0089E915 /* banana.png in Resources */ = {isa = PBXBuildFile; fileRef = 9EB558A2289069AD0089E915 /* banana.png */; };
 		9EC7449D287F745E0072271A /* EditProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EC7449C287F745E0072271A /* EditProfileViewController.m */; };
 		9EC744A32880DF880072271A /* ProfilePictureCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EC744A22880DF880072271A /* ProfilePictureCell.m */; };
 		9EF5EB102874A2F6008BA3CC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EF5EB0F2874A2F6008BA3CC /* AppDelegate.m */; };
@@ -66,9 +67,11 @@
 		9E2818CB2899CA8E00B1062E /* RankingAlgorithmUtils.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RankingAlgorithmUtils.m; sourceTree = "<group>"; };
 		9E340779289B2FB9003DF202 /* MatchCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MatchCell.h; sourceTree = "<group>"; };
 		9E34077A289B2FB9003DF202 /* MatchCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MatchCell.m; sourceTree = "<group>"; };
+		9E340781289CC082003DF202 /* MyScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MyScene.sks; sourceTree = "<group>"; };
+		9E340783289CC098003DF202 /* MatchingAnimationScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MatchingAnimationScene.h; sourceTree = "<group>"; };
+		9E340784289CC098003DF202 /* MatchingAnimationScene.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MatchingAnimationScene.m; sourceTree = "<group>"; };
 		9EB5589D2889EF000089E915 /* CardView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CardView.h; sourceTree = "<group>"; };
 		9EB5589E2889EF000089E915 /* CardView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CardView.m; sourceTree = "<group>"; };
-		9EB558A2289069AD0089E915 /* banana.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = banana.png; path = ../../../../banana.png; sourceTree = "<group>"; };
 		9EC7449B287F745E0072271A /* EditProfileViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EditProfileViewController.h; sourceTree = "<group>"; };
 		9EC7449C287F745E0072271A /* EditProfileViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EditProfileViewController.m; sourceTree = "<group>"; };
 		9EC744A12880DF880072271A /* ProfilePictureCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProfilePictureCell.h; sourceTree = "<group>"; };
@@ -168,6 +171,16 @@
 			path = Utils;
 			sourceTree = "<group>";
 		};
+		9E340788289D8617003DF202 /* Animations */ = {
+			isa = PBXGroup;
+			children = (
+				9E340781289CC082003DF202 /* MyScene.sks */,
+				9E340783289CC098003DF202 /* MatchingAnimationScene.h */,
+				9E340784289CC098003DF202 /* MatchingAnimationScene.m */,
+			);
+			path = Animations;
+			sourceTree = "<group>";
+		};
 		9EB5589C2888ADD80089E915 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -175,7 +188,6 @@
 				9EC744A22880DF880072271A /* ProfilePictureCell.m */,
 				9EB5589D2889EF000089E915 /* CardView.h */,
 				9EB5589E2889EF000089E915 /* CardView.m */,
-				9EB558A2289069AD0089E915 /* banana.png */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -205,6 +217,7 @@
 		9EF5EB0D2874A2F6008BA3CC /* Squablr */ = {
 			isa = PBXGroup;
 			children = (
+				9E340788289D8617003DF202 /* Animations */,
 				9E2818C52899A73100B1062E /* Utils */,
 				9EB5589C2888ADD80089E915 /* Views */,
 				9EF5EB572878B479008BA3CC /* Models */,
@@ -381,7 +394,7 @@
 			files = (
 				9EF5EB1E2874A2F7008BA3CC /* LaunchScreen.storyboard in Resources */,
 				9EF5EB1B2874A2F7008BA3CC /* Assets.xcassets in Resources */,
-				9EB558A3289069AD0089E915 /* banana.png in Resources */,
+				9E340782289CC082003DF202 /* MyScene.sks in Resources */,
 				9EF5EB192874A2F6008BA3CC /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -510,6 +523,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9E340785289CC098003DF202 /* MatchingAnimationScene.m in Sources */,
 				9EF5EB162874A2F6008BA3CC /* ViewController.m in Sources */,
 				9EC7449D287F745E0072271A /* EditProfileViewController.m in Sources */,
 				9EF5EB102874A2F6008BA3CC /* AppDelegate.m in Sources */,
