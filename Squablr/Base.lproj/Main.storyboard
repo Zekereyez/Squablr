@@ -123,6 +123,10 @@
                                     </imageView>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="gUx-JO-ZUp" appends="YES" id="fmV-6D-CRH"/>
+                                </connections>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="yFI-VS-GnS"/>
@@ -133,6 +137,7 @@
                     </tabBarItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Sjr-kZ-Tkz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer numberOfTapsRequired="2" id="gUx-JO-ZUp"/>
             </objects>
             <point key="canvasLocation" x="2218.840579710145" y="114.50892857142857"/>
         </scene>
