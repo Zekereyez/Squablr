@@ -14,6 +14,7 @@
 #import "ParseUtils.h"
 #import "RankingAlgorithmUtils.h"
 #import <QuartzCore/QuartzCore.h>
+#import "MatchingAnimationScene.h"
 
 NS_ASSUME_NONNULL_BEGIN
 

@@ -53,11 +53,6 @@
     [self.swipeableView swipeTopViewToDown];
 }
 
-- (void) didFinishTappingBoxingGloves() {
-    [_animationSKView removeFromSuperview];
-    [_animationSKView presentScene:nil];
-}
-
 #pragma mark - ZLSwipeableViewDelegate
 
 - (void)swipeableView:(ZLSwipeableView *)swipeableView
@@ -69,7 +64,9 @@
         _animationSKView = [SKView new];
         _animationSKView.frame = self.view.frame;
         [self.view addSubview: _animationSKView];
-        self.matchingAnimationScene = [[MatchingAnimationScene alloc] initWithSize:self.view.frame.size withDelegate: self];
+//        self.matchingAnimationScene = [[MatchingAnimationScene alloc] initWithSize:self.view.frame.size animationCompletionDelegate: self];
+        self.matchingAnimationScene = [[MatchingAnimationScene alloc] initWithSize:self.view.frame.size];
+        self.matchingAnimationScene.animationCompletionDelegate = self;
         [_animationSKView presentScene:self.matchingAnimationScene];
         _animationSKView.backgroundColor = UIColor.clearColor;
         self.matchingAnimationScene = self.matchingAnimationScene;
@@ -174,4 +171,11 @@
                                                         views:NSDictionaryOfVariableBindings(
                                                                   swipeableView)]];
 }
+
+#pragma mark - Matching Animation Delegate Method
+- (void)didFinishTappingOnBoxingGloves {
+    [_animationSKView removeFromSuperview];
+    [_animationSKView presentScene:nil];
+}
+
 @end

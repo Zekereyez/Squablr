@@ -106,7 +106,7 @@ static NSString* itemCategoryName = @"glove";
         unsigned long childCount  = [self children].count;
         if (childCount == 1) {
             [self.view presentScene:nil];
-            [delegate didFinishTappingOnGloves];
+            [_animationCompletionDelegate didFinishTappingOnBoxingGloves];
         }
     }
 //    SKSpriteNode* node = [body node];
