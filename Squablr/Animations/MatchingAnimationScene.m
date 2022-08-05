@@ -11,6 +11,8 @@ static NSString* itemCategoryName = @"glove";
 
 @implementation MatchingAnimationScene
 
+static const long NUM_BOXING_GLOVES = 4;
+
 
 -(id)initWithSize:(CGSize)size {
     return [super initWithSize:size];
@@ -29,6 +31,8 @@ static NSString* itemCategoryName = @"glove";
     [backgroundOfLabel addChild:match];
     [self addChild:backgroundOfLabel];
     
+    self.backgroundColor = UIColor.clearColor;
+    
     
     // Creates the gravity of the world
     self.physicsWorld.gravity = CGVectorMake(0.0f, 0.0f); // Reality can be whatever I want
@@ -43,30 +47,12 @@ static NSString* itemCategoryName = @"glove";
 #pragma mark - Glove making 👩‍❤️‍💋‍👨
     
     // Sprite node which will be boxing gloves
-    SKSpriteNode* glove1 = [self makeSpriteNodesForBoxingGloves];
-    [self addChild:glove1];
-    self.backgroundColor = UIColor.clearColor;
-    // Creates volume based body for the gloves
-    [self setPhysicsOfBody:glove1];
-    
-    
-    SKSpriteNode* glove2 = [self makeSpriteNodesForBoxingGloves];
-    [self addChild:glove2];
-    self.backgroundColor = UIColor.clearColor;
-    // Creates volume based body for the gloves
-    [self setPhysicsOfBody:glove2];
-    
-    SKSpriteNode* glove3 = [self makeSpriteNodesForBoxingGloves];
-    [self addChild:glove3];
-    self.backgroundColor = UIColor.clearColor;
-    // Creates volume based body for the gloves
-    [self setPhysicsOfBody:glove3];
-    
-    SKSpriteNode* glove4 = [self makeSpriteNodesForBoxingGloves];
-    [self addChild:glove4];
-    self.backgroundColor = UIColor.clearColor;
-    // Creates volume based body for the gloves
-    [self setPhysicsOfBody:glove4];
+    for (long i = 0; i < NUM_BOXING_GLOVES; i++) {
+        SKSpriteNode* glove = [self makeSpriteNodesForBoxingGloves];
+        [self addChild:glove];
+        // Creates volume based body for the gloves
+        [self setPhysicsOfBody:glove];
+    }
 }
 
 - (SKSpriteNode *) makeSpriteNodesForBoxingGloves {

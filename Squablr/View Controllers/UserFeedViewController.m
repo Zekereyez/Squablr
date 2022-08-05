@@ -60,16 +60,7 @@
           inDirection:(ZLSwipeableViewDirection)direction {
     // Handle direction
     if (direction == ZLSwipeableViewDirectionLeft) {
-        // How to activate the animation scene
-        _animationSKView = [SKView new];
-        _animationSKView.frame = self.view.frame;
-        [self.view addSubview: _animationSKView];
-//        self.matchingAnimationScene = [[MatchingAnimationScene alloc] initWithSize:self.view.frame.size animationCompletionDelegate: self];
-        self.matchingAnimationScene = [[MatchingAnimationScene alloc] initWithSize:self.view.frame.size];
-        self.matchingAnimationScene.animationCompletionDelegate = self;
-        [_animationSKView presentScene:self.matchingAnimationScene];
-        _animationSKView.backgroundColor = UIColor.clearColor;
-        self.matchingAnimationScene = self.matchingAnimationScene;
+
     }
     else if (direction == ZLSwipeableViewDirectionRight) {
         // Removing the scene
@@ -88,7 +79,18 @@
                 [ParseUtils saveLikeToParse:currentProfile];
                 // Determine if the user has already liked the currentProfile
                 bool matched = [ParseUtils likedUserProfileHasMatchedWithUser:currentProfile];
-                // TODO: Create match animation for matched users
+                if (matched) {
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        self.animationSKView = [SKView new];
+                        self.animationSKView.frame = self.view.frame;
+                        [self.view addSubview: self.animationSKView];
+                        self.matchingAnimationScene = [[MatchingAnimationScene alloc] initWithSize:self.view.frame.size];
+                        self.matchingAnimationScene.animationCompletionDelegate = self;
+                        [self.animationSKView presentScene:self.matchingAnimationScene];
+                        self.animationSKView.backgroundColor = UIColor.clearColor;
+                        self.matchingAnimationScene = self.matchingAnimationScene;
+                    });
+                }
             });
         }
     }
