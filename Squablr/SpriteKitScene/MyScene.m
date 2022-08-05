@@ -26,7 +26,7 @@
     self.physicsBody.friction = 0.0f;
     
     // Sprite node which will be boxing gloves
-    SKSpriteNode* glove1 = [SKSpriteNode spriteNodeWithImageNamed: @"confrontation.png"];
+    SKSpriteNode* glove1 = [SKSpriteNode spriteNodeWithImageNamed: @"confrontation"];
     glove1.name = @"glove";
     glove1.position = CGPointMake(self.frame.size.width/3, self.frame.size.height/3);
     // Resizing of the gloves
