@@ -69,10 +69,8 @@ static const long NUM_BOXING_GLOVES = 4;
 
 #pragma mark - Setting the physics of the gloves
 - (void) setPhysicsOfBody: (SKSpriteNode *) spriteNode {
-    int oneOrZero = rand() % 1;
-    int oneOrZeroSecond = rand() % 1;
-    float firstVelocity = ((float)rand() / RAND_MAX) * 200 + 100;
-    float secondVelocity = firstVelocity;
+    float xVelocity = ((float)rand() / RAND_MAX) * 200 + 100;
+    float yVelocity = ((float)rand() / RAND_MAX) * 200 + 100;
     spriteNode.physicsBody = [SKPhysicsBody bodyWithCircleOfRadius:spriteNode.frame.size.width/2];
     spriteNode.physicsBody.friction = 0.0f;
     // How elastic the node is
@@ -83,14 +81,10 @@ static const long NUM_BOXING_GLOVES = 4;
     spriteNode.physicsBody.allowsRotation = NO;
     // Initial push of the object
     // Make random
-    if (oneOrZero == 0) {
-        firstVelocity *= -1;
-    }
-    if (oneOrZeroSecond == 0) {
-        secondVelocity *= -1;
-    }
+    xVelocity = (rand() % 1) == 0 ? xVelocity : xVelocity * -1;
+    yVelocity = (rand() % 1) == 0 ? xVelocity : xVelocity * -1;
     
-    [spriteNode.physicsBody applyImpulse:CGVectorMake(firstVelocity, -secondVelocity)];
+    [spriteNode.physicsBody applyImpulse:CGVectorMake(xVelocity, -yVelocity)];
 }
 
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
