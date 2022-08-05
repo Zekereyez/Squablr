@@ -35,12 +35,6 @@
     
 }
 
-//- (void)loadView {
-//    [super loadView];
-//    self.view = [SKView new];
-//    self.view.bounds = UIScreen.mainScreen.bounds;
-//}
-
 - (void)viewDidLayoutSubviews {
     [self.swipeableView loadViewsIfNeeded];
 }
@@ -68,22 +62,21 @@
           inDirection:(ZLSwipeableViewDirection)direction {
     // Handle direction
     if (direction == ZLSwipeableViewDirectionLeft) {
-        // means that user disliked and can be put in "seen" array
-        // or even recycled for later again
-//        [self.swipeableView swipeTopViewToLeft];
+        // How to activate the animation scene
         _skView = [SKView new];
         _skView.frame = self.view.frame;
         [self.view addSubview: _skView];
         MyScene* scene = [[MyScene alloc] initWithSize:self.view.frame.size];
         [_skView presentScene:scene];
-//        _skView.backgroundColor = UIColor.clearColor;
+        _skView.backgroundColor = UIColor.clearColor;
         self.scene = scene;
     }
     else if (direction == ZLSwipeableViewDirectionRight) {
-        // User has liked the current profile so send a like to parse
-        // cast the UIView to Card View
+        // Removing the scene
         [_skView removeFromSuperview];
         [_skView presentScene:nil];
+        // User has liked the current profile so send a like to parse
+        // cast the UIView to Card View
         CardView *profileCard = (CardView *) view;
         // Card View has a profile object so we can extract the
         // necessary information we need to write the like to parse

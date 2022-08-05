@@ -10,6 +10,4 @@
 
 @interface MyScene : SKScene
 
-@property SKSpriteNode *glove;
-
 @end
