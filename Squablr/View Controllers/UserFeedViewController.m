@@ -14,7 +14,7 @@
 @property (nonatomic, strong) NSMutableArray *arrayOfUserObjects;
 @property (nonatomic) NSUInteger profileIndex;
 @property (nonatomic) MatchingAnimationScene *matchingAnimationScene;
-@property (nonatomic) SKView *skView;
+@property (nonatomic) SKView *animationSKView;
 
 @end
 
@@ -53,6 +53,11 @@
     [self.swipeableView swipeTopViewToDown];
 }
 
+- (void) didFinishTappingBoxingGloves() {
+    [_animationSKView removeFromSuperview];
+    [_animationSKView presentScene:nil];
+}
+
 #pragma mark - ZLSwipeableViewDelegate
 
 - (void)swipeableView:(ZLSwipeableView *)swipeableView
@@ -61,18 +66,18 @@
     // Handle direction
     if (direction == ZLSwipeableViewDirectionLeft) {
         // How to activate the animation scene
-        _skView = [SKView new];
-        _skView.frame = self.view.frame;
-        [self.view addSubview: _skView];
-        self.matchingAnimationScene = [[MatchingAnimationScene alloc] initWithSize:self.view.frame.size];
-        [_skView presentScene:self.matchingAnimationScene];
-        _skView.backgroundColor = UIColor.clearColor;
+        _animationSKView = [SKView new];
+        _animationSKView.frame = self.view.frame;
+        [self.view addSubview: _animationSKView];
+        self.matchingAnimationScene = [[MatchingAnimationScene alloc] initWithSize:self.view.frame.size withDelegate: self];
+        [_animationSKView presentScene:self.matchingAnimationScene];
+        _animationSKView.backgroundColor = UIColor.clearColor;
         self.matchingAnimationScene = self.matchingAnimationScene;
     }
     else if (direction == ZLSwipeableViewDirectionRight) {
         // Removing the scene
-        [_skView removeFromSuperview];
-        [_skView presentScene:nil];
+        [_animationSKView removeFromSuperview];
+        [_animationSKView presentScene:nil];
         // User has liked the current profile so send a like to parse
         // cast the UIView to Card View
         CardView *profileCard = (CardView *) view;

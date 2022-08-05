@@ -8,6 +8,9 @@
 #import <SpriteKit/SpriteKit.h>
 #import "AppDelegate.h"
 
-@interface MatchingAnimationScene : SKScene
+@interface MatchingAnimationScene : SKScene <SKPhysicsContactDelegate>
+
+@property (nonatomic) BOOL didTouchBoxingGloves;
+@property (nonatomic) AnimationCompletionDelegate animationCompletionDelegate;
 
 @end
