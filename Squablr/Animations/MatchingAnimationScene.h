@@ -4,6 +4,10 @@
 //
 //  Created by Zeke Reyes on 8/4/22.
 //
+
+#import <SpriteKit/SpriteKit.h>
+#import "AppDelegate.h"
+
 @protocol AnimationCompletionDelegate
 
 @required
@@ -11,18 +15,17 @@
 
 @end
 
-#import <SpriteKit/SpriteKit.h>
-#import "AppDelegate.h"
+@protocol MatchAnimationNameSource
 
-//@protocol AnimationCompletionDelegate <NSObject>
-//
-//- (void) didFinishTappingOnBoxingGloves;
-//
-//@end
+@required
+- (NSString *) nameForMatchLabel;
+
+@end
 
 @interface MatchingAnimationScene : SKScene <SKPhysicsContactDelegate>
 
 @property (nonatomic) BOOL didTouchBoxingGloves;
-@property (nonatomic, strong) id <AnimationCompletionDelegate> animationCompletionDelegate;
+@property (nonatomic, weak) id <AnimationCompletionDelegate> animationCompletionDelegate;
+@property (nonatomic, weak) id <MatchAnimationNameSource> matchAnimationNameSource;
 
 @end

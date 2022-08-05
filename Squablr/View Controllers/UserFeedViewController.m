@@ -15,6 +15,7 @@
 @property (nonatomic) NSUInteger profileIndex;
 @property (nonatomic) MatchingAnimationScene *matchingAnimationScene;
 @property (nonatomic) SKView *animationSKView;
+@property (nonatomic) NSString* mostRecentlyMatchedUserName;
 
 @end
 
@@ -71,21 +72,23 @@
         CardView *profileCard = (CardView *) view;
         // Card View has a profile object so we can extract the
         // necessary information we need to write the like to parse
-        Profile *currentProfile = profileCard.profile;
+        Profile *currentUserProfileOnFeed = profileCard.profile;
         // Send like to parse since profile not null
-        if (currentProfile) {
+        if (currentUserProfileOnFeed) {
             // insert the parse method to send like
             dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-                [ParseUtils saveLikeToParse:currentProfile];
+                [ParseUtils saveLikeToParse:currentUserProfileOnFeed];
                 // Determine if the user has already liked the currentProfile
-                bool matched = [ParseUtils likedUserProfileHasMatchedWithUser:currentProfile];
+                bool matched = [ParseUtils likedUserProfileHasMatchedWithUser:currentUserProfileOnFeed];
                 if (matched) {
                     dispatch_async(dispatch_get_main_queue(), ^{
+                        self.mostRecentlyMatchedUserName = currentUserProfileOnFeed.name;
                         self.animationSKView = [SKView new];
                         self.animationSKView.frame = self.view.frame;
                         [self.view addSubview: self.animationSKView];
                         self.matchingAnimationScene = [[MatchingAnimationScene alloc] initWithSize:self.view.frame.size];
                         self.matchingAnimationScene.animationCompletionDelegate = self;
+                        self.matchingAnimationScene.matchAnimationNameSource = self;
                         [self.animationSKView presentScene:self.matchingAnimationScene];
                         self.animationSKView.backgroundColor = UIColor.clearColor;
                         self.matchingAnimationScene = self.matchingAnimationScene;
@@ -178,6 +181,10 @@
 - (void)didFinishTappingOnBoxingGloves {
     [_animationSKView removeFromSuperview];
     [_animationSKView presentScene:nil];
+}
+#pragma mark - Matching Animation Name Source Delegate Method
+- (NSString *)nameForMatchLabel {
+    return self.mostRecentlyMatchedUserName;
 }
 
 @end

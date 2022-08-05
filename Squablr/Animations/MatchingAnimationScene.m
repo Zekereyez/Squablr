@@ -21,7 +21,7 @@ static const long NUM_BOXING_GLOVES = 4;
 - (void)didMoveToView:(SKView *)view {
     // Adding text to a scene
     SKLabelNode *match = [SKLabelNode labelNodeWithFontNamed:@"Palatino-BoldItalic"];
-    match.text = @"It's a Match!";
+    match.text = [NSString stringWithFormat:@"You matched with %@!", [self.matchAnimationNameSource nameForMatchLabel]];
     match.fontSize = 23;
     match.fontColor = [SKColor blackColor];
     match.position = CGPointMake(0, -match.frame.size.height/2);
@@ -55,17 +55,24 @@ static const long NUM_BOXING_GLOVES = 4;
     }
 }
 
+#pragma mark - Initializing the glove properties
 - (SKSpriteNode *) makeSpriteNodesForBoxingGloves {
+    float width = (float)self.frame.size.width;
+    float height = (float)self.frame.size.height;
     SKSpriteNode* spriteNode = [SKSpriteNode spriteNodeWithImageNamed: @"confrontation"];
     spriteNode.name = itemCategoryName;
-    spriteNode.position = CGPointMake(self.frame.size.width/3, self.frame.size.height/3);
+    spriteNode.position = CGPointMake((float)arc4random_uniform(width), (float)arc4random_uniform(height));
     // Resizing of the gloves
     spriteNode.size = CGSizeMake(100.0, 100.0);
     return spriteNode;
 }
 
+#pragma mark - Setting the physics of the gloves
 - (void) setPhysicsOfBody: (SKSpriteNode *) spriteNode {
-    float randomNum = ((float)rand() / RAND_MAX) * 200 + 100;
+    int oneOrZero = rand() % 1;
+    int oneOrZeroSecond = rand() % 1;
+    float firstVelocity = ((float)rand() / RAND_MAX) * 200 + 100;
+    float secondVelocity = firstVelocity;
     spriteNode.physicsBody = [SKPhysicsBody bodyWithCircleOfRadius:spriteNode.frame.size.width/2];
     spriteNode.physicsBody.friction = 0.0f;
     // How elastic the node is
@@ -76,7 +83,14 @@ static const long NUM_BOXING_GLOVES = 4;
     spriteNode.physicsBody.allowsRotation = NO;
     // Initial push of the object
     // Make random
-    [spriteNode.physicsBody applyImpulse:CGVectorMake(randomNum, -randomNum)];
+    if (oneOrZero == 0) {
+        firstVelocity *= -1;
+    }
+    if (oneOrZeroSecond == 0) {
+        secondVelocity *= -1;
+    }
+    
+    [spriteNode.physicsBody applyImpulse:CGVectorMake(firstVelocity, -secondVelocity)];
 }
 
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
@@ -95,17 +109,6 @@ static const long NUM_BOXING_GLOVES = 4;
             [_animationCompletionDelegate didFinishTappingOnBoxingGloves];
         }
     }
-//    SKSpriteNode* node = [body node];
-//    [node]
-//    if (body && [body.node.name isEqualToString: itemCategoryName]) {
-//        NSLog(@"Began touch on glove");
-//        [body ]
-//        self.didTouchBoxingGloves = YES;
-//    }
-}
-
-- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
-    
 }
 
 @end

@@ -18,7 +18,10 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface UserFeedViewController : UIViewController <ZLSwipeableViewDataSource, ZLSwipeableViewDelegate, UIActionSheetDelegate, UICollisionBehaviorDelegate, AnimationCompletionDelegate>
+@protocol AnimationCompletionDelegate;
+@protocol MatchAnimationNameSource;
+
+@interface UserFeedViewController : UIViewController <ZLSwipeableViewDataSource, ZLSwipeableViewDelegate, UIActionSheetDelegate, UICollisionBehaviorDelegate, AnimationCompletionDelegate, MatchAnimationNameSource>
 
 @property (nonatomic, strong) UIDynamicAnimator *animator;
 @property (nonatomic, strong) UIView *blackBall;
