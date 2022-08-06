@@ -32,6 +32,12 @@
     self.view.clipsToBounds = YES;
     self.view.backgroundColor = [UIColor whiteColor];
     
+    // Double tap gesture to rewind user profile
+    UITapGestureRecognizer *tappedOnProfile = [[UITapGestureRecognizer alloc]
+                                               initWithTarget:self
+                                                  action:@selector(didDoubleTap)];
+    tappedOnProfile.numberOfTapsRequired = 2;
+    [self.view addGestureRecognizer:tappedOnProfile];
 }
 
 - (void)viewDidLayoutSubviews {
@@ -52,6 +58,11 @@
 
 - (void)handleDown:(UIBarButtonItem *)sender {
     [self.swipeableView swipeTopViewToDown];
+}
+
+- (void) didDoubleTap {
+    self.profileIndex--;
+    [self.swipeableView rewind];
 }
 
 #pragma mark - ZLSwipeableViewDelegate
