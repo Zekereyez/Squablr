@@ -72,7 +72,11 @@
           inDirection:(ZLSwipeableViewDirection)direction {
     // Handle direction
     if (direction == ZLSwipeableViewDirectionLeft) {
-
+        // TODO: Implement user social medias later
+//        NSURL* snapchatURL = [NSURL URLWithString:@"https://www.snapchat.com/add/dj.s1k3"];
+//        if ([[UIApplication sharedApplication] canOpenURL:snapchatURL]) {
+//            [[UIApplication sharedApplication] openURL:snapchatURL];
+//        }
     }
     else if (direction == ZLSwipeableViewDirectionRight) {
         // Removing the scene
