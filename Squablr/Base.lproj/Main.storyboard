@@ -176,6 +176,7 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="matchedUsername" destination="zWA-Xz-9qu" id="DCk-Ed-fnc"/>
+                                            <segue destination="Kxw-jg-vd4" kind="presentation" identifier="matchedProfileVC" id="MLD-6K-C2x"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -195,7 +196,6 @@
                     </tabBarItem>
                     <connections>
                         <outlet property="tableView" destination="DFH-eO-tfc" id="7Gm-9E-EZ7"/>
-                        <segue destination="Kxw-jg-vd4" kind="presentation" identifier="matchedProfileSegue" id="pX8-qF-MbH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yVM-lH-1tU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
