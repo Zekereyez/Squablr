@@ -63,6 +63,7 @@
         Profile *matchedUserProfile = self.arrayOfMatches[indexPath.row];
         MatchedProfileViewController *matchedProfileVC = segue.destinationViewController;
         matchedProfileVC.profile = matchedUserProfile;
+        NSLog(@"segue has triggered 🫡");
     }
 }
 
