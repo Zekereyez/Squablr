@@ -28,21 +28,8 @@ static const long NUM_BOXING_GLOVES = 4;
     match.numberOfLines = 0;
     match.preferredMaxLayoutWidth = 300;
     
-    SKLabelNode *a = [SKLabelNode labelNodeWithFontNamed:@"Palatino-BoldItalic"];
-    a.fontSize = 16;
-    a.fontColor = [SKColor blackColor];
-    SKLabelNode *b = [SKLabelNode labelNodeWithFontNamed:@"Palatino-BoldItalic"];
-    b.fontSize = 16;
-    b.fontColor = [SKColor blackColor];
-    NSString *st1 = @"You Matched with";
-    NSString *st2 = [NSString stringWithFormat:@"%@!", [self.matchAnimationNameSource nameForMatchLabel]];
-    a.text = st1;
-    b.text = st2;
-    
     SKSpriteNode *backgroundOfLabel = [SKSpriteNode spriteNodeWithColor:[UIColor whiteColor] size:CGSizeMake(match.frame.size.width + 10.0, match.frame.size.height + 30.0)];
     backgroundOfLabel.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame));
-//    [self addChild:a];
-//    [self addChild:b];
     [backgroundOfLabel addChild:match];
     [self addChild:backgroundOfLabel];
     
