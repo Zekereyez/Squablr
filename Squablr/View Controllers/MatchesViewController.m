@@ -25,8 +25,7 @@
 }
 
 - (void) viewWillAppear:(BOOL)animated {
-    // Load the current users matches everytime the
-    // user navigates to the match tab
+    // Load the current users matches everytime the user navigates to the match tab
     [self loadMatches];
 }
 
@@ -49,5 +48,15 @@
 - (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return self.arrayOfMatches.count;
 }
+
+/*
+#pragma mark - Navigation
+
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
+}
+*/
 
 @end
