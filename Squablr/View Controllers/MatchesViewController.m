@@ -6,6 +6,7 @@
 //
 
 #import "MatchesViewController.h"
+#import "MatchedProfileViewController.h"
 
 @interface MatchesViewController () <UITableViewDataSource, UITableViewDelegate>
 
@@ -49,14 +50,21 @@
     return self.arrayOfMatches.count;
 }
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    if ([segue.identifier isEqualToString:@"matchedProfileSegue"]) {
+        MatchCell *matchCell = sender;
+        NSIndexPath *indexPath = [self.tableView indexPathForCell:matchCell];
+        Profile *matchedUserProfile = self.arrayOfMatches[indexPath.row];
+        MatchedProfileViewController *matchedProfileVC = segue.destinationViewController;
+        matchedProfileVC.profile = matchedUserProfile;
+    }
 }
-*/
+
 
 @end
