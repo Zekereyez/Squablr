@@ -14,6 +14,8 @@
 		9E34077B289B2FB9003DF202 /* MatchCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E34077A289B2FB9003DF202 /* MatchCell.m */; };
 		9E340782289CC082003DF202 /* MyScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 9E340781289CC082003DF202 /* MyScene.sks */; };
 		9E340785289CC098003DF202 /* MatchingAnimationScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E340784289CC098003DF202 /* MatchingAnimationScene.m */; };
+		9E34078B28A18223003DF202 /* MatchedProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E34078A28A18223003DF202 /* MatchedProfileViewController.m */; };
+		9E34078E28A1C7E2003DF202 /* MatchedProfileCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E34078D28A1C7E2003DF202 /* MatchedProfileCell.m */; };
 		9EB5589F2889EF000089E915 /* CardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EB5589E2889EF000089E915 /* CardView.m */; };
 		9EC7449D287F745E0072271A /* EditProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EC7449C287F745E0072271A /* EditProfileViewController.m */; };
 		9EC744A32880DF880072271A /* ProfilePictureCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EC744A22880DF880072271A /* ProfilePictureCell.m */; };
@@ -70,6 +72,10 @@
 		9E340781289CC082003DF202 /* MyScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MyScene.sks; sourceTree = "<group>"; };
 		9E340783289CC098003DF202 /* MatchingAnimationScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MatchingAnimationScene.h; sourceTree = "<group>"; };
 		9E340784289CC098003DF202 /* MatchingAnimationScene.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MatchingAnimationScene.m; sourceTree = "<group>"; };
+		9E34078928A18223003DF202 /* MatchedProfileViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MatchedProfileViewController.h; sourceTree = "<group>"; };
+		9E34078A28A18223003DF202 /* MatchedProfileViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MatchedProfileViewController.m; sourceTree = "<group>"; };
+		9E34078C28A1C7E2003DF202 /* MatchedProfileCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MatchedProfileCell.h; sourceTree = "<group>"; };
+		9E34078D28A1C7E2003DF202 /* MatchedProfileCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MatchedProfileCell.m; sourceTree = "<group>"; };
 		9EB5589D2889EF000089E915 /* CardView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CardView.h; sourceTree = "<group>"; };
 		9EB5589E2889EF000089E915 /* CardView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CardView.m; sourceTree = "<group>"; };
 		9EC7449B287F745E0072271A /* EditProfileViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EditProfileViewController.h; sourceTree = "<group>"; };
@@ -186,6 +192,8 @@
 			children = (
 				9EC744A12880DF880072271A /* ProfilePictureCell.h */,
 				9EC744A22880DF880072271A /* ProfilePictureCell.m */,
+				9E34078C28A1C7E2003DF202 /* MatchedProfileCell.h */,
+				9E34078D28A1C7E2003DF202 /* MatchedProfileCell.m */,
 				9EB5589D2889EF000089E915 /* CardView.h */,
 				9EB5589E2889EF000089E915 /* CardView.m */,
 			);
@@ -261,14 +269,16 @@
 				9EF5EB442877A801008BA3CC /* LoginViewController.m */,
 				9EF5EB472877A971008BA3CC /* SignUpViewController.h */,
 				9EF5EB482877A971008BA3CC /* SignUpViewController.m */,
-				9EF5EB4D287891A5008BA3CC /* UserFeedViewController.h */,
-				9EF5EB4E287891A5008BA3CC /* UserFeedViewController.m */,
-				9EF5EB5B2878E151008BA3CC /* MatchesViewController.h */,
-				9EF5EB5C2878E151008BA3CC /* MatchesViewController.m */,
 				9EF5EB542878B30B008BA3CC /* ProfileViewController.h */,
 				9EF5EB552878B30B008BA3CC /* ProfileViewController.m */,
 				9EC7449B287F745E0072271A /* EditProfileViewController.h */,
 				9EC7449C287F745E0072271A /* EditProfileViewController.m */,
+				9EF5EB4D287891A5008BA3CC /* UserFeedViewController.h */,
+				9EF5EB4E287891A5008BA3CC /* UserFeedViewController.m */,
+				9EF5EB5B2878E151008BA3CC /* MatchesViewController.h */,
+				9EF5EB5C2878E151008BA3CC /* MatchesViewController.m */,
+				9E34078928A18223003DF202 /* MatchedProfileViewController.h */,
+				9E34078A28A18223003DF202 /* MatchedProfileViewController.m */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -530,6 +540,7 @@
 				9E34077B289B2FB9003DF202 /* MatchCell.m in Sources */,
 				9EF5EB5D2878E151008BA3CC /* MatchesViewController.m in Sources */,
 				9E2818C82899A75F00B1062E /* ParseUtils.m in Sources */,
+				9E34078B28A18223003DF202 /* MatchedProfileViewController.m in Sources */,
 				9EC744A32880DF880072271A /* ProfilePictureCell.m in Sources */,
 				9EB5589F2889EF000089E915 /* CardView.m in Sources */,
 				9EF5EB212874A2F7008BA3CC /* main.m in Sources */,
@@ -540,6 +551,7 @@
 				9EF5EB4F287891A5008BA3CC /* UserFeedViewController.m in Sources */,
 				9EF5EB492877A971008BA3CC /* SignUpViewController.m in Sources */,
 				9EF5EB452877A801008BA3CC /* LoginViewController.m in Sources */,
+				9E34078E28A1C7E2003DF202 /* MatchedProfileCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
