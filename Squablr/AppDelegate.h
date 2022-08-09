@@ -12,6 +12,7 @@
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
+@property BOOL restrictRotation;
 
 @end
 
