@@ -55,4 +55,14 @@
     return [[UISceneConfiguration alloc] initWithName:@"Default Configuration" sessionRole:connectingSceneSession.role];
 }
 
+#pragma mark - Locks app as portrait only
+-(NSUInteger)application:(UIApplication *)application supportedInterfaceOrientationsForWindow:(UIWindow *)window {
+    if(self.restrictRotation) {
+        return UIInterfaceOrientationMaskPortrait;
+    }
+    else {
+        return UIInterfaceOrientationMaskAll;
+    }
+
+
 @end
