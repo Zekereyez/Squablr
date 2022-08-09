@@ -73,6 +73,4 @@
     [userIsInCurrentUserMatchesArrayQuery findObjectsInBackgroundWithBlock:block];
 }
 
-
-
 @end

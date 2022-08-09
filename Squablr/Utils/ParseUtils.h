@@ -17,6 +17,7 @@ NS_ASSUME_NONNULL_BEGIN
 + (void) saveLikeToParse:(Profile *) likedUserProfile;
 + (bool) likedUserProfileHasMatchedWithUser:(Profile *) likedUserProfile;
 + (void) queryUserMatchesWithBlock:(PFQueryArrayResultBlock) block;
++ (NSMutableArray*) queryMatchedUserImages:(NSString*) matchedUserName;
 
 @end
 
