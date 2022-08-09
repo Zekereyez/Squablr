@@ -18,6 +18,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    [self restrictRotation:YES];
     [self queryUserProfileInfo];
     self.gridView.dataSource = self;
     self.gridView.delegate = self;
@@ -130,6 +131,14 @@
         }
     }];
 }
+
+
+#pragma  mark - Locking orientation of app in vc
+-(void) restrictRotation:(BOOL) restriction {
+    AppDelegate* appDelegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
+    appDelegate.restrictRotation = restriction;
+}
+
 
 -(void) loadUserProfileInfo {
     // Extract the array element properties for the user and assign into profile labels
