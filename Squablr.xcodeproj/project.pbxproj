@@ -16,6 +16,7 @@
 		9E340785289CC098003DF202 /* MatchingAnimationScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E340784289CC098003DF202 /* MatchingAnimationScene.m */; };
 		9E34078B28A18223003DF202 /* MatchedProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E34078A28A18223003DF202 /* MatchedProfileViewController.m */; };
 		9E34078E28A1C7E2003DF202 /* MatchedProfileCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E34078D28A1C7E2003DF202 /* MatchedProfileCell.m */; };
+		9E34079128A30A27003DF202 /* UserFeedProfilePictureCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E34079028A30A27003DF202 /* UserFeedProfilePictureCell.m */; };
 		9EB5589F2889EF000089E915 /* CardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EB5589E2889EF000089E915 /* CardView.m */; };
 		9EC7449D287F745E0072271A /* EditProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EC7449C287F745E0072271A /* EditProfileViewController.m */; };
 		9EC744A32880DF880072271A /* ProfilePictureCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EC744A22880DF880072271A /* ProfilePictureCell.m */; };
@@ -76,6 +77,8 @@
 		9E34078A28A18223003DF202 /* MatchedProfileViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MatchedProfileViewController.m; sourceTree = "<group>"; };
 		9E34078C28A1C7E2003DF202 /* MatchedProfileCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MatchedProfileCell.h; sourceTree = "<group>"; };
 		9E34078D28A1C7E2003DF202 /* MatchedProfileCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MatchedProfileCell.m; sourceTree = "<group>"; };
+		9E34078F28A30A27003DF202 /* UserFeedProfilePictureCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserFeedProfilePictureCell.h; sourceTree = "<group>"; };
+		9E34079028A30A27003DF202 /* UserFeedProfilePictureCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserFeedProfilePictureCell.m; sourceTree = "<group>"; };
 		9EB5589D2889EF000089E915 /* CardView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CardView.h; sourceTree = "<group>"; };
 		9EB5589E2889EF000089E915 /* CardView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CardView.m; sourceTree = "<group>"; };
 		9EC7449B287F745E0072271A /* EditProfileViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EditProfileViewController.h; sourceTree = "<group>"; };
@@ -194,6 +197,8 @@
 				9EC744A22880DF880072271A /* ProfilePictureCell.m */,
 				9E34078C28A1C7E2003DF202 /* MatchedProfileCell.h */,
 				9E34078D28A1C7E2003DF202 /* MatchedProfileCell.m */,
+				9E34078F28A30A27003DF202 /* UserFeedProfilePictureCell.h */,
+				9E34079028A30A27003DF202 /* UserFeedProfilePictureCell.m */,
 				9EB5589D2889EF000089E915 /* CardView.h */,
 				9EB5589E2889EF000089E915 /* CardView.m */,
 			);
@@ -544,6 +549,7 @@
 				9EC744A32880DF880072271A /* ProfilePictureCell.m in Sources */,
 				9EB5589F2889EF000089E915 /* CardView.m in Sources */,
 				9EF5EB212874A2F7008BA3CC /* main.m in Sources */,
+				9E34079128A30A27003DF202 /* UserFeedProfilePictureCell.m in Sources */,
 				9EF5EB132874A2F6008BA3CC /* SceneDelegate.m in Sources */,
 				9EF5EB562878B30B008BA3CC /* ProfileViewController.m in Sources */,
 				9E2818CC2899CA8E00B1062E /* RankingAlgorithmUtils.m in Sources */,
