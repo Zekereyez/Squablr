@@ -54,15 +54,12 @@
         if (userInfo) {
             // Handle fetched data
             self.userProfilePhotos = userInfo[0][@"profileImages"];
-            NSLog(@"%@", self.userProfilePhotos);
             [self.gridView reloadData];
         }
     }];
 }
 
 - (nonnull __kindof UICollectionViewCell *)collectionView:(nonnull UICollectionView *)collectionView cellForItemAtIndexPath:(nonnull NSIndexPath *)indexPath {
-    NSLog(@"%@", collectionView);
-    NSLog(@"%@", indexPath);
     MatchedProfileCell *cell = [self.gridView dequeueReusableCellWithReuseIdentifier:@"MatchedProfileCell" forIndexPath:indexPath];
     cell.matchedUserProfileImage.file = self.userProfilePhotos[indexPath.item];
 
