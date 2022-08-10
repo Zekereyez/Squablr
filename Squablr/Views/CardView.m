@@ -31,6 +31,9 @@
         [self setup];
         self.profile = profile;
         self.profilePictureIndex = 0;
+        // Creating invisible half views for the tap gesture recognizer
+        UIView *leftView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 175, 500)];
+        UIView *rightView = [[UIView alloc] initWithFrame:CGRectMake(175, 0, 175, 500)];
         // Adding tap gesture recognizers for user photos
         UITapGestureRecognizer *tappedOnLeftHalf = [[UITapGestureRecognizer alloc]
                                                    initWithTarget:self
@@ -38,11 +41,7 @@
         UITapGestureRecognizer *tappedOnRightHalf = [[UITapGestureRecognizer alloc]
                                                    initWithTarget:self
                                                       action:@selector(nextProfileImage)];
-        // Creating invisible half views for the tap gesture recognizer
-        UIView *leftView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 175, 500)];
-        UIView *rightView = [[UIView alloc] initWithFrame:CGRectMake(175, 0, 175, 500)];
-        [leftView addGestureRecognizer: tappedOnLeftHalf];
-        tappedOnRightHalf.numberOfTapsRequired = 1;
+        [leftView addGestureRecognizer:tappedOnLeftHalf];
         [rightView addGestureRecognizer:tappedOnRightHalf];
         [self addSubview:leftView];
         [self addSubview:rightView];
@@ -50,14 +49,12 @@
         self.imageView = [[PFImageView alloc] initWithFrame:CGRectMake(0, 0, 350, 500)];
         self.imageView.image = nil;
         self.userOnFeedProfilePhotos = profile[@"profileImages"];
-        self.imageView.file = [profile[@"profileImages"] firstObject]; // TODO: Change this to the user profile images
+        self.imageView.file = [profile[@"profileImages"] firstObject];
         [self.imageView loadInBackground];
         self.imageView.contentMode = UIViewContentModeScaleAspectFill;
         self.imageView.layer.cornerRadius = 10.0;
         self.imageView.layer.masksToBounds = true;
         [self addSubview:self.imageView];
-        
-        
         // Name Label
         UILabel *nameLabel = [[UILabel alloc]initWithFrame:CGRectMake(25, 500, 200, 40)];
         nameLabel.text = profile.name;

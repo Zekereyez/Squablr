@@ -23,7 +23,6 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, weak)id<CardViewDelegate> delegate;
 @property (nonatomic) NSUInteger profilePictureIndex;
 @property (nonatomic, weak) Profile *profile;
-@property UICollectionView *collectionView;
 @property PFImageView *imageView;
 @property UILabel *username;
 @property UILabel *age;
