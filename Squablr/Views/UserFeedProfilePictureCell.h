@@ -6,13 +6,13 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "Parse/Parse.h"
+#import "Parse/PFImageView.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface UserFeedProfilePictureCell : UICollectionViewCell
 
-@property (weak, nonatomic) IBOutlet PFImageView *matchedUserProfileImage;
+@property (weak, nonatomic) IBOutlet PFImageView *userOnFeedProfileImage;
 
 @end
 

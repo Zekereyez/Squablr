@@ -6,9 +6,9 @@
 //
 
 #import "CardView.h"
+#import "UserFeedProfilePictureCell.h"
 
-@implementation CardView
-
+@implementation CardView 
 - (instancetype)init {
     self = [super init];
     if (self) {
@@ -30,15 +30,27 @@
     if (self) {
         [self setup];
         self.profile = profile;
+        // Creating the UICollection View
+        UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
+        self.collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, 350, 500) collectionViewLayout:layout];
+        [self.collectionView setDataSource:self];
+        [self.collectionView setDelegate:self];
+        // Assigning the class of the cell ?
+        [self.collectionView registerClass:[UserFeedProfilePictureCell class] forCellWithReuseIdentifier:@"userOnFeedProfilePicture"];
+        [self.collectionView setBackgroundColor:[UIColor redColor]];
+
+        [self addSubview:self.collectionView];
         // Creating UIImage view programmatically
         PFImageView *imageView = [[PFImageView alloc] initWithFrame:CGRectMake(0, 0, 350, 500)];
         imageView.image = nil;
-        imageView.file = [profile[@"profileImages"] firstObject]; // TODO: Change this to the user profile images
+        self.userOnFeedProfilePhotos = profile[@"profileImages"];
+        [self.collectionView reloadData];
+         imageView.file = [profile[@"profileImages"] firstObject]; // TODO: Change this to the user profile images
         [imageView loadInBackground];
         imageView.contentMode = UIViewContentModeScaleAspectFill;
         imageView.layer.cornerRadius = 10.0;
         imageView.layer.masksToBounds = true;
-        [self addSubview:imageView];
+        [self.collectionView addSubview:imageView];
         // Name Label
         UILabel *nameLabel = [[UILabel alloc]initWithFrame:CGRectMake(25, 500, 200, 40)];
         nameLabel.text = profile.name;
@@ -112,12 +124,26 @@
     self.layer.shadowRadius = 4.0;
     self.layer.shouldRasterize = YES;
     self.layer.rasterizationScale = [UIScreen mainScreen].scale;
-
+    
     // Corner Radius
     self.layer.cornerRadius = 10.0;
     
     // Background Color
     self.backgroundColor = [UIColor systemGrayColor];
 }
+
+- (nonnull __kindof UICollectionViewCell *)collectionView:(nonnull UICollectionView *)collectionView cellForItemAtIndexPath:(nonnull NSIndexPath *)indexPath {
+    UserFeedProfilePictureCell *cell = [self.collectionView dequeueReusableCellWithReuseIdentifier:@"userOnFeedProfilePicture" forIndexPath:indexPath];
+    cell.userOnFeedProfileImage.file = self.userOnFeedProfilePhotos[indexPath.item];
+
+    [cell.userOnFeedProfileImage loadInBackground];
+    
+    return cell;
+}
+
+- (NSInteger)collectionView:(nonnull UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+    return self.userOnFeedProfilePhotos.count;
+}
+
 
 @end
