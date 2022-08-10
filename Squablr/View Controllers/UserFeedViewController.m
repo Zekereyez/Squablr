@@ -36,7 +36,7 @@
     UITapGestureRecognizer *tappedOnProfile = [[UITapGestureRecognizer alloc]
                                                initWithTarget:self
                                                   action:@selector(didDoubleTap)];
-    tappedOnProfile.numberOfTapsRequired = 2;
+    tappedOnProfile.numberOfTapsRequired = 5;
     [self.view addGestureRecognizer:tappedOnProfile];
 }
 
