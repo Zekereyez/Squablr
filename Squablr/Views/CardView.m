@@ -30,16 +30,34 @@
     if (self) {
         [self setup];
         self.profile = profile;
+        self.profilePictureIndex = 0;
+        // Adding tap gesture recognizers for user photos
+        UITapGestureRecognizer *tappedOnLeftHalf = [[UITapGestureRecognizer alloc]
+                                                   initWithTarget:self
+                                                      action:@selector(previousProfileImage)];
+        UITapGestureRecognizer *tappedOnRightHalf = [[UITapGestureRecognizer alloc]
+                                                   initWithTarget:self
+                                                      action:@selector(nextProfileImage)];
+        // Creating invisible half views for the tap gesture recognizer
+        UIView *leftView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 175, 500)];
+        UIView *rightView = [[UIView alloc] initWithFrame:CGRectMake(175, 0, 175, 500)];
+        [leftView addGestureRecognizer: tappedOnLeftHalf];
+        tappedOnRightHalf.numberOfTapsRequired = 1;
+        [rightView addGestureRecognizer:tappedOnRightHalf];
+        [self addSubview:leftView];
+        [self addSubview:rightView];
         // Creating UIImage view programmatically
-        PFImageView *imageView = [[PFImageView alloc] initWithFrame:CGRectMake(0, 0, 350, 500)];
-        imageView.image = nil;
+        self.imageView = [[PFImageView alloc] initWithFrame:CGRectMake(0, 0, 350, 500)];
+        self.imageView.image = nil;
         self.userOnFeedProfilePhotos = profile[@"profileImages"];
-        imageView.file = [profile[@"profileImages"] firstObject]; // TODO: Change this to the user profile images
-        [imageView loadInBackground];
-        imageView.contentMode = UIViewContentModeScaleAspectFill;
-        imageView.layer.cornerRadius = 10.0;
-        imageView.layer.masksToBounds = true;
-        [self addSubview:imageView];
+        self.imageView.file = [profile[@"profileImages"] firstObject]; // TODO: Change this to the user profile images
+        [self.imageView loadInBackground];
+        self.imageView.contentMode = UIViewContentModeScaleAspectFill;
+        self.imageView.layer.cornerRadius = 10.0;
+        self.imageView.layer.masksToBounds = true;
+        [self addSubview:self.imageView];
+        
+        
         // Name Label
         UILabel *nameLabel = [[UILabel alloc]initWithFrame:CGRectMake(25, 500, 200, 40)];
         nameLabel.text = profile.name;
@@ -81,11 +99,11 @@
         [self addSubview:bioLabel];
         // Name label layout
         NSLayoutConstraint *nameLabelLeftEdgeToParent = [NSLayoutConstraint constraintWithItem:nameLabel attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeLeft multiplier:1 constant:10];
-        NSLayoutConstraint *nameLabelTopEdgeToParent = [NSLayoutConstraint constraintWithItem:nameLabel attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:imageView attribute:NSLayoutAttributeBottom multiplier:1 constant:10];
+        NSLayoutConstraint *nameLabelTopEdgeToParent = [NSLayoutConstraint constraintWithItem:nameLabel attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.imageView attribute:NSLayoutAttributeBottom multiplier:1 constant:10];
         [self addConstraints:@[nameLabelLeftEdgeToParent, nameLabelTopEdgeToParent]];
         // Age label layout
         NSLayoutConstraint *ageLabelRightEdgeToParent = [NSLayoutConstraint constraintWithItem:ageLabel attribute:NSLayoutAttributeRight relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeRight multiplier:1 constant:-10];
-        NSLayoutConstraint *ageLabelTopEdgeToParent = [NSLayoutConstraint constraintWithItem:ageLabel attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:imageView attribute:NSLayoutAttributeBottom multiplier:1 constant:10];
+        NSLayoutConstraint *ageLabelTopEdgeToParent = [NSLayoutConstraint constraintWithItem:ageLabel attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.imageView attribute:NSLayoutAttributeBottom multiplier:1 constant:10];
         [self addConstraints:@[ageLabelRightEdgeToParent, ageLabelTopEdgeToParent]];
         // Bio layout
         NSLayoutConstraint *bioLabelTopEdgeToParent = [NSLayoutConstraint constraintWithItem:bioLabel attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:nameLabel attribute:NSLayoutAttributeBottom multiplier:1 constant:10];
@@ -119,6 +137,23 @@
     
     // Background Color
     self.backgroundColor = [UIColor systemGrayColor];
+}
+
+- (void) nextProfileImage {
+    self.profilePictureIndex++;
+    if (self.profilePictureIndex >= self.userOnFeedProfilePhotos.count) {
+        self.profilePictureIndex = self.userOnFeedProfilePhotos.count - 1;
+    }
+    self.imageView.file = self.userOnFeedProfilePhotos[_profilePictureIndex];
+    [self.imageView loadInBackground];
+}
+
+- (void) previousProfileImage {
+    if (self.profilePictureIndex > 0) {
+        self.profilePictureIndex--;
+    }
+    self.imageView.file = self.userOnFeedProfilePhotos[_profilePictureIndex];
+    [self.imageView loadInBackground];
 }
 
 @end
