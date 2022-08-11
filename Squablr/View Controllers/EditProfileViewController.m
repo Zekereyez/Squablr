@@ -34,6 +34,10 @@
     NSNumber *experience = [NSNumber numberWithInteger:[userExperience integerValue]];
     user[@"profile"][@"experience"] = experience;
     user[@"profile"][@"biography"] = self.bioField.text;
+    NSString *userInstagram = self.instagramField.text;
+    user[@"profile"][@"instagramUsername"] = userInstagram;
+    NSString *userSnapchat = self.snapchatField.text;
+    user[@"profile"][@"snapchatUsername"] = userSnapchat;
     [user saveInBackground];
     [self refreshUserFields];
     [self dismissViewControllerAnimated:YES completion:nil];
@@ -71,7 +75,8 @@
         self.experienceField.text = [NSString stringWithFormat:@"%@", experience];
         NSString *bio = self.userProfileInfo.biography;
         self.bioField.text = [NSString stringWithFormat:@"%@", bio];
+        self.instagramField.text = self.userProfileInfo.instagramUsername;
+        self.snapchatField.text = self.userProfileInfo.snapchatUsername;
     }
 }
-
 @end

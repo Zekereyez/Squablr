@@ -11,14 +11,16 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface Profile : PFObject<PFSubclassing>
-@property (nonatomic, strong) NSString *userID;
-@property (nonatomic, strong) NSString *name;
-@property (nonatomic, strong) NSNumber *age;
-@property (nonatomic, strong) NSNumber *weightClass;
-@property (nonatomic, strong) NSString *stance;
-@property (nonatomic, strong) NSNumber *experience;
-@property (nonatomic, strong) NSString *biography;
-@property (nonatomic, strong) PFFileObject *imageFile;
+@property (nonatomic, weak) NSString *userID;
+@property (nonatomic, weak) NSString *name;
+@property (nonatomic, weak) NSNumber *age;
+@property (nonatomic, weak) NSNumber *weightClass;
+@property (nonatomic, weak) NSString *stance;
+@property (nonatomic, weak) NSNumber *experience;
+@property (nonatomic, weak) NSString *biography;
+@property (nonatomic, weak) NSString *snapchatUsername;
+@property (nonatomic, weak) NSString *instagramUsername;
+@property (nonatomic, weak) PFFileObject *imageFile;
 
 + (void) writeUserToParse: (PFBooleanResultBlock  _Nullable)completion;
 + (PFFileObject *)getPFFileFromImage: (UIImage * _Nullable)image;
