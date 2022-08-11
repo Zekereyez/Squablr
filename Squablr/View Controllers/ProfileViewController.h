@@ -25,6 +25,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UILabel *userBio;
 @property (weak, nonatomic) IBOutlet UILabel *userProfileName;
 @property (weak, nonatomic) IBOutlet UICollectionView *gridView;
+@property (nonatomic) NSString* userSnapchat;
+@property (nonatomic) NSString* userInstagram;
 
 @property (weak, nonatomic) Profile *profile;
 

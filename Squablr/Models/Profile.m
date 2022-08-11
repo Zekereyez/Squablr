@@ -16,6 +16,8 @@
 @dynamic experience;
 @dynamic biography;
 @dynamic imageFile;
+@dynamic snapchatUsername;
+@dynamic instagramUsername;
 
 + (nonnull NSString *)parseClassName {
     return @"Profile";
@@ -30,6 +32,8 @@
     newUser.stance = @"Orthodox";
     newUser.experience = @(1);
     newUser.biography = @"I'm new here! (:";
+    newUser.snapchatUsername = @"";
+    newUser.instagramUsername = @"";
     // This creates the user pointer to the profile class
     PFUser *user = [PFUser currentUser];
     user[@"profile"] = newUser;

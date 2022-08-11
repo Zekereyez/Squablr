@@ -110,7 +110,7 @@
             <objects>
                 <viewController id="fs0-Ci-AoX" customClass="UserFeedViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dML-cn-1t5">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XHS-da-S45" customClass="ZLSwipeableView">
@@ -146,7 +146,7 @@
             <objects>
                 <viewController id="BYh-Oa-dH4" customClass="MatchesViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="QNg-So-83J">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="DFH-eO-tfc">
@@ -207,7 +207,7 @@
             <objects>
                 <viewController storyboardIdentifier="MatchedProfileVC" id="Kxw-jg-vd4" customClass="MatchedProfileViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Kjl-q4-3Fz">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="32Q-t2-lmR">
@@ -367,7 +367,7 @@
             <objects>
                 <viewController storyboardIdentifier="profileVC" id="F5R-bj-4CQ" customClass="ProfileViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ts0-Fy-uzb">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J8D-kz-GE0">
@@ -385,7 +385,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="userBio" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3ES-Iw-EqG">
-                                <rect key="frame" x="33" y="649" width="347" height="164"/>
+                                <rect key="frame" x="33" y="649" width="344" height="66"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -489,6 +489,21 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q8y-3N-2T5">
+                                <rect key="frame" x="20" y="722" width="67" height="53"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="57">
+                                    <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage"/>
+                                </buttonConfiguration>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pnr-1x-5EW">
+                                <rect key="frame" x="95" y="718" width="64" height="60"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="225" maxX="255" maxY="3"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="60"/>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="cHS-iG-YMY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -537,7 +552,7 @@
             <objects>
                 <viewController storyboardIdentifier="editProfileVC" id="qwn-Xa-hta" customClass="EditProfileViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="KoT-lb-d07">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Edit Info" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CeG-NH-npY">
@@ -628,7 +643,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ipp-dx-mcr">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ipp-dx-mcr">
                                 <rect key="frame" x="170" y="547" width="183" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -710,6 +725,8 @@
                         <outlet property="ageField" destination="OGt-oL-1Mi" id="5uL-3y-xRy"/>
                         <outlet property="bioField" destination="Mr6-c1-Ndz" id="awI-X4-eLS"/>
                         <outlet property="experienceField" destination="cWd-lI-Gyl" id="9LD-6x-HOy"/>
+                        <outlet property="instagramField" destination="ipp-dx-mcr" id="08M-UI-6zp"/>
+                        <outlet property="snapchatField" destination="Uab-g7-ew2" id="ife-rH-EAM"/>
                         <outlet property="stanceField" destination="g6x-yv-C9W" id="fZs-2c-kbA"/>
                         <outlet property="weightField" destination="CNW-q5-2X7" id="iwr-g5-v6T"/>
                     </connections>
@@ -849,6 +866,8 @@
     </scenes>
     <resources>
         <image name="29" width="29" height="29"/>
+        <image name="57" width="57" height="57"/>
+        <image name="60" width="60" height="60"/>
         <image name="boxer" width="512" height="512"/>
         <image name="boxing-glove" width="512" height="512"/>
         <image name="chat (1)" width="512" height="512"/>

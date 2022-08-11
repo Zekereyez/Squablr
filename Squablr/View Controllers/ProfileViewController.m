@@ -31,6 +31,19 @@
     self.userProfilePhotos = [[NSMutableArray alloc] init];
 }
 
+
+- (IBAction)didTapInstagram:(id)sender {
+    NSURL* snapchatURL = [NSURL URLWithString:@"https://www.snapchat.com/add/"];
+    NSURL* fullURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@%@", snapchatURL, self.userSnapchat]];
+    if ([[UIApplication sharedApplication] canOpenURL:fullURL]) {
+        [[UIApplication sharedApplication] openURL:fullURL];
+    }
+}
+
+- (IBAction)didTapSnapchat:(id)sender {
+}
+
+
 - (IBAction)didTapEdit:(id)sender {
     [self performSegueWithIdentifier:@"editSegue" sender:nil];
 }

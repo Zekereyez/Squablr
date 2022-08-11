@@ -16,6 +16,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UITextField *stanceField;
 @property (weak, nonatomic) IBOutlet UITextField *experienceField;
 @property (weak, nonatomic) IBOutlet UITextField *bioField;
+@property (weak, nonatomic) IBOutlet UITextField *snapchatField;
+@property (weak, nonatomic) IBOutlet UITextField *instagramField;
+@property (nonatomic) NSString* userSnapchat;
+@property (nonatomic) NSString* userInstagram;
 @end
 
 NS_ASSUME_NONNULL_END
