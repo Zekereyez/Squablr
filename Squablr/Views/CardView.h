@@ -23,10 +23,17 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, weak)id<CardViewDelegate> delegate;
 @property (nonatomic) NSUInteger profilePictureIndex;
 @property (nonatomic, weak) Profile *profile;
+@property UITapGestureRecognizer *tappedOnLeftHalf;
+@property UITapGestureRecognizer *tappedOnRightHalf;
 @property PFImageView *imageView;
+@property UILabel *nameLabel;
+@property UILabel *ageLabel;
+@property UILabel *bioLabel;
 @property UILabel *username;
 @property UILabel *age;
 @property UILabel *bio;
+@property UIView *leftView;
+@property UIView *rightView;
 
 
 - (instancetype)initWithBounds:(CGRect)frame profile:(Profile *)profile;
