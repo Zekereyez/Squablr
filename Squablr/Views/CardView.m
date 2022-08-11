@@ -29,84 +29,22 @@
     self = [super initWithFrame:frame];
     if (self) {
         [self setup];
+        // Setting profile
         self.profile = profile;
+        // Initialization of index
         self.profilePictureIndex = 0;
         // Creating invisible half views for the tap gesture recognizer
-        UIView *leftView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 175, 500)];
-        UIView *rightView = [[UIView alloc] initWithFrame:CGRectMake(175, 0, 175, 500)];
-        // Adding tap gesture recognizers for user photos
-        UITapGestureRecognizer *tappedOnLeftHalf = [[UITapGestureRecognizer alloc]
-                                                   initWithTarget:self
-                                                      action:@selector(previousProfileImage)];
-        UITapGestureRecognizer *tappedOnRightHalf = [[UITapGestureRecognizer alloc]
-                                                   initWithTarget:self
-                                                      action:@selector(nextProfileImage)];
-        [leftView addGestureRecognizer:tappedOnLeftHalf];
-        [rightView addGestureRecognizer:tappedOnRightHalf];
-        [self addSubview:leftView];
-        [self addSubview:rightView];
+        [self setUpSubviews];
+        // Tap gestures
+        [self setupGestureRecognizers];
         // Creating UIImage view programmatically
-        self.imageView = [[PFImageView alloc] initWithFrame:CGRectMake(0, 0, 350, 500)];
-        self.imageView.image = nil;
-        self.userOnFeedProfilePhotos = profile[@"profileImages"];
-        self.imageView.file = [profile[@"profileImages"] firstObject];
-        [self.imageView loadInBackground];
-        self.imageView.contentMode = UIViewContentModeScaleAspectFill;
-        self.imageView.layer.cornerRadius = 10.0;
-        self.imageView.layer.masksToBounds = true;
-        [self addSubview:self.imageView];
+        [self setUpImageView];
         // Name Label
-        UILabel *nameLabel = [[UILabel alloc]initWithFrame:CGRectMake(25, 500, 200, 40)];
-        nameLabel.text = profile.name;
-        nameLabel.numberOfLines = 0;
-        nameLabel.baselineAdjustment = UIBaselineAdjustmentAlignBaselines; // or UIBaselineAdjustmentAlignCenters, or UIBaselineAdjustmentNone
-        nameLabel.adjustsFontSizeToFitWidth = YES;
-        nameLabel.minimumScaleFactor = 10.0f/12.0f;
-        nameLabel.clipsToBounds = YES;
-        nameLabel.backgroundColor = [UIColor clearColor];
-        nameLabel.textColor = [UIColor blackColor];
-        nameLabel.textAlignment = NSTextAlignmentLeft;
-        nameLabel.translatesAutoresizingMaskIntoConstraints = NO;
-        [self addSubview:nameLabel];
+        [self setUpNameLabel];
         // Age Label
-        UILabel *ageLabel = [[UILabel alloc]initWithFrame:CGRectMake(125, 500, 200, 40)];
-        ageLabel.text = [profile.age stringValue];
-        ageLabel.numberOfLines = 0;
-        ageLabel.baselineAdjustment = UIBaselineAdjustmentAlignBaselines; // or UIBaselineAdjustmentAlignCenters, or UIBaselineAdjustmentNone
-        ageLabel.adjustsFontSizeToFitWidth = YES;
-        ageLabel.minimumScaleFactor = 10.0f/12.0f;
-        ageLabel.clipsToBounds = YES;
-        ageLabel.backgroundColor = [UIColor clearColor];
-        ageLabel.textColor = [UIColor blackColor];
-        ageLabel.textAlignment = NSTextAlignmentLeft;
-        ageLabel.translatesAutoresizingMaskIntoConstraints = NO;
-        [self addSubview:ageLabel];
+        [self setUpAgeLabel];
         // Biography label
-        UILabel *bioLabel = [[UILabel alloc]initWithFrame:CGRectMake(25, 540, 200, 40)];
-        bioLabel.text = profile.biography;
-        bioLabel.numberOfLines = 0;
-        bioLabel.baselineAdjustment = UIBaselineAdjustmentAlignBaselines; // or UIBaselineAdjustmentAlignCenters, or UIBaselineAdjustmentNone
-        bioLabel.adjustsFontSizeToFitWidth = YES;
-        bioLabel.minimumScaleFactor = 10.0f/12.0f;
-        bioLabel.clipsToBounds = YES;
-        bioLabel.backgroundColor = [UIColor clearColor];
-        bioLabel.textColor = [UIColor blackColor];
-        bioLabel.textAlignment = NSTextAlignmentLeft;
-        bioLabel.translatesAutoresizingMaskIntoConstraints = NO;
-        [self addSubview:bioLabel];
-        // Name label layout
-        NSLayoutConstraint *nameLabelLeftEdgeToParent = [NSLayoutConstraint constraintWithItem:nameLabel attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeLeft multiplier:1 constant:10];
-        NSLayoutConstraint *nameLabelTopEdgeToParent = [NSLayoutConstraint constraintWithItem:nameLabel attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.imageView attribute:NSLayoutAttributeBottom multiplier:1 constant:10];
-        [self addConstraints:@[nameLabelLeftEdgeToParent, nameLabelTopEdgeToParent]];
-        // Age label layout
-        NSLayoutConstraint *ageLabelRightEdgeToParent = [NSLayoutConstraint constraintWithItem:ageLabel attribute:NSLayoutAttributeRight relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeRight multiplier:1 constant:-10];
-        NSLayoutConstraint *ageLabelTopEdgeToParent = [NSLayoutConstraint constraintWithItem:ageLabel attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.imageView attribute:NSLayoutAttributeBottom multiplier:1 constant:10];
-        [self addConstraints:@[ageLabelRightEdgeToParent, ageLabelTopEdgeToParent]];
-        // Bio layout
-        NSLayoutConstraint *bioLabelTopEdgeToParent = [NSLayoutConstraint constraintWithItem:bioLabel attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:nameLabel attribute:NSLayoutAttributeBottom multiplier:1 constant:10];
-        NSLayoutConstraint *bioLabelLeftEdgeToParent = [NSLayoutConstraint constraintWithItem:bioLabel attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeLeft multiplier:1 constant:10];
-        NSLayoutConstraint *bioLabelRightEdgeToParent = [NSLayoutConstraint constraintWithItem:bioLabel attribute:NSLayoutAttributeRight relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeRight multiplier:1 constant:-10];
-        [self addConstraints:@[bioLabelTopEdgeToParent, bioLabelLeftEdgeToParent, bioLabelRightEdgeToParent]];
+        [self setUpBioLabel];
     }
     
     return self;
@@ -134,6 +72,104 @@
     
     // Background Color
     self.backgroundColor = [UIColor systemGrayColor];
+}
+
+- (void) setUpSubviews {
+    // Creating invisible half views for the tap gesture recognizer
+    self.leftView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 175, 500)];
+    self.rightView = [[UIView alloc] initWithFrame:CGRectMake(175, 0, 175, 500)];
+}
+- (void) setupGestureRecognizers {
+    // Adding tap gesture recognizers for user photos
+    self.tappedOnLeftHalf = [[UITapGestureRecognizer alloc]
+                                               initWithTarget:self
+                                                  action:@selector(previousProfileImage)];
+    self.tappedOnRightHalf = [[UITapGestureRecognizer alloc]
+                                               initWithTarget:self
+                                                  action:@selector(nextProfileImage)];
+    [_leftView addGestureRecognizer:_tappedOnLeftHalf];
+    [_rightView addGestureRecognizer:_tappedOnRightHalf];
+    [self addSubview:_leftView];
+    [self addSubview:_rightView];
+}
+
+- (void) setUpImageView {
+    self.imageView = [[PFImageView alloc] initWithFrame:CGRectMake(0, 0, 350, 500)];
+    self.imageView.image = nil;
+    self.userOnFeedProfilePhotos = self.profile[@"profileImages"];
+    self.imageView.file = [_profile[@"profileImages"] firstObject];
+    [self.imageView loadInBackground];
+    self.imageView.contentMode = UIViewContentModeScaleAspectFill;
+    self.imageView.layer.cornerRadius = 10.0;
+    self.imageView.layer.masksToBounds = true;
+    [self addSubview:self.imageView];
+}
+
+- (void) setUpNameLabel {
+    self.nameLabel = [[UILabel alloc]initWithFrame:CGRectMake(25, 500, 200, 40)];
+    _nameLabel.text = _profile.name;
+    _nameLabel.numberOfLines = 0;
+    _nameLabel.baselineAdjustment = UIBaselineAdjustmentAlignBaselines; // or UIBaselineAdjustmentAlignCenters, or UIBaselineAdjustmentNone
+    _nameLabel.adjustsFontSizeToFitWidth = YES;
+    _nameLabel.minimumScaleFactor = 10.0f/12.0f;
+    _nameLabel.clipsToBounds = YES;
+    _nameLabel.backgroundColor = [UIColor clearColor];
+    _nameLabel.textColor = [UIColor blackColor];
+    _nameLabel.textAlignment = NSTextAlignmentLeft;
+    _nameLabel.translatesAutoresizingMaskIntoConstraints = NO;
+    [self addSubview:_nameLabel];
+    [self setNameLabelConstraints];
+}
+
+- (void) setNameLabelConstraints {
+    NSLayoutConstraint *nameLabelLeftEdgeToParent = [NSLayoutConstraint constraintWithItem:_nameLabel attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeLeft multiplier:1 constant:10];
+    NSLayoutConstraint *nameLabelTopEdgeToParent = [NSLayoutConstraint constraintWithItem:_nameLabel attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.imageView attribute:NSLayoutAttributeBottom multiplier:1 constant:10];
+    [self addConstraints:@[nameLabelLeftEdgeToParent, nameLabelTopEdgeToParent]];
+}
+
+- (void) setUpAgeLabel {
+    _ageLabel = [[UILabel alloc]initWithFrame:CGRectMake(125, 500, 200, 40)];
+    _ageLabel.text = [_profile.age stringValue];
+    _ageLabel.numberOfLines = 0;
+    _ageLabel.baselineAdjustment = UIBaselineAdjustmentAlignBaselines; // or UIBaselineAdjustmentAlignCenters, or UIBaselineAdjustmentNone
+    _ageLabel.adjustsFontSizeToFitWidth = YES;
+    _ageLabel.minimumScaleFactor = 10.0f/12.0f;
+    _ageLabel.clipsToBounds = YES;
+    _ageLabel.backgroundColor = [UIColor clearColor];
+    _ageLabel.textColor = [UIColor blackColor];
+    _ageLabel.textAlignment = NSTextAlignmentLeft;
+    _ageLabel.translatesAutoresizingMaskIntoConstraints = NO;
+    [self addSubview:_ageLabel];
+    [self setAgeLabelConstraints];
+}
+
+- (void) setAgeLabelConstraints {
+    NSLayoutConstraint *ageLabelRightEdgeToParent = [NSLayoutConstraint constraintWithItem:_ageLabel attribute:NSLayoutAttributeRight relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeRight multiplier:1 constant:-10];
+    NSLayoutConstraint *ageLabelTopEdgeToParent = [NSLayoutConstraint constraintWithItem:_ageLabel attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.imageView attribute:NSLayoutAttributeBottom multiplier:1 constant:10];
+    [self addConstraints:@[ageLabelRightEdgeToParent, ageLabelTopEdgeToParent]];
+}
+
+- (void) setUpBioLabel {
+    _bioLabel = [[UILabel alloc]initWithFrame:CGRectMake(25, 540, 200, 40)];
+    _bioLabel.text = _profile.biography;
+    _bioLabel.numberOfLines = 0;
+    _bioLabel.baselineAdjustment = UIBaselineAdjustmentAlignBaselines; // or UIBaselineAdjustmentAlignCenters, or UIBaselineAdjustmentNone
+    _bioLabel.adjustsFontSizeToFitWidth = YES;
+    _bioLabel.minimumScaleFactor = 10.0f/12.0f;
+    _bioLabel.clipsToBounds = YES;
+    _bioLabel.backgroundColor = [UIColor clearColor];
+    _bioLabel.textColor = [UIColor blackColor];
+    _bioLabel.textAlignment = NSTextAlignmentLeft;
+    _bioLabel.translatesAutoresizingMaskIntoConstraints = NO;
+    [self addSubview:_bioLabel];
+    [self setBioLabelConstraints];
+}
+
+- (void) setBioLabelConstraints {
+    NSLayoutConstraint *bioLabelTopEdgeToParent = [NSLayoutConstraint constraintWithItem:_bioLabel attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:_nameLabel attribute:NSLayoutAttributeBottom multiplier:1 constant:10];
+    NSLayoutConstraint *bioLabelLeftEdgeToParent = [NSLayoutConstraint constraintWithItem:_bioLabel attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeLeft multiplier:1 constant:10];
+    NSLayoutConstraint *bioLabelRightEdgeToParent = [NSLayoutConstraint constraintWithItem:_bioLabel attribute:NSLayoutAttributeRight relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeRight multiplier:1 constant:-10];
+    [self addConstraints:@[bioLabelTopEdgeToParent, bioLabelLeftEdgeToParent, bioLabelRightEdgeToParent]];
 }
 
 - (void) nextProfileImage {
