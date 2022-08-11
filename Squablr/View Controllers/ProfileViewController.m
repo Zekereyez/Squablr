@@ -145,8 +145,6 @@
             self.userProfilePhotos = userInfo[0][@"profileImages"];
             self.userSnapchat = userInfo[0][@"snapchatUsername"];
             self.userInstagram = userInfo[0][@"instagramUsername"];
-            NSLog(@"%@", self.userSnapchat);
-            NSLog(@"%@", self.userInstagram);
             // If the call is successful we need to load the info into the user profile
             [self loadUserProfileInfo];
             [self.gridView reloadData];

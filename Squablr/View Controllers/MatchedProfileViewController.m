@@ -44,6 +44,20 @@
     
     [self queryMatchedUserImages:self.profile.name];
 }
+- (IBAction)didTapInstagram:(id)sender {
+    NSURL* instagramURL = [NSURL URLWithString:@"https://instagram.com/"];
+    NSURL* fullURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@%@", instagramURL, self.userInstagram]];
+    if ([[UIApplication sharedApplication] canOpenURL:fullURL]) {
+        [[UIApplication sharedApplication] openURL:fullURL];
+    }
+}
+- (IBAction)didTapSnapchat:(id)sender {
+    NSURL* snapchatURL = [NSURL URLWithString:@"https://www.snapchat.com/add/"];
+    NSURL* fullURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@%@", snapchatURL, self.userSnapchat]];
+    if ([[UIApplication sharedApplication] canOpenURL:fullURL]) {
+        [[UIApplication sharedApplication] openURL:fullURL];
+    }
+}
 
 - (void) queryMatchedUserImages:(NSString*) matchedUserName {
     // Now to load the info we need to query from here based on the user name
@@ -54,6 +68,8 @@
         if (userInfo) {
             // Handle fetched data
             self.userProfilePhotos = userInfo[0][@"profileImages"];
+            self.userSnapchat = userInfo[0][@"snapchatUsername"];
+            self.userInstagram = userInfo[0][@"instagramUsername"];
             [self.gridView reloadData];
         }
     }];
