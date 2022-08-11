@@ -27,7 +27,6 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UICollectionView *gridView;
 @property (nonatomic) NSString* userSnapchat;
 @property (nonatomic) NSString* userInstagram;
-
 @property (weak, nonatomic) Profile *profile;
 
 @end

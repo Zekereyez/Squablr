@@ -33,14 +33,19 @@
 
 
 - (IBAction)didTapInstagram:(id)sender {
-    NSURL* snapchatURL = [NSURL URLWithString:@"https://www.snapchat.com/add/"];
-    NSURL* fullURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@%@", snapchatURL, self.userSnapchat]];
+    NSURL* instagramURL = [NSURL URLWithString:@"https://instagram.com/"];
+    NSURL* fullURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@%@", instagramURL, self.userInstagram]];
     if ([[UIApplication sharedApplication] canOpenURL:fullURL]) {
         [[UIApplication sharedApplication] openURL:fullURL];
     }
 }
 
 - (IBAction)didTapSnapchat:(id)sender {
+    NSURL* snapchatURL = [NSURL URLWithString:@"https://www.snapchat.com/add/"];
+    NSURL* fullURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@%@", snapchatURL, self.userSnapchat]];
+    if ([[UIApplication sharedApplication] canOpenURL:fullURL]) {
+        [[UIApplication sharedApplication] openURL:fullURL];
+    }
 }
 
 
@@ -138,6 +143,10 @@
             // Handle fetched data
             self.userProfileInfo = [NSMutableArray arrayWithArray:userInfo];
             self.userProfilePhotos = userInfo[0][@"profileImages"];
+            self.userSnapchat = userInfo[0][@"snapchatUsername"];
+            self.userInstagram = userInfo[0][@"instagramUsername"];
+            NSLog(@"%@", self.userSnapchat);
+            NSLog(@"%@", self.userInstagram);
             // If the call is successful we need to load the info into the user profile
             [self loadUserProfileInfo];
             [self.gridView reloadData];
