@@ -78,7 +78,7 @@
 - (nonnull __kindof UICollectionViewCell *)collectionView:(nonnull UICollectionView *)collectionView cellForItemAtIndexPath:(nonnull NSIndexPath *)indexPath {
     MatchedProfileCell *cell = [self.gridView dequeueReusableCellWithReuseIdentifier:@"MatchedProfileCell" forIndexPath:indexPath];
     cell.matchedUserProfileImage.file = self.userProfilePhotos[indexPath.item];
-
+    
     [cell.matchedUserProfileImage loadInBackground];
     
     return cell;
