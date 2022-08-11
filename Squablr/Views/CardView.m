@@ -33,18 +33,16 @@
         self.profile = profile;
         // Initialization of index
         self.profilePictureIndex = 0;
-        // Creating invisible half views for the tap gesture recognizer
-        [self setUpSubviews];
-        // Tap gestures
-        [self setupGestureRecognizers];
+        // Creating invisible half views with tap gesture recognizers
+        [self setupSubviews];
         // Creating UIImage view programmatically
-        [self setUpImageView];
+        [self setupImageView];
         // Name Label
-        [self setUpNameLabel];
+        [self setupNameLabel];
         // Age Label
-        [self setUpAgeLabel];
+        [self setupAgeLabel];
         // Biography label
-        [self setUpBioLabel];
+        [self setupBioLabel];
     }
     
     return self;
@@ -74,10 +72,17 @@
     self.backgroundColor = [UIColor systemGrayColor];
 }
 
-- (void) setUpSubviews {
-    // Creating invisible half views for the tap gesture recognizer
+- (void) setupSubviews {
+    // Creating invisible half views
     self.leftView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 175, 500)];
     self.rightView = [[UIView alloc] initWithFrame:CGRectMake(175, 0, 175, 500)];
+    // Create the gestures for the subviews and add them to their
+    // respective views
+    [self setupGestureRecognizers];
+    // Add subviews to the card view
+    [self addSubview:_leftView];
+    [self addSubview:_rightView];
+    
 }
 - (void) setupGestureRecognizers {
     // Adding tap gesture recognizers for user photos
@@ -87,13 +92,12 @@
     self.tappedOnRightHalf = [[UITapGestureRecognizer alloc]
                                                initWithTarget:self
                                                   action:@selector(nextProfileImage)];
+    // Adding gestures to their respective views
     [_leftView addGestureRecognizer:_tappedOnLeftHalf];
     [_rightView addGestureRecognizer:_tappedOnRightHalf];
-    [self addSubview:_leftView];
-    [self addSubview:_rightView];
 }
 
-- (void) setUpImageView {
+- (void) setupImageView {
     self.imageView = [[PFImageView alloc] initWithFrame:CGRectMake(0, 0, 350, 500)];
     self.imageView.image = nil;
     self.userOnFeedProfilePhotos = self.profile[@"profileImages"];
@@ -105,7 +109,7 @@
     [self addSubview:self.imageView];
 }
 
-- (void) setUpNameLabel {
+- (void) setupNameLabel {
     self.nameLabel = [[UILabel alloc]initWithFrame:CGRectMake(25, 500, 200, 40)];
     _nameLabel.text = _profile.name;
     _nameLabel.numberOfLines = 0;
@@ -127,7 +131,7 @@
     [self addConstraints:@[nameLabelLeftEdgeToParent, nameLabelTopEdgeToParent]];
 }
 
-- (void) setUpAgeLabel {
+- (void) setupAgeLabel {
     _ageLabel = [[UILabel alloc]initWithFrame:CGRectMake(125, 500, 200, 40)];
     _ageLabel.text = [_profile.age stringValue];
     _ageLabel.numberOfLines = 0;
@@ -149,7 +153,7 @@
     [self addConstraints:@[ageLabelRightEdgeToParent, ageLabelTopEdgeToParent]];
 }
 
-- (void) setUpBioLabel {
+- (void) setupBioLabel {
     _bioLabel = [[UILabel alloc]initWithFrame:CGRectMake(25, 540, 200, 40)];
     _bioLabel.text = _profile.biography;
     _bioLabel.numberOfLines = 0;
