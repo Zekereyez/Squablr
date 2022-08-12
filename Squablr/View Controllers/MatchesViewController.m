@@ -67,12 +67,6 @@
     else {
         matchCell.matcherUserInCellProfilePicture.image = nil;
     }
-    // Setting rounded profile pictures
-//    matchCell.matcherUserInCellProfilePicture.layer.masksToBounds = false;
-//    matchCell.matcherUserInCellProfilePicture.layer.cornerRadius = matchCell.matcherUserInCellProfilePicture.frame.size.width/2;
-//    matchCell.matcherUserInCellProfilePicture.clipsToBounds = true;
-//    matchCell.matcherUserInCellProfilePicture.layer.borderWidth = 0.0;
-//
     return matchCell;
 }
 
