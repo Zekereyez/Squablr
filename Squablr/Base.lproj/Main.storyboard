@@ -186,8 +186,8 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="matchedUserInCellProfilePicture" destination="xDB-vB-kOU" id="iuN-VF-hMD"/>
                                             <outlet property="matchedUsername" destination="zWA-Xz-9qu" id="DCk-Ed-fnc"/>
-                                            <outlet property="matcherUserInCellProfilePicture" destination="xDB-vB-kOU" id="iuN-VF-hMD"/>
                                             <segue destination="Kxw-jg-vd4" kind="presentation" identifier="matchedProfileSegue" id="MLD-6K-C2x"/>
                                         </connections>
                                     </tableViewCell>

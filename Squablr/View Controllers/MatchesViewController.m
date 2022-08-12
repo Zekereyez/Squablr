@@ -49,15 +49,15 @@
     if ([profile[@"profileImages"] count] != 0) {
         PFFileObject *imageObj = [profile[@"profileImages"] firstObject];
         NSURL *url = [NSURL URLWithString:imageObj.url];
-        [matchCell.matcherUserInCellProfilePicture setImageWithURL:url];
+        [matchCell.matchedUserInCellProfilePicture setImageWithURL:url];
     }
     else {
-        matchCell.matcherUserInCellProfilePicture.image = nil;
+        matchCell.matchedUserInCellProfilePicture.image = nil;
     }
-    matchCell.matcherUserInCellProfilePicture.layer.masksToBounds = false;
-    matchCell.matcherUserInCellProfilePicture.layer.cornerRadius = 10;
-    matchCell.matcherUserInCellProfilePicture.clipsToBounds = true;
-    matchCell.matcherUserInCellProfilePicture.layer.borderWidth = 0.05;
+    matchCell.matchedUserInCellProfilePicture.layer.masksToBounds = false;
+    matchCell.matchedUserInCellProfilePicture.layer.cornerRadius = 10;
+    matchCell.matchedUserInCellProfilePicture.clipsToBounds = true;
+    matchCell.matchedUserInCellProfilePicture.layer.borderWidth = 0.05;
     
     return matchCell;
 }
