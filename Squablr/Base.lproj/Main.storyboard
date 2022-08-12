@@ -168,9 +168,10 @@
                                                     <color key="textColor" systemColor="systemPurpleColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xDB-vB-kOU">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xDB-vB-kOU">
                                                     <rect key="frame" x="15" y="49" width="124" height="112"/>
                                                     <constraints>
+                                                        <constraint firstAttribute="height" constant="112" id="8Z4-JT-Vmq"/>
                                                         <constraint firstAttribute="width" constant="124" id="X7d-kg-xEC"/>
                                                     </constraints>
                                                 </imageView>
@@ -185,8 +186,8 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="matchedUserInCellProfilePicture" destination="xDB-vB-kOU" id="iuN-VF-hMD"/>
                                             <outlet property="matchedUsername" destination="zWA-Xz-9qu" id="DCk-Ed-fnc"/>
-                                            <outlet property="matcherUserInCellProfilePicture" destination="xDB-vB-kOU" id="iuN-VF-hMD"/>
                                             <segue destination="Kxw-jg-vd4" kind="presentation" identifier="matchedProfileSegue" id="MLD-6K-C2x"/>
                                         </connections>
                                     </tableViewCell>

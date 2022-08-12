@@ -13,7 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface MatchCell : UITableViewCell
 
 @property (weak, nonatomic) IBOutlet UILabel *matchedUsername;
-@property (weak, nonatomic) IBOutlet UIImageView *matcherUserInCellProfilePicture;
+@property (weak, nonatomic) IBOutlet UIImageView *matchedUserInCellProfilePicture;
 
 
 @end

@@ -23,6 +23,7 @@
     // Source and delegate
     self.tableView.dataSource = self;
     self.tableView.dataSource = self;
+    self.tableView.rowHeight = UITableViewAutomaticDimension;
     
 }
 
@@ -48,11 +49,16 @@
     if ([profile[@"profileImages"] count] != 0) {
         PFFileObject *imageObj = [profile[@"profileImages"] firstObject];
         NSURL *url = [NSURL URLWithString:imageObj.url];
-        [matchCell.matcherUserInCellProfilePicture setImageWithURL:url];
+        [matchCell.matchedUserInCellProfilePicture setImageWithURL:url];
     }
     else {
-        matchCell.matcherUserInCellProfilePicture.image = nil;
+        matchCell.matchedUserInCellProfilePicture.image = nil;
     }
+    matchCell.matchedUserInCellProfilePicture.layer.masksToBounds = false;
+    matchCell.matchedUserInCellProfilePicture.layer.cornerRadius = 10;
+    matchCell.matchedUserInCellProfilePicture.clipsToBounds = true;
+    matchCell.matchedUserInCellProfilePicture.layer.borderWidth = 0.05;
+    
     return matchCell;
 }
 
@@ -75,6 +81,5 @@
         matchedProfileVC.profile = matchedUserProfile;
     }
 }
-
 
 @end
