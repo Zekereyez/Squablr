@@ -23,6 +23,7 @@
     // Source and delegate
     self.tableView.dataSource = self;
     self.tableView.dataSource = self;
+    self.tableView.rowHeight = UITableViewAutomaticDimension;
     
 }
 
@@ -53,6 +54,11 @@
     else {
         matchCell.matcherUserInCellProfilePicture.image = nil;
     }
+    matchCell.matcherUserInCellProfilePicture.layer.masksToBounds = false;
+    matchCell.matcherUserInCellProfilePicture.layer.cornerRadius = 10;
+    matchCell.matcherUserInCellProfilePicture.clipsToBounds = true;
+    matchCell.matcherUserInCellProfilePicture.layer.borderWidth = 0.05;
+    
     return matchCell;
 }
 
@@ -75,6 +81,5 @@
         matchedProfileVC.profile = matchedUserProfile;
     }
 }
-
 
 @end

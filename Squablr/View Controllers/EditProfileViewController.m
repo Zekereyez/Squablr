@@ -76,7 +76,6 @@
         NSString *bio = self.userProfileInfo.biography;
         self.bioField.text = [NSString stringWithFormat:@"%@", bio];
         self.instagramField.text = self.userProfileInfo.instagramUsername;
-        self.snapchatField.text = self.userProfileInfo.snapchatUsername;
-    }
+        self.snapchatField.text = self.userProfileInfo.snapchatUsername;    }
 }
 @end
