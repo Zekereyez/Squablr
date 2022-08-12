@@ -7,6 +7,7 @@
 
 #import "MatchesViewController.h"
 #import "MatchedProfileViewController.h"
+#import "UIImageView+AFNetworking.h"
 
 @interface MatchesViewController () <UITableViewDataSource, UITableViewDelegate>
 
@@ -43,6 +44,15 @@
     MatchCell *matchCell = [tableView dequeueReusableCellWithIdentifier:@"MatchCell" forIndexPath:indexPath];
     Profile *profile = self.arrayOfMatches[indexPath.row];
     matchCell.matchedUsername.text = profile.name;
+    // Check if the array is non null
+    if ([profile[@"profileImages"] count] != 0) {
+        PFFileObject *imageObj = [profile[@"profileImages"] firstObject];
+        NSURL *url = [NSURL URLWithString:imageObj.url];
+        [matchCell.matcherUserInCellProfilePicture setImageWithURL:url];
+    }
+    else {
+        matchCell.matcherUserInCellProfilePicture.image = nil;
+    }
     return matchCell;
 }
 

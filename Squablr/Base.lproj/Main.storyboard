@@ -3,7 +3,6 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
-        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
@@ -161,21 +160,33 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MatchedUserName" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zWA-Xz-9qu">
-                                                    <rect key="frame" x="42" y="43" width="321" height="82"/>
+                                                    <rect key="frame" x="163" y="81" width="203" height="48"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="203" id="KKf-2m-CpJ"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" systemColor="systemPurpleColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xDB-vB-kOU">
+                                                    <rect key="frame" x="15" y="49" width="124" height="112"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="124" id="X7d-kg-xEC"/>
+                                                    </constraints>
+                                                </imageView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="zWA-Xz-9qu" firstAttribute="leading" secondItem="IeZ-mN-bHl" secondAttribute="leadingMargin" constant="22" id="5KU-nZ-hDU"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="zWA-Xz-9qu" secondAttribute="bottom" constant="73" id="Cr2-cJ-iut"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="zWA-Xz-9qu" secondAttribute="trailing" constant="31" id="TAd-kO-Bwc"/>
-                                                <constraint firstItem="zWA-Xz-9qu" firstAttribute="top" secondItem="IeZ-mN-bHl" secondAttribute="topMargin" constant="32" id="U3M-zB-hxu"/>
+                                                <constraint firstItem="zWA-Xz-9qu" firstAttribute="top" secondItem="IeZ-mN-bHl" secondAttribute="topMargin" constant="70" id="Fpj-Xb-O9e"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="xDB-vB-kOU" secondAttribute="bottom" constant="37" id="RII-8a-eXY"/>
+                                                <constraint firstItem="xDB-vB-kOU" firstAttribute="centerY" secondItem="zWA-Xz-9qu" secondAttribute="centerY" id="U8u-R3-qec"/>
+                                                <constraint firstItem="xDB-vB-kOU" firstAttribute="top" secondItem="IeZ-mN-bHl" secondAttribute="topMargin" constant="38" id="V7t-WS-CYU"/>
+                                                <constraint firstItem="zWA-Xz-9qu" firstAttribute="leading" secondItem="xDB-vB-kOU" secondAttribute="trailing" constant="24" id="acY-VW-wg2"/>
+                                                <constraint firstItem="xDB-vB-kOU" firstAttribute="leading" secondItem="IeZ-mN-bHl" secondAttribute="leadingMargin" constant="-5" id="i1G-CS-evH"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="matchedUsername" destination="zWA-Xz-9qu" id="DCk-Ed-fnc"/>
+                                            <outlet property="matcherUserInCellProfilePicture" destination="xDB-vB-kOU" id="iuN-VF-hMD"/>
                                             <segue destination="Kxw-jg-vd4" kind="presentation" identifier="matchedProfileSegue" id="MLD-6K-C2x"/>
                                         </connections>
                                     </tableViewCell>
@@ -185,10 +196,10 @@
                         <viewLayoutGuide key="safeArea" id="CrK-7w-nLh"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="DFH-eO-tfc" firstAttribute="centerX" secondItem="QNg-So-83J" secondAttribute="centerX" id="FnQ-7m-rnC"/>
-                            <constraint firstItem="DFH-eO-tfc" firstAttribute="top" secondItem="CrK-7w-nLh" secondAttribute="top" id="JvB-ux-zpj"/>
-                            <constraint firstItem="DFH-eO-tfc" firstAttribute="centerY" secondItem="QNg-So-83J" secondAttribute="centerY" id="UJf-Ag-3LZ"/>
-                            <constraint firstItem="DFH-eO-tfc" firstAttribute="leading" secondItem="CrK-7w-nLh" secondAttribute="leading" id="fXH-tV-wBm"/>
+                            <constraint firstItem="DFH-eO-tfc" firstAttribute="centerY" secondItem="QNg-So-83J" secondAttribute="centerY" id="5wC-VB-TE7"/>
+                            <constraint firstItem="DFH-eO-tfc" firstAttribute="centerX" secondItem="QNg-So-83J" secondAttribute="centerX" id="UWu-La-fu5"/>
+                            <constraint firstItem="DFH-eO-tfc" firstAttribute="top" secondItem="CrK-7w-nLh" secondAttribute="top" id="fte-Pq-mwf"/>
+                            <constraint firstItem="DFH-eO-tfc" firstAttribute="leading" secondItem="CrK-7w-nLh" secondAttribute="leading" id="qT2-Ow-One"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title=" " image="chat (1)" selectedImage="chat (1)" id="GWM-rv-nJ6">
@@ -200,7 +211,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yVM-lH-1tU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2219" y="875"/>
+            <point key="canvasLocation" x="2218.840579710145" y="874.55357142857144"/>
         </scene>
         <!--Matched Profile View Controller-->
         <scene sceneID="DAX-S4-xBk">
@@ -839,7 +850,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <imageReference key="backgroundImage" image="person.fill" catalog="system" symbolScale="small"/>
                     </tabBar>
                     <connections>
                         <segue destination="EeT-HJ-QnV" kind="relationship" relationship="viewControllers" id="7Tk-CI-g7w"/>
@@ -898,7 +908,6 @@
         <image name="boxer" width="512" height="512"/>
         <image name="boxing-glove" width="512" height="512"/>
         <image name="chat (1)" width="512" height="512"/>
-        <image name="person.fill" catalog="system" width="128" height="120"/>
         <image name="plus" catalog="system" width="128" height="113"/>
         <image name="user (1)" width="512" height="512"/>
         <systemColor name="systemBackgroundColor">
