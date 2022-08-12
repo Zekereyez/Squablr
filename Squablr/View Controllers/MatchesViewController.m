@@ -58,7 +58,6 @@
     MatchCell *matchCell = [tableView dequeueReusableCellWithIdentifier:@"MatchCell" forIndexPath:indexPath];
     Profile *profile = self.arrayOfMatches[indexPath.row];
     matchCell.matchedUsername.text = profile.name;
-    NSLog(@"%@", profile[@"profileImages"]);
     // Check if the array is non null
     if ([profile[@"profileImages"] count] != 0) {
         PFFileObject *imageObj = [profile[@"profileImages"] firstObject];
@@ -69,7 +68,11 @@
         matchCell.matcherUserInCellProfilePicture.image = nil;
     }
     // Setting rounded profile pictures
-    
+//    matchCell.matcherUserInCellProfilePicture.layer.masksToBounds = false;
+//    matchCell.matcherUserInCellProfilePicture.layer.cornerRadius = matchCell.matcherUserInCellProfilePicture.frame.size.width/2;
+//    matchCell.matcherUserInCellProfilePicture.clipsToBounds = true;
+//    matchCell.matcherUserInCellProfilePicture.layer.borderWidth = 0.0;
+//
     return matchCell;
 }
 
